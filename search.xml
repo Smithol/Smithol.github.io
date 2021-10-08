@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Text and Typography</title>
+    <url>/2019/08/08/2019-08-08-text-and-typography/</url>
+    <content><![CDATA[<p>This post is to show Markdown syntax rendering on <a href="https://github.com/cotes2020/jekyll-theme-chirpy/fork"><strong>Chirpy</strong></a>, you can also use it as an example of writing. Now, let’s start looking at text and typography.</p>
+<h2 id="Titles"><a href="#Titles" class="headerlink" title="Titles"></a>Titles</h2><hr>
+<h1 id="H1-heading"><a href="#H1-heading" class="headerlink" title="H1 - heading"></a>H1 - heading</h1><h2 data-toc-skip>H2 - heading</h2>
+
+<h3 data-toc-skip>H3 - heading</h3>
+
+<h4>H4 - heading</h4>
+---
+<br>
+
+<span id="more"></span>
+
+<h2 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h2><p>I wandered lonely as a cloud</p>
+<p>That floats on high o’er vales and hills,</p>
+<p>When all at once I saw a crowd,</p>
+<p>A host, of golden daffodils;</p>
+<p>Beside the lake, beneath the trees,</p>
+<p>Fluttering and dancing in the breeze.</p>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><h3 id="Ordered-list"><a href="#Ordered-list" class="headerlink" title="Ordered list"></a>Ordered list</h3><ol>
+<li>Firstly</li>
+<li>Secondly</li>
+<li>Thirdly</li>
+</ol>
+<h3 id="Unordered-list"><a href="#Unordered-list" class="headerlink" title="Unordered list"></a>Unordered list</h3><ul>
+<li>Chapter<ul>
+<li>Section<ul>
+<li>Paragraph</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Task-list"><a href="#Task-list" class="headerlink" title="Task list"></a>Task list</h3><ul>
+<li><input disabled="" type="checkbox"> TODO</li>
+<li><input checked="" disabled="" type="checkbox"> Completed</li>
+<li><input disabled="" type="checkbox"> Defeat COVID-19<ul>
+<li><input checked="" disabled="" type="checkbox"> Vaccine production</li>
+<li><input disabled="" type="checkbox"> Economic recovery</li>
+<li><input disabled="" type="checkbox"> People smile again</li>
+</ul>
+</li>
+</ul>
+<h3 id="Description-list"><a href="#Description-list" class="headerlink" title="Description list"></a>Description list</h3><dl><dt>Sun</dt><dd>the star around which the earth orbits</dd></dl><dl><dt>Moon</dt><dd>the natural satellite of the earth, visible by reflected light from the sun</dd></dl><h2 id="Block-Quote"><a href="#Block-Quote" class="headerlink" title="Block Quote"></a>Block Quote</h2><blockquote>
+<p>This line to shows the Block Quote.</p>
+</blockquote>
+<h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><table>
+<thead>
+<tr>
+<th align="left">Company</th>
+<th align="left">Contact</th>
+<th align="right">Country</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Alfreds Futterkiste</td>
+<td align="left">Maria Anders</td>
+<td align="right">Germany</td>
+</tr>
+<tr>
+<td align="left">Island Trading</td>
+<td align="left">Helen Bennett</td>
+<td align="right">UK</td>
+</tr>
+<tr>
+<td align="left">Magazzini Alimentari Riuniti</td>
+<td align="left">Giovanni Rovelli</td>
+<td align="right">Italy</td>
+</tr>
+</tbody></table>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a href="http://127.0.0.1:4000/">http://127.0.0.1:4000</a></p>
+<h2 id="Footnote"><a href="#Footnote" class="headerlink" title="Footnote"></a>Footnote</h2><p>Click the hook will locate the footnote[^footnote], and here is another footnote[^fn-nth-2].</p>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><ul>
+<li>Default (with caption)</li>
+</ul>
+<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” }<br><em>Full screen width and center alignment</em></p>
+<br>
+
+<ul>
+<li>Shadow</li>
+</ul>
+<p><img src="/posts/20190808/window.png" alt="Window shadow">{: .shadow width=”1548” height=”864” style=”max-width: 90%” }<br><em>shadow effect (visible in light mode)</em></p>
+<br>
+
+<ul>
+<li>Left aligned</li>
+</ul>
+<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” style=”max-width: 70%” .normal}</p>
+<br>
+
+<ul>
+<li><p>Float to left</p>
+<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” style=”max-width: 200px” .left}<br>“A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space.”</p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p>Float to right</p>
+<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” style=”max-width: 200px” .right}<br>“A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space.”</p>
+</li>
+</ul>
+<br>
+
+<h2 id="Mermaid-SVG"><a href="#Mermaid-SVG" class="headerlink" title="Mermaid SVG"></a>Mermaid SVG</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gantt</span><br><span class="line"> title  Adding GANTT diagram functionality to mermaid</span><br><span class="line"> apple :a, 2017-07-20, 1w</span><br><span class="line"> banana :crit, b, 2017-07-23, 1d</span><br><span class="line"> cherry :active, c, after b a, 1d</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Mathematics"><a href="#Mathematics" class="headerlink" title="Mathematics"></a>Mathematics</h2><p>The mathematics powered by <a href="https://www.mathjax.org/"><strong>MathJax</strong></a>:</p>
+<p>$$ \sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6} $$</p>
+<p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are</p>
+<p>$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$</p>
+<h2 id="Inline-code"><a href="#Inline-code" class="headerlink" title="Inline code"></a>Inline code</h2><p>This is an example of <code>Inline Code</code>.</p>
+<h2 id="Code-block"><a href="#Code-block" class="headerlink" title="Code block"></a>Code block</h2><h3 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This is a common code snippet, without syntax highlight and line number.</span><br></pre></td></tr></table></figure>
+
+<h3 id="Specific-Languages"><a href="#Specific-Languages" class="headerlink" title="Specific Languages"></a>Specific Languages</h3><h4 id="Console"><a href="#Console" class="headerlink" title="Console"></a>Console</h4><figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> env |grep SHELL</span></span><br><span class="line">SHELL=/usr/local/bin/bash</span><br><span class="line">PYENV_SHELL=bash</span><br></pre></td></tr></table></figure>
+
+<h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;The command was not successful.&quot;</span>;</span><br><span class="line">    <span class="comment">#do the needful / exit</span></span><br><span class="line"><span class="keyword">fi</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Specific-filename"><a href="#Specific-filename" class="headerlink" title="Specific filename"></a>Specific filename</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import</span><br><span class="line">  &quot;colors/light-typography&quot;,</span><br><span class="line">  &quot;colors/dark-typography&quot;</span><br></pre></td></tr></table></figure>
+<p>{: file=’_sass/jekyll-theme-chirpy.scss’}</p>
+<h2 id="Reverse-Footnote"><a href="#Reverse-Footnote" class="headerlink" title="Reverse Footnote"></a>Reverse Footnote</h2><p>[^footnote]: The footnote source<br>[^fn-nth-2]: The 2nd footnote source</p>
+]]></content>
+      <categories>
+        <category>Blogging</category>
+        <category>Demo</category>
+      </categories>
+      <tags>
+        <tag>typography</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Getting Started</title>
     <url>/2019/08/09/2019-08-09-getting-started/</url>
     <content><![CDATA[<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Follow the instructions in the <a href="https://jekyllrb.com/docs/installation/">Jekyll Docs</a> to complete the installation of <code>Ruby</code>, <code>RubyGems</code>, <code>Jekyll</code>, and <code>Bundler</code>.</p>
@@ -208,205 +340,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Text and Typography</title>
-    <url>/2019/08/08/2019-08-08-text-and-typography/</url>
-    <content><![CDATA[<p>This post is to show Markdown syntax rendering on <a href="https://github.com/cotes2020/jekyll-theme-chirpy/fork"><strong>Chirpy</strong></a>, you can also use it as an example of writing. Now, let’s start looking at text and typography.</p>
-<h2 id="Titles"><a href="#Titles" class="headerlink" title="Titles"></a>Titles</h2><hr>
-<h1 id="H1-heading"><a href="#H1-heading" class="headerlink" title="H1 - heading"></a>H1 - heading</h1><h2 data-toc-skip>H2 - heading</h2>
-
-<h3 data-toc-skip>H3 - heading</h3>
-
-<h4>H4 - heading</h4>
----
-<br>
-
-<span id="more"></span>
-
-<h2 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h2><p>I wandered lonely as a cloud</p>
-<p>That floats on high o’er vales and hills,</p>
-<p>When all at once I saw a crowd,</p>
-<p>A host, of golden daffodils;</p>
-<p>Beside the lake, beneath the trees,</p>
-<p>Fluttering and dancing in the breeze.</p>
-<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><h3 id="Ordered-list"><a href="#Ordered-list" class="headerlink" title="Ordered list"></a>Ordered list</h3><ol>
-<li>Firstly</li>
-<li>Secondly</li>
-<li>Thirdly</li>
-</ol>
-<h3 id="Unordered-list"><a href="#Unordered-list" class="headerlink" title="Unordered list"></a>Unordered list</h3><ul>
-<li>Chapter<ul>
-<li>Section<ul>
-<li>Paragraph</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Task-list"><a href="#Task-list" class="headerlink" title="Task list"></a>Task list</h3><ul>
-<li><input disabled="" type="checkbox"> TODO</li>
-<li><input checked="" disabled="" type="checkbox"> Completed</li>
-<li><input disabled="" type="checkbox"> Defeat COVID-19<ul>
-<li><input checked="" disabled="" type="checkbox"> Vaccine production</li>
-<li><input disabled="" type="checkbox"> Economic recovery</li>
-<li><input disabled="" type="checkbox"> People smile again</li>
-</ul>
-</li>
-</ul>
-<h3 id="Description-list"><a href="#Description-list" class="headerlink" title="Description list"></a>Description list</h3><dl><dt>Sun</dt><dd>the star around which the earth orbits</dd></dl><dl><dt>Moon</dt><dd>the natural satellite of the earth, visible by reflected light from the sun</dd></dl><h2 id="Block-Quote"><a href="#Block-Quote" class="headerlink" title="Block Quote"></a>Block Quote</h2><blockquote>
-<p>This line to shows the Block Quote.</p>
-</blockquote>
-<h2 id="Tables"><a href="#Tables" class="headerlink" title="Tables"></a>Tables</h2><table>
-<thead>
-<tr>
-<th align="left">Company</th>
-<th align="left">Contact</th>
-<th align="right">Country</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Alfreds Futterkiste</td>
-<td align="left">Maria Anders</td>
-<td align="right">Germany</td>
-</tr>
-<tr>
-<td align="left">Island Trading</td>
-<td align="left">Helen Bennett</td>
-<td align="right">UK</td>
-</tr>
-<tr>
-<td align="left">Magazzini Alimentari Riuniti</td>
-<td align="left">Giovanni Rovelli</td>
-<td align="right">Italy</td>
-</tr>
-</tbody></table>
-<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a href="http://127.0.0.1:4000/">http://127.0.0.1:4000</a></p>
-<h2 id="Footnote"><a href="#Footnote" class="headerlink" title="Footnote"></a>Footnote</h2><p>Click the hook will locate the footnote[^footnote], and here is another footnote[^fn-nth-2].</p>
-<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><ul>
-<li>Default (with caption)</li>
-</ul>
-<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” }<br><em>Full screen width and center alignment</em></p>
-<br>
-
-<ul>
-<li>Shadow</li>
-</ul>
-<p><img src="/posts/20190808/window.png" alt="Window shadow">{: .shadow width=”1548” height=”864” style=”max-width: 90%” }<br><em>shadow effect (visible in light mode)</em></p>
-<br>
-
-<ul>
-<li>Left aligned</li>
-</ul>
-<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” style=”max-width: 70%” .normal}</p>
-<br>
-
-<ul>
-<li><p>Float to left</p>
-<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” style=”max-width: 200px” .left}<br>“A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space.”</p>
-</li>
-</ul>
-<br>
-
-<ul>
-<li><p>Float to right</p>
-<p><img src="/posts/20190808/mockup.png" alt="Desktop View">{: width=”972” height=”589” style=”max-width: 200px” .right}<br>“A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space. A repetitive and meaningless text is used to fill the space.”</p>
-</li>
-</ul>
-<br>
-
-<h2 id="Mermaid-SVG"><a href="#Mermaid-SVG" class="headerlink" title="Mermaid SVG"></a>Mermaid SVG</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gantt</span><br><span class="line"> title  Adding GANTT diagram functionality to mermaid</span><br><span class="line"> apple :a, 2017-07-20, 1w</span><br><span class="line"> banana :crit, b, 2017-07-23, 1d</span><br><span class="line"> cherry :active, c, after b a, 1d</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Mathematics"><a href="#Mathematics" class="headerlink" title="Mathematics"></a>Mathematics</h2><p>The mathematics powered by <a href="https://www.mathjax.org/"><strong>MathJax</strong></a>:</p>
-<p>$$ \sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6} $$</p>
-<p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are</p>
-<p>$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$</p>
-<h2 id="Inline-code"><a href="#Inline-code" class="headerlink" title="Inline code"></a>Inline code</h2><p>This is an example of <code>Inline Code</code>.</p>
-<h2 id="Code-block"><a href="#Code-block" class="headerlink" title="Code block"></a>Code block</h2><h3 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">This is a common code snippet, without syntax highlight and line number.</span><br></pre></td></tr></table></figure>
-
-<h3 id="Specific-Languages"><a href="#Specific-Languages" class="headerlink" title="Specific Languages"></a>Specific Languages</h3><h4 id="Console"><a href="#Console" class="headerlink" title="Console"></a>Console</h4><figure class="highlight console"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> env |grep SHELL</span></span><br><span class="line">SHELL=/usr/local/bin/bash</span><br><span class="line">PYENV_SHELL=bash</span><br></pre></td></tr></table></figure>
-
-<h4 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;The command was not successful.&quot;</span>;</span><br><span class="line">    <span class="comment">#do the needful / exit</span></span><br><span class="line"><span class="keyword">fi</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Specific-filename"><a href="#Specific-filename" class="headerlink" title="Specific filename"></a>Specific filename</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@import</span><br><span class="line">  &quot;colors/light-typography&quot;,</span><br><span class="line">  &quot;colors/dark-typography&quot;</span><br></pre></td></tr></table></figure>
-<p>{: file=’_sass/jekyll-theme-chirpy.scss’}</p>
-<h2 id="Reverse-Footnote"><a href="#Reverse-Footnote" class="headerlink" title="Reverse Footnote"></a>Reverse Footnote</h2><p>[^footnote]: The footnote source<br>[^fn-nth-2]: The 2nd footnote source</p>
-]]></content>
-      <categories>
-        <category>Blogging</category>
-        <category>Demo</category>
-      </categories>
-      <tags>
-        <tag>typography</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Customize the Favicon</title>
-    <url>/2019/08/11/2019-08-11-customize-the-favicon/</url>
-    <content><![CDATA[<p>The <a href="https://www.favicon-generator.org/about/">favicons</a> of <a href="https://github.com/cotes2020/jekyll-theme-chirpy/"><strong>Chirpy</strong></a> are placed in the directory <code>assets/img/favicons/</code>. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.</p>
-<span id="more"></span>
-
-<h2 id="Generate-the-favicon"><a href="#Generate-the-favicon" class="headerlink" title="Generate the favicon"></a>Generate the favicon</h2><p>Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool <a href="https://realfavicongenerator.net/"><strong>Real Favicon Generator</strong></a> and click the button <kbd>Select your Favicon image</kbd> to upload your image file.</p>
-<p>In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button <kbd>Generate your Favicons and HTML code</kbd> to generate the favicon.</p>
-<h2 id="Download-amp-Replace"><a href="#Download-amp-Replace" class="headerlink" title="Download &amp; Replace"></a>Download &amp; Replace</h2><p>Download the generated package, unzip and delete the following two from the extracted files:</p>
-<ul>
-<li><code>browserconfig.xml</code></li>
-<li><code>site.webmanifest</code></li>
-</ul>
-<p>Now, copy the remaining image files (<code>PNG</code> and <code>ICO</code>) to cover the original files in the folder <code>assets/img/favicons/</code> of your Jekyll site. If your Jekyll site doesn’t have this directory yet, just create one.</p>
-<p>The following table will help you understand the changes to the favicon files:</p>
-<table>
-<thead>
-<tr>
-<th>File(s)</th>
-<th align="center">From Online Tool</th>
-<th align="center">From Chirpy</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>*.PNG</code></td>
-<td align="center">✓</td>
-<td align="center">✗</td>
-</tr>
-<tr>
-<td><code>*.ICO</code></td>
-<td align="center">✓</td>
-<td align="center">✗</td>
-</tr>
-<tr>
-<td><code>browserconfig.xml</code></td>
-<td align="center">✗</td>
-<td align="center">✓</td>
-</tr>
-<tr>
-<td><code>site.webmanifest</code></td>
-<td align="center">✗</td>
-<td align="center">✓</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Note: ✓ means keep, ✗ means delete.</p>
-</blockquote>
-<p>The next time you build the site, the favicon will be replaced with a customized edition.</p>
-]]></content>
-      <categories>
-        <category>Blogging</category>
-        <category>Tutorial</category>
-      </categories>
-      <tags>
-        <tag>favicon</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/10/08/2021-10-08-hello-world-test/</url>
-    <content><![CDATA[<h1 id="Hello-liji"><a href="#Hello-liji" class="headerlink" title="Hello liji"></a>Hello liji</h1><p>hi，guys！</p>
-<p><img src="githubImg.jpg" alt="githubImg"></p>
-]]></content>
-      <tags>
-        <tag>hello</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Enable Google Page Views</title>
     <url>/2021/01/04/2021-01-03-enable-google-pv/</url>
     <content><![CDATA[<p>This post is to enable Page Views on the <a href="https://github.com/cotes2020/jekyll-theme-chirpy/"><strong>Chirpy</strong></a> theme based blog that you just built. This requires technical knowledge and it’s recommended to keep the <code>google_analytics.pv.*</code> empty unless you have a good reason. If your website has low traffic, the page views count would discourage you to write more blogs. With that said, let’s start with the setup.</p>
@@ -522,6 +455,73 @@
       <tags>
         <tag>google analytics</tag>
         <tag>pageviews</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Customize the Favicon</title>
+    <url>/2019/08/11/2019-08-11-customize-the-favicon/</url>
+    <content><![CDATA[<p>The <a href="https://www.favicon-generator.org/about/">favicons</a> of <a href="https://github.com/cotes2020/jekyll-theme-chirpy/"><strong>Chirpy</strong></a> are placed in the directory <code>assets/img/favicons/</code>. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.</p>
+<span id="more"></span>
+
+<h2 id="Generate-the-favicon"><a href="#Generate-the-favicon" class="headerlink" title="Generate the favicon"></a>Generate the favicon</h2><p>Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool <a href="https://realfavicongenerator.net/"><strong>Real Favicon Generator</strong></a> and click the button <kbd>Select your Favicon image</kbd> to upload your image file.</p>
+<p>In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button <kbd>Generate your Favicons and HTML code</kbd> to generate the favicon.</p>
+<h2 id="Download-amp-Replace"><a href="#Download-amp-Replace" class="headerlink" title="Download &amp; Replace"></a>Download &amp; Replace</h2><p>Download the generated package, unzip and delete the following two from the extracted files:</p>
+<ul>
+<li><code>browserconfig.xml</code></li>
+<li><code>site.webmanifest</code></li>
+</ul>
+<p>Now, copy the remaining image files (<code>PNG</code> and <code>ICO</code>) to cover the original files in the folder <code>assets/img/favicons/</code> of your Jekyll site. If your Jekyll site doesn’t have this directory yet, just create one.</p>
+<p>The following table will help you understand the changes to the favicon files:</p>
+<table>
+<thead>
+<tr>
+<th>File(s)</th>
+<th align="center">From Online Tool</th>
+<th align="center">From Chirpy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*.PNG</code></td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+</tr>
+<tr>
+<td><code>*.ICO</code></td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+</tr>
+<tr>
+<td><code>browserconfig.xml</code></td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td><code>site.webmanifest</code></td>
+<td align="center">✗</td>
+<td align="center">✓</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Note: ✓ means keep, ✗ means delete.</p>
+</blockquote>
+<p>The next time you build the site, the favicon will be replaced with a customized edition.</p>
+]]></content>
+      <categories>
+        <category>Blogging</category>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>favicon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/10/08/2021-10-08-hello-world-test/</url>
+    <content><![CDATA[<h1 id="Hello-liji"><a href="#Hello-liji" class="headerlink" title="Hello liji"></a>Hello liji</h1><p>hi，guys！</p>
+<p><img src="githubImg.jpg" alt="githubImg"></p>
+]]></content>
+      <tags>
+        <tag>hello</tag>
       </tags>
   </entry>
 </search>
