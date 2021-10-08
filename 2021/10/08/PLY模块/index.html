@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="参考文献[^1]:PLY (Python Lex-Yacc) (dabeaz.com)[^2]:(13条消息) python编程（ply库）_平凡的程序员-CSDN博客 问题1 lexer中的module能添加自定义属性吗? lex1234567891011121314151617181920212223242526272829303132333435363738394041424344impor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/10/08/PLY%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考文献[^1]:PLY (Python Lex-Yacc) (dabeaz.com)[^2]:(13条消息) python编程（ply库）_平凡的程序员-CSDN博客 问题1 lexer中的module能添加自定义属性吗? lex1234567891011121314151617181920212223242526272829303132333435363738394041424344impor">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-08T00:17:33.056Z">
+<meta property="article:modified_time" content="2021-07-26T09:20:46.808Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-PLY模块" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/10/08/PLY%E6%A8%A1%E5%9D%97/" class="article-date">
+  <time class="dt-published" datetime="2021-10-08T00:17:33.056Z" itemprop="datePublished">2021-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[^1]:<a target="_blank" rel="noopener" href="http://www.dabeaz.com/ply/ply.html">PLY (Python Lex-Yacc) (dabeaz.com)</a><br>[^2]:<a target="_blank" rel="noopener" href="https://blog.csdn.net/feixiaoxing/article/details/79123776">(13条消息) python编程（ply库）_平凡的程序员-CSDN博客</a></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>1 lexer中的module能添加自定义属性吗?</p>
+<h2 id="lex"><a href="#lex" class="headerlink" title="lex"></a>lex</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ply.lex <span class="keyword">as</span> lex</span><br><span class="line"><span class="keyword">import</span> ply.ygen <span class="keyword">as</span> gen</span><br><span class="line"><span class="keyword">import</span> ply.yacc <span class="keyword">as</span> yacc</span><br><span class="line">tokens = (</span><br><span class="line">   <span class="string">&#x27;NUMBER&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;PLUS&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;MINUS&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;TIMES&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;DIVIDE&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;LPAREN&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;RPAREN&#x27;</span>,</span><br><span class="line">)</span><br><span class="line">t_PLUS    = <span class="string">r&#x27;\+&#x27;</span></span><br><span class="line">t_MINUS   = <span class="string">r&#x27;-&#x27;</span></span><br><span class="line">t_TIMES   = <span class="string">r&#x27;\*&#x27;</span></span><br><span class="line">t_DIVIDE  = <span class="string">r&#x27;/&#x27;</span></span><br><span class="line">t_LPAREN  = <span class="string">r&#x27;\(&#x27;</span></span><br><span class="line">t_RPAREN  = <span class="string">r&#x27;\)&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">t_NUMBER</span>(<span class="params">t</span>):</span></span><br><span class="line">    <span class="string">r&#x27;\d+&#x27;</span></span><br><span class="line">    t.value = <span class="built_in">int</span>(t.value)</span><br><span class="line">    <span class="keyword">return</span> t</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define a rule so we can track line numbers</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">t_newline</span>(<span class="params">t</span>):</span></span><br><span class="line">    <span class="string">r&#x27;\n+&#x27;</span></span><br><span class="line">    t.lexer.lineno += <span class="built_in">len</span>(t.value)</span><br><span class="line">    t.lexer.col +=<span class="built_in">len</span>(t.value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># A string containing ignored characters (spaces and tabs)</span></span><br><span class="line">t_ignore  = <span class="string">&#x27; \t&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># def find_column(input, token):</span></span><br><span class="line"><span class="comment">#     line_start = input.rfind(&#x27;\n&#x27;, 0, token.lexpos) + 1</span></span><br><span class="line"><span class="comment">#     return (token.lexpos - line_start) + 1</span></span><br><span class="line"><span class="comment"># Error handling rule</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">t_error</span>(<span class="params">t</span>):</span></span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&quot;Illegal character &#x27;%s&#x27;&quot;</span> % t.value[<span class="number">0</span>])</span><br><span class="line">    t.lexer.skip(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Build the lexer</span></span><br><span class="line">lexer = lex.lex()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lex</span>(<span class="params">module=<span class="literal">None</span>, <span class="built_in">object</span>=<span class="literal">None</span>, debug=<span class="literal">False</span>, optimize=<span class="literal">False</span>, lextab=<span class="string">&#x27;lextab&#x27;</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">        reflags=<span class="built_in">int</span>(<span class="params">re.VERBOSE</span>), nowarn=<span class="literal">False</span>, outputdir=<span class="literal">None</span>, debuglog=<span class="literal">None</span>, errorlog=<span class="literal">None</span></span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> lextab <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        lextab = <span class="string">&#x27;lextab&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> lexer</span><br><span class="line"></span><br><span class="line">    ldict = <span class="literal">None</span></span><br><span class="line">    stateinfo  = &#123;<span class="string">&#x27;INITIAL&#x27;</span>: <span class="string">&#x27;inclusive&#x27;</span>&#125;</span><br><span class="line">    lexobj = Lexer()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lexer</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.lexre = <span class="literal">None</span>             <span class="comment"># Master regular expression. This is a list of</span></span><br><span class="line">                                      <span class="comment"># tuples (re, findex) where re is a compiled</span></span><br><span class="line">                                      <span class="comment"># regular expression and findex is a list</span></span><br><span class="line">                                      <span class="comment"># mapping regex group numbers to rules</span></span><br><span class="line">        self.lexretext = <span class="literal">None</span>         <span class="comment"># Current regular expression strings</span></span><br><span class="line">        self.lexstatere = &#123;&#125;          <span class="comment"># Dictionary mapping lexer states to master regexs</span></span><br><span class="line">        self.lexstateretext = &#123;&#125;      <span class="comment"># Dictionary mapping lexer states to regex strings</span></span><br><span class="line">        self.lexstaterenames = &#123;&#125;     <span class="comment"># Dictionary mapping lexer states to symbol names</span></span><br><span class="line">        self.lexstate = <span class="string">&#x27;INITIAL&#x27;</span>     <span class="comment"># Current lexer state</span></span><br><span class="line">        self.lexstatestack = []       <span class="comment"># Stack of lexer states</span></span><br><span class="line">        self.lexstateinfo = <span class="literal">None</span>      <span class="comment"># State information</span></span><br><span class="line">        self.lexstateignore = &#123;&#125;      <span class="comment"># Dictionary of ignored characters for each state</span></span><br><span class="line">        self.lexstateerrorf = &#123;&#125;      <span class="comment"># Dictionary of error functions for each state</span></span><br><span class="line">        self.lexstateeoff = &#123;&#125;        <span class="comment"># Dictionary of eof functions for each state</span></span><br><span class="line">        self.lexreflags = <span class="number">0</span>           <span class="comment"># Optional re compile flags</span></span><br><span class="line">        self.lexdata = <span class="literal">None</span>           <span class="comment"># Actual input data (as a string)</span></span><br><span class="line">        self.lexpos = <span class="number">0</span>               <span class="comment"># Current position in input text</span></span><br><span class="line">        self.lexlen = <span class="number">0</span>               <span class="comment"># Length of the input text</span></span><br><span class="line">        self.lexerrorf = <span class="literal">None</span>         <span class="comment"># Error rule (if any)</span></span><br><span class="line">        self.lexeoff = <span class="literal">None</span>           <span class="comment"># EOF rule (if any)</span></span><br><span class="line">        self.lextokens = <span class="literal">None</span>         <span class="comment"># List of valid tokens</span></span><br><span class="line">        self.lexignore = <span class="string">&#x27;&#x27;</span>           <span class="comment"># Ignored characters</span></span><br><span class="line">        self.lexliterals = <span class="string">&#x27;&#x27;</span>         <span class="comment"># Literal characters that can be passed through</span></span><br><span class="line">        self.lexmodule = <span class="literal">None</span>         <span class="comment"># Module</span></span><br><span class="line">        self.lineno = <span class="number">1</span>               <span class="comment"># Current line number</span></span><br><span class="line">        self.lexoptimize = <span class="literal">False</span>      <span class="comment"># Optimized mode</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lexobj.lexoptimize = optimize</span><br><span class="line">   <span class="keyword">global</span> token, <span class="built_in">input</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> errorlog <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">       errorlog = PlyLogger(sys.stderr)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PlyLogger</span>(<span class="params"><span class="built_in">object</span></span>):</span><span class="comment">#输出的位置重定位,意思是不是在控制台上输出</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, f</span>):</span></span><br><span class="line">        self.f = f<span class="comment">#存放了stderr的信息,temp</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">critical</span>(<span class="params">self, msg, *args, **kwargs</span>):</span></span><br><span class="line">        self.f.write((msg % args) + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">warning</span>(<span class="params">self, msg, *args, **kwargs</span>):</span></span><br><span class="line">        self.f.write(<span class="string">&#x27;WARNING: &#x27;</span> + (msg % args) + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">error</span>(<span class="params">self, msg, *args, **kwargs</span>):</span></span><br><span class="line">        self.f.write(<span class="string">&#x27;ERROR: &#x27;</span> + (msg % args) + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    info = critical</span><br><span class="line">    debug = critical</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> debug:</span><br><span class="line">    <span class="keyword">if</span> debuglog <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        debuglog = PlyLogger(sys.stderr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the module dictionary used for the lexer</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">object</span>:</span><br><span class="line">    module = <span class="built_in">object</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the module dictionary used for the parser</span></span><br><span class="line"><span class="keyword">if</span> module:</span><br><span class="line">    _items = [(k, <span class="built_in">getattr</span>(module, k)) <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">dir</span>(module)]</span><br><span class="line">    ldict = <span class="built_in">dict</span>(_items)</span><br><span class="line">    <span class="comment"># If no __file__ attribute is available, try to obtain it from the __module__ instead</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;__file__&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> ldict:</span><br><span class="line">        ldict[<span class="string">&#x27;__file__&#x27;</span>] = sys.modules[ldict[<span class="string">&#x27;__module__&#x27;</span>]].__file__</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    ldict = get_caller_module_dict(<span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_caller_module_dict</span>(<span class="params">levels</span>):</span><span class="comment">#找到自己写的文件部分,返回全局变量</span></span><br><span class="line">    f = sys._getframe(levels)</span><br><span class="line">    ldict = f.f_globals.copy()<span class="comment">#复制自己写的全局变量</span></span><br><span class="line">    <span class="keyword">if</span> f.f_globals != f.f_locals:</span><br><span class="line">        ldict.update(f.f_locals)<span class="comment">#放在一起求并集</span></span><br><span class="line">    <span class="keyword">return</span> ldict</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pkg = ldict.get(<span class="string">&#x27;__package__&#x27;</span>)<span class="comment">#lexab文件放在__package__下边.lextab放着词法分析表和语法规则</span></span><br><span class="line">    <span class="keyword">if</span> pkg <span class="keyword">and</span> <span class="built_in">isinstance</span>(lextab, <span class="built_in">str</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;.&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> lextab:<span class="comment">#</span></span><br><span class="line">            lextab = pkg + <span class="string">&#x27;.&#x27;</span> + lextab</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linfo = LexerReflect(ldict, log=errorlog, reflags=reflags)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LexerReflect</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, ldict, log=<span class="literal">None</span>, reflags=<span class="number">0</span></span>):</span></span><br><span class="line">        self.ldict      = ldict</span><br><span class="line">        self.error_func = <span class="literal">None</span></span><br><span class="line">        self.tokens     = []</span><br><span class="line">        self.reflags    = reflags</span><br><span class="line">        self.stateinfo  = &#123;<span class="string">&#x27;INITIAL&#x27;</span>: <span class="string">&#x27;inclusive&#x27;</span>&#125;</span><br><span class="line">        self.modules    = <span class="built_in">set</span>()</span><br><span class="line">        self.error      = <span class="literal">False</span></span><br><span class="line">        self.log        = PlyLogger(sys.stderr) <span class="keyword">if</span> log <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linfo.get_all()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_all</span>(<span class="params">self</span>):</span></span><br><span class="line">    self.get_tokens()<span class="comment">#tokens,</span></span><br><span class="line">    self.get_literals()</span><br><span class="line">    self.get_states()</span><br><span class="line">    self.get_rules()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tokens</span>(<span class="params">self</span>):</span></span><br><span class="line">    tokens = self.ldict.get(<span class="string">&#x27;tokens&#x27;</span>, <span class="literal">None</span>)<span class="comment">#dict的好方法</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> tokens:</span><br><span class="line">        self.log.error(<span class="string">&#x27;No token list is defined&#x27;</span>)</span><br><span class="line">        self.error = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(tokens, (<span class="built_in">list</span>, <span class="built_in">tuple</span>)):<span class="comment">#isinstance的好方法</span></span><br><span class="line">        self.log.error(<span class="string">&#x27;tokens must be a list or tuple&#x27;</span>)</span><br><span class="line">        self.error = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_rules</span>(<span class="params">self</span>):</span></span><br><span class="line">       tsymbols = [f <span class="keyword">for</span> f <span class="keyword">in</span> self.ldict <span class="keyword">if</span> f[:<span class="number">2</span>] == <span class="string">&#x27;t_&#x27;</span>]</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Now build up a list of functions and a list of strings</span></span><br><span class="line">       self.toknames = &#123;&#125;        <span class="comment"># Mapping of symbols to token names</span></span><br><span class="line">       <span class="comment">#self.toknames = &#123;&#x27;t_PLUS&#x27;: &#x27;PLUS&#x27;, &#x27;t_MINUS&#x27;: &#x27;MINUS&#x27;&#125;</span></span><br><span class="line">       self.funcsym  = &#123;&#125;        <span class="comment"># Symbols defined as functions</span></span><br><span class="line">       self.strsym   = &#123;&#125;        <span class="comment"># Symbols defined as strings</span></span><br><span class="line">       <span class="comment">#self.strsym = &#123;&#x27;INITIAL&#x27;: [(&#x27;t_PLUS&#x27;, &#x27;\\+&#x27;)]&#125;</span></span><br><span class="line">       self.ignore   = &#123;&#125;        <span class="comment"># Ignore strings by state</span></span><br><span class="line">       self.errorf   = &#123;&#125;        <span class="comment"># Error functions by state</span></span><br><span class="line">       self.eoff     = &#123;&#125;        <span class="comment"># EOF functions by state</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> s <span class="keyword">in</span> self.stateinfo:</span><br><span class="line">           self.funcsym[s] = []</span><br><span class="line">           self.strsym[s] = []</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> <span class="built_in">len</span>(tsymbols) == <span class="number">0</span>:</span><br><span class="line">           self.log.error(<span class="string">&#x27;No rules of the form t_rulename are defined&#x27;</span>)</span><br><span class="line">           self.error = <span class="literal">True</span></span><br><span class="line">           <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> f <span class="keyword">in</span> tsymbols:</span><br><span class="line">           t = self.ldict[f]</span><br><span class="line">           states, tokname = _statetoken(f, self.stateinfo)</span><br><span class="line">           self.toknames[f] = tokname</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> <span class="built_in">hasattr</span>(t, <span class="string">&#x27;__call__&#x27;</span>):</span><br><span class="line">               <span class="keyword">if</span> tokname == <span class="string">&#x27;error&#x27;</span>:</span><br><span class="line">                   <span class="keyword">for</span> s <span class="keyword">in</span> states:</span><br><span class="line">                       self.errorf[s] = t</span><br><span class="line">               <span class="keyword">elif</span> tokname == <span class="string">&#x27;eof&#x27;</span>:</span><br><span class="line">                   <span class="keyword">for</span> s <span class="keyword">in</span> states:</span><br><span class="line">                       self.eoff[s] = t</span><br><span class="line">               <span class="keyword">elif</span> tokname == <span class="string">&#x27;ignore&#x27;</span>:</span><br><span class="line">                   line = t.__code__.co_firstlineno<span class="comment">#代码对象</span></span><br><span class="line">                   file = t.__code__.co_filename</span><br><span class="line">                   self.log.error(<span class="string">&quot;%s:%d: Rule &#x27;%s&#x27; must be defined as a string&quot;</span>, file, line, t.__name__)</span><br><span class="line">                   self.error = <span class="literal">True</span></span><br><span class="line">               <span class="keyword">else</span>:</span><br><span class="line">                   <span class="keyword">for</span> s <span class="keyword">in</span> states:</span><br><span class="line">                       self.funcsym[s].append((f, t))</span><br><span class="line">           <span class="keyword">elif</span> <span class="built_in">isinstance</span>(t, StringTypes):<span class="comment">#str,bytes</span></span><br><span class="line">               <span class="keyword">if</span> tokname == <span class="string">&#x27;ignore&#x27;</span>:</span><br><span class="line">                   <span class="keyword">for</span> s <span class="keyword">in</span> states:</span><br><span class="line">                       self.ignore[s] = t</span><br><span class="line">                   <span class="keyword">if</span> <span class="string">&#x27;\\&#x27;</span> <span class="keyword">in</span> t:</span><br><span class="line">                       self.log.warning(<span class="string">&quot;%s contains a literal backslash &#x27;\\&#x27;&quot;</span>, f)</span><br><span class="line"></span><br><span class="line">               <span class="keyword">elif</span> tokname == <span class="string">&#x27;error&#x27;</span>:</span><br><span class="line">                   self.log.error(<span class="string">&quot;Rule &#x27;%s&#x27; must be defined as a function&quot;</span>, f)</span><br><span class="line">                   self.error = <span class="literal">True</span></span><br><span class="line">               <span class="keyword">else</span>:</span><br><span class="line">                   <span class="keyword">for</span> s <span class="keyword">in</span> states:</span><br><span class="line">                       self.strsym[s].append((f, t))</span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">               self.log.error(<span class="string">&#x27;%s not defined as a function or string&#x27;</span>, f)</span><br><span class="line">               self.error = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">       <span class="comment"># Sort the functions by line number</span></span><br><span class="line">       <span class="keyword">for</span> f <span class="keyword">in</span> self.funcsym.values():</span><br><span class="line">           f.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>].__code__.co_firstlineno)</span><br><span class="line">           <span class="comment">#key就是映射了,其实和反射的意思差不多.对了这个firstlineno是def函数的位置</span></span><br><span class="line">		<span class="comment">#排序代表了优先级</span></span><br><span class="line">       <span class="comment"># Sort the strings by regular expression length</span></span><br><span class="line">       <span class="keyword">for</span> s <span class="keyword">in</span> self.strsym.values():</span><br><span class="line">           s.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">len</span>(x[<span class="number">1</span>]), reverse=<span class="literal">True</span>)<span class="comment">#排序代表了优先级,+*优先级大于-/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_statetoken</span>(<span class="params">s, names</span>):</span><span class="comment">#感觉state就是看你用哪种词法分析器逻辑</span></span><br><span class="line">    parts = s.split(<span class="string">&#x27;_&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i, part <span class="keyword">in</span> <span class="built_in">enumerate</span>(parts[<span class="number">1</span>:], <span class="number">1</span>):<span class="comment">#下标起始的位置</span></span><br><span class="line">        <span class="keyword">if</span> part <span class="keyword">not</span> <span class="keyword">in</span> names <span class="keyword">and</span> part != <span class="string">&#x27;ANY&#x27;</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">1</span>:</span><br><span class="line">        states = <span class="built_in">tuple</span>(parts[<span class="number">1</span>:i])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        states = (<span class="string">&#x27;INITIAL&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;ANY&#x27;</span> <span class="keyword">in</span> states:</span><br><span class="line">        states = <span class="built_in">tuple</span>(names)</span><br><span class="line"></span><br><span class="line">    tokenname = <span class="string">&#x27;_&#x27;</span>.join(parts[i:])</span><br><span class="line">    <span class="keyword">return</span> (states, tokenname)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<details>   
+    <summary>getrule实现过程</summary>   
+    <pre>
+- getrule    
+# Sort the functions by line number
+for f in self.funcsym.values():
+    f.sort(key=lambda x: x[1].__code__.co_firstlineno)
+# Sort the strings by regular expression length
+for s in self.strsym.values():
+    s.sort(key=lambda x: len(x[1]), reverse=True)    
+     </pre>
+</details>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">validate_all</span>(<span class="params">self</span>):</span></span><br><span class="line">    self.validate_tokens()<span class="comment">#给token拍个号子</span></span><br><span class="line">    <span class="comment">#&#123;&#x27;NUMBER&#x27;: 1, &#x27;PLUS&#x27;: 1&#125;</span></span><br><span class="line">    self.validate_literals()</span><br><span class="line">    self.validate_rules()<span class="comment">#这个规则和语法规则有什么关系?真的是简单的另一种词法规则的关系吗</span></span><br><span class="line">    <span class="keyword">return</span> self.error</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c = re.<span class="built_in">compile</span>(<span class="string">&#x27;(?P&lt;%s&gt;%s)&#x27;</span> % (fname, _get_regex(f)), self.reflags)<span class="comment">#x</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-input"><a href="#2-input" class="headerlink" title="2 input"></a>2 input</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> 一个Lexer类;他的<span class="built_in">next</span>是重新定义的,返回的是self.token();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#self.lexre,离谱;</span></span><br><span class="line">(re.<span class="built_in">compile</span>(<span class="string">r&#x27;(?P&lt;t_NUMBER&gt;\d+)|(?P&lt;t_newline&gt;\n+)|(?P&lt;t_PLUS&gt;\+)|(?P&lt;t_TIMES&gt;\*)|(?P&lt;t_LPAREN&gt;\()|(?P&lt;t_RPAREN&gt;\))|(?P&lt;t_MINUS&gt;-)|(?P&lt;t_DIVIDE&gt;/)&#x27;</span>,</span><br><span class="line"> re.UNICODE|re.VERBOSE),</span><br><span class="line"> </span><br><span class="line"> [<span class="literal">None</span>,</span><br><span class="line">  (&lt;function __main__.t_NUMBER(t)&gt;, <span class="string">&#x27;NUMBER&#x27;</span>),</span><br><span class="line">  (&lt;function __main__.t_newline(t)&gt;, <span class="string">&#x27;newline&#x27;</span>),</span><br><span class="line">  (<span class="literal">None</span>, <span class="string">&#x27;PLUS&#x27;</span>),</span><br><span class="line">  (<span class="literal">None</span>, <span class="string">&#x27;TIMES&#x27;</span>),</span><br><span class="line">  (<span class="literal">None</span>, <span class="string">&#x27;LPAREN&#x27;</span>),</span><br><span class="line">  (<span class="literal">None</span>, <span class="string">&#x27;RPAREN&#x27;</span>),</span><br><span class="line">  (<span class="literal">None</span>, <span class="string">&#x27;MINUS&#x27;</span>),</span><br><span class="line">  (<span class="literal">None</span>, <span class="string">&#x27;DIVIDE&#x27;</span>)])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">建立一个LexToken，这个是</span><br><span class="line"><span class="string">&#x27;LexToken(%s,%r,%d,%d)&#x27;</span> % (self.<span class="built_in">type</span>, self.value, self.lineno, self.lexpos)</span><br><span class="line">tok.value = m.group<span class="comment">#匹配到的值,m=re.compile().match()</span></span><br><span class="line">tok.lexpos = lexpos<span class="comment">#当前的词的位置</span></span><br><span class="line">i = m.lastindex</span><br><span class="line">func, tok.<span class="built_in">type</span> = lexindexfunc[i]</span><br></pre></td></tr></table></figure>
+
+<h2 id="yacc"><a href="#yacc" class="headerlink" title="yacc"></a>yacc</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> self.parseopt_notrack(<span class="built_in">input</span>, lexer, debug, tracking, tokenfunc)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/08/PLY%E6%A8%A1%E5%9D%97/" data-id="ckuhmdwgu0001pscw2b7n91cy" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/08/python%E5%86%99%E7%BC%96%E8%AF%91%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/08/platform%E6%A8%A1%E5%9D%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blogging/">Blogging</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blogging/Tutorial/">Tutorial</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/" rel="tag">hello</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hello/" style="font-size: 10px;">hello</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/08/os%E6%A8%A1%E5%9D%97/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Graphviz%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/args%E5%92%8Ckwargs%E5%AD%A6%E4%B9%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

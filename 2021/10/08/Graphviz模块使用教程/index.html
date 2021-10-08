@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="参考文献[1] Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com) [2] window10 anaconda安装graphviz_寒武纪元的博客-CSDN博客 [3] Graphviz 入门指南 - 知乎 (zhihu.com) [4] User Guide — graphviz 0.17 documentation [">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/10/08/Graphviz%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考文献[1] Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com) [2] window10 anaconda安装graphviz_寒武纪元的博客-CSDN博客 [3] Graphviz 入门指南 - 知乎 (zhihu.com) [4] User Guide — graphviz 0.17 documentation [">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-08T00:17:33.075Z">
+<meta property="article:modified_time" content="2021-08-06T14:11:12.387Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Graphviz模块使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/10/08/Graphviz%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-10-08T00:17:33.075Z" itemprop="datePublished">2021-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a target="_blank" rel="noopener" href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40085833/article/details/90750929">window10 anaconda安装graphviz_寒武纪元的博客-CSDN博客</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21993254">Graphviz 入门指南 - 知乎 (zhihu.com)</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://graphviz.readthedocs.io/en/stable/manual.html">User Guide — graphviz 0.17 documentation</a></p>
+<p>[5] <a target="_blank" rel="noopener" href="http://www.graphviz.org/doc/info/attrs.html">Attributes | Graphviz</a></p>
+<p>[6] </p>
+<h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><p>个人理解:</p>
+<p>1 官网下载exe文件，在环境变量中加入graphviz的bin;输入dot -version验证;重启一下python;</p>
+<p>2 pip install graphviz;最后可以pip show graphviz一下,看看下载成功了吗</p>
+<p>conda版:</p>
+<p>我不理解conda版有什么好处,好多教程都pip install graphviz一次,又conda install graphviz一次,这是什么操作?</p>
+<h2 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h2><p>1 win 文件权限问题.可以使用anthenticated users 或者everyone 权限.</p>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><h3 id="1-Digraph类"><a href="#1-Digraph类" class="headerlink" title="1 Digraph类"></a>1 Digraph类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Help on Digraph <span class="keyword">in</span> module graphviz.dot <span class="built_in">object</span>:</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Digraph</span>(<span class="params">Dot</span>)</span></span><br><span class="line"><span class="class"> |  <span class="title">Digraph</span>(<span class="params">name=<span class="literal">None</span>, comment=<span class="literal">None</span>, filename=<span class="literal">None</span>, directory=<span class="literal">None</span>, <span class="built_in">format</span>=<span class="literal">None</span>, engine=<span class="literal">None</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>, graph_attr=<span class="literal">None</span>, node_attr=<span class="literal">None</span>, edge_attr=<span class="literal">None</span>, body=<span class="literal">None</span>, strict=<span class="literal">False</span></span>)</span></span><br><span class="line"><span class="class"> |  </span></span><br><span class="line"><span class="class"> |  <span class="title">Directed</span> <span class="title">graph</span> <span class="title">source</span> <span class="title">code</span> <span class="title">in</span> <span class="title">the</span> <span class="title">DOT</span> <span class="title">language</span>.</span></span><br><span class="line"><span class="class"> |  </span></span><br><span class="line"><span class="class"> |  <span class="title">Args</span>:</span></span><br><span class="line"> |      name: Graph name used <span class="keyword">in</span> the source code.</span><br><span class="line"> |      comment: Comment added to the first line of the source.<span class="comment">#注释</span></span><br><span class="line"> |      filename: Filename <span class="keyword">for</span> saving the source (defaults to ``name`` + ``<span class="string">&#x27;.gv&#x27;</span>``).<span class="comment">#存放源代码</span></span><br><span class="line"> |      directory: (Sub)directory <span class="keyword">for</span> source saving <span class="keyword">and</span> rendering.<span class="comment">#保存目录</span></span><br><span class="line"> |      <span class="built_in">format</span>: Rendering output <span class="built_in">format</span> (``<span class="string">&#x27;pdf&#x27;</span>``, ``<span class="string">&#x27;png&#x27;</span>``, ...).<span class="comment">#输出格式</span></span><br><span class="line"> |      engine: Layout command used (``<span class="string">&#x27;dot&#x27;</span>``, ``<span class="string">&#x27;neato&#x27;</span>``, ...).<span class="comment">#布局格式</span></span><br><span class="line"> |      encoding: Encoding <span class="keyword">for</span> saving the source.<span class="comment">#utf-8</span></span><br><span class="line"> |      graph_attr: Mapping of ``(attribute, value)`` pairs <span class="keyword">for</span> the graph.<span class="comment">#图属性设置</span></span><br><span class="line"> |      node_attr: Mapping of ``(attribute, value)`` pairs <span class="built_in">set</span> <span class="keyword">for</span> <span class="built_in">all</span> nodes.<span class="comment">#所有点属性设置</span></span><br><span class="line"> |      edge_attr: Mapping of ``(attribute, value)`` pairs <span class="built_in">set</span> <span class="keyword">for</span> <span class="built_in">all</span> edges.<span class="comment">#所有边属性设置</span></span><br><span class="line"> |      body: Iterable of verbatim lines to add to the graph ``body``.</span><br><span class="line"> |      strict (<span class="built_in">bool</span>): Rendering should merge multi-edges.<span class="comment">#合并多边</span></span><br><span class="line"> |  </span><br><span class="line"> |  Note:</span><br><span class="line"> |      All parameters are `optional` <span class="keyword">and</span> can be changed under their</span><br><span class="line"> |      corresponding attribute name after instance creation.</span><br><span class="line">    <span class="built_in">print</span>:</span><br><span class="line">        <span class="comment">#source code</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-render-–func"><a href="#2-render-–func" class="headerlink" title="2 render()–func"></a>2 render()–func</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">render(filename=<span class="literal">None</span>, directory=<span class="literal">None</span>, view=<span class="literal">False</span>, cleanup=<span class="literal">False</span>, <span class="built_in">format</span>=<span class="literal">None</span>, renderer=<span class="literal">None</span>, formatter=<span class="literal">None</span>, quiet=<span class="literal">False</span>, quiet_view=<span class="literal">False</span>) method of graphviz.dot.Digraph instance</span><br><span class="line">    Save the source to file <span class="keyword">and</span> render <span class="keyword">with</span> the Graphviz engine.</span><br><span class="line">    </span><br><span class="line">    Args:</span><br><span class="line">        filename: Filename <span class="keyword">for</span> saving the source (defaults to ``name`` + ``<span class="string">&#x27;.gv&#x27;</span>``)<span class="comment">#放源码</span></span><br><span class="line">        directory: (Sub)directory <span class="keyword">for</span> source saving <span class="keyword">and</span> rendering.</span><br><span class="line">        view (<span class="built_in">bool</span>): Open the rendered result <span class="keyword">with</span> the default application.<span class="comment">#用应用打开图片</span></span><br><span class="line">        cleanup (<span class="built_in">bool</span>): Delete the source file after successful rendering.<span class="comment">#打开图片后清理源码</span></span><br><span class="line">        <span class="built_in">format</span>: The output <span class="built_in">format</span> used <span class="keyword">for</span> rendering (``<span class="string">&#x27;pdf&#x27;</span>``, ``<span class="string">&#x27;png&#x27;</span>``, etc.).<span class="comment">#图片格式</span></span><br><span class="line">        renderer: The output renderer used <span class="keyword">for</span> rendering (``<span class="string">&#x27;cairo&#x27;</span>``, ``<span class="string">&#x27;gd&#x27;</span>``, ...).</span><br><span class="line">        formatter: The output formatter used <span class="keyword">for</span> rendering (``<span class="string">&#x27;cairo&#x27;</span>``, ``<span class="string">&#x27;gd&#x27;</span>``, ...).</span><br><span class="line">        quiet (<span class="built_in">bool</span>): Suppress ``stderr`` output <span class="keyword">from</span> the layout subprocess.</span><br><span class="line">        quiet_view (<span class="built_in">bool</span>): Suppress ``stderr`` output <span class="keyword">from</span> the viewer process</span><br><span class="line">                           (implies ``view=<span class="literal">True</span>``, ineffective on Windows).</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">        The (possibly relative) path of the rendered file.<span class="comment">#path</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="测试源码"><a href="#测试源码" class="headerlink" title="测试源码"></a>测试源码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> graphviz <span class="keyword">import</span> Digraph</span><br><span class="line"></span><br><span class="line">dot = Digraph(comment=<span class="string">&#x27;The Round Table&#x27;</span>)</span><br><span class="line">dot.node(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;King Arthur&#x27;</span>)</span><br><span class="line">dot.node(<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;Sir Bedevere the Wise&#x27;</span>)</span><br><span class="line">dot.node(<span class="string">&#x27;L&#x27;</span>, <span class="string">&#x27;Sir Lancelot the Brave&#x27;</span>)</span><br><span class="line"></span><br><span class="line">dot.edges([<span class="string">&#x27;AB&#x27;</span>, <span class="string">&#x27;AL&#x27;</span>])</span><br><span class="line">dot.edge(<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;L&#x27;</span>, constraint=<span class="string">&#x27;false&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(dot.source)  </span><br><span class="line">dot.render(<span class="string">&#x27;test-output/round-table.gv&#x27;</span>,<span class="built_in">format</span>=<span class="string">&#x27;jpg&#x27;</span>, view=<span class="literal">True</span>)  </span><br><span class="line"><span class="comment">#g = Graph(format=&#x27;png&#x27;)</span></span><br><span class="line"><span class="comment">#g.graph_attr[&#x27;dpi&#x27;] = &#x27;300&#x27;</span></span><br><span class="line"><span class="comment">#dot = Digraph(comment=&#x27;The Round Table&#x27;,graph_attr=&#123;&#x27;dpi&#x27;:&#x27;&#x27;&#125;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Dot语言"><a href="#Dot语言" class="headerlink" title="Dot语言"></a>Dot语言</h2><p>自己体会rank和constrain</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">digraph G &#123;</span><br><span class="line">  a -&gt; c;</span><br><span class="line">  a -&gt; b;</span><br><span class="line">  b -&gt; c [constraint=false];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">digraph html &#123;</span><br><span class="line">    rankdir = LR;</span><br><span class="line">    &#123;</span><br><span class="line">        node[shape = plaintext];</span><br><span class="line">        1995 -&gt; 1996 -&gt; 1997 -&gt; 1998 -&gt; 1999 -&gt; 2000 -&gt; 2001;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        node[shape = box, style = filled];</span><br><span class="line">        WAR3 -&gt; Xhero -&gt; Footman -&gt; DOTA;</span><br><span class="line">        WAR3 -&gt; Battleship;</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;rank = same; 1996; WAR3;&#125;</span><br><span class="line">    &#123;rank = same; 1998; Xhero; Battleship;&#125;</span><br><span class="line">    &#123;rank = same; 1999; Footman;&#125;</span><br><span class="line">    &#123;rank = same; 2001; DOTA;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">digraph G &#123;</span><br><span class="line">    node [shape = circle];</span><br><span class="line">    0 [label = &quot;start&quot;, shape = none]; </span><br><span class="line">    1 [label = &quot;q1&quot;];</span><br><span class="line">    2 [label = &quot;q2&quot;];</span><br><span class="line">    3 [label = &quot;q3&quot;];</span><br><span class="line">    4 [label = &quot;q4&quot;];</span><br><span class="line">    5 [label = &quot;q5&quot;];</span><br><span class="line">    6 [label = &quot;q6&quot;, shape = doublecircle];</span><br><span class="line"></span><br><span class="line">    edge [label = &quot;&amp;epsilon;&quot;];</span><br><span class="line">    </span><br><span class="line">    &#123;rank = same; 0 -&gt; 1; &#125;</span><br><span class="line">    &#123;rank = same; 2 -&gt; 3 [label = &quot;test&quot;]; &#125;</span><br><span class="line">    1 -&gt; 2 [label = &quot;0&quot;];</span><br><span class="line">    4 -&gt; 5 [label = &quot;1&quot;];</span><br><span class="line">    3 -&gt; 4;</span><br><span class="line">    5 -&gt; 6;</span><br><span class="line">    5 -&gt; 4 [constraint = false];</span><br><span class="line">    6 -&gt; 3 [constraint = false];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在python调用中的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> graphviz <span class="keyword">import</span> Digraph</span><br><span class="line"></span><br><span class="line">dot = Digraph(comment=<span class="string">&#x27;The Round Table&#x27;</span>)</span><br><span class="line">dot.node(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;King Arthur&#x27;</span>)</span><br><span class="line">dot.node(<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;Sir Bedevere the Wise&#x27;</span>)</span><br><span class="line">dot.node(<span class="string">&#x27;L&#x27;</span>, <span class="string">&#x27;Sir Lancelot the Brave&#x27;</span>)</span><br><span class="line"></span><br><span class="line">dot.edges([<span class="string">&#x27;AB&#x27;</span>, <span class="string">&#x27;AL&#x27;</span>])</span><br><span class="line">dot.edge(<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;L&#x27;</span>, constraint=<span class="string">&#x27;false&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(dot.source)  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="命令行测试"><a href="#命令行测试" class="headerlink" title="命令行测试"></a>命令行测试</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dot -Tpng dot.dot -o 001.png</span><br><span class="line">dot -help</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/10/08/Graphviz%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="ckuhmdwgq0000pscwegbt8q0y" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/08/os%E6%A8%A1%E5%9D%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/08/args%E5%92%8Ckwargs%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blogging/">Blogging</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blogging/Tutorial/">Tutorial</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/" rel="tag">hello</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hello/" style="font-size: 10px;">hello</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/10/08/os%E6%A8%A1%E5%9D%97/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Graphviz%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/args%E5%92%8Ckwargs%E5%AD%A6%E4%B9%A0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
