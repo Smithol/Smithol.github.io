@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Abstract:gitconfig设置名字和邮箱,在github添加公钥,使用ssh下载.一些配置信息注意看仓库中的config. Keywords:git,ssh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令-配置ssh公钥">
+<meta property="og:url" content="http://example.com/2021/10/09/base/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E9%85%8D%E7%BD%AEssh%E5%85%AC%E9%92%A5/index.html">
+<meta property="og:site_name" content="科研点滴">
+<meta property="og:description" content="Abstract:gitconfig设置名字和邮箱,在github添加公钥,使用ssh下载.一些配置信息注意看仓库中的config. Keywords:git,ssh">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-09T05:07:55.000Z">
+<meta property="article:modified_time" content="2021-10-09T05:11:35.553Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="ssh">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/10/09/base/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E9%85%8D%E7%BD%AEssh%E5%85%AC%E9%92%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>git常用命令-配置ssh公钥 | 科研点滴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">科研点滴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/09/base/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E9%85%8D%E7%BD%AEssh%E5%85%AC%E9%92%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="科研点滴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git常用命令-配置ssh公钥
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-09 13:07:55 / Modified: 13:11:35" itemprop="dateCreated datePublished" datetime="2021-10-09T13:07:55+08:00">2021-10-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/base/" itemprop="url" rel="index"><span itemprop="name">base</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>Abstract</strong>:gitconfig设置名字和邮箱,在github添加公钥,使用ssh下载.一些配置信息注意看仓库中的config.</p>
+<p><strong>Keywords</strong>:git,ssh</p>
+<span id="more"></span>
+
+<h2 id="git使用-win版本"><a href="#git使用-win版本" class="headerlink" title="git使用 win版本"></a>git使用 win版本</h2><h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>据说 npm是nodejs的前端maven</p>
+<h3 id="修改git环境"><a href="#修改git环境" class="headerlink" title="修改git环境"></a>修改git环境</h3><p>就是在win 用户下修改.gitconfig.<strong>注意这里的名字和邮箱就是让git知道是谁发出的修改.所以不必用和github上的用户名一样</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;liji&quot;</span><br><span class="line">git config --global user.email &quot;1216990865@qq.com&quot;</span><br><span class="line">或者</span><br><span class="line">直接去修改文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="git理论学习"><a href="#git理论学习" class="headerlink" title="git理论学习"></a>git理论学习</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add files# 提交至暂存区,即stage,index#git checkout</span><br><span class="line">git commit #提交至本地仓库,History#git reset</span><br><span class="line">git push # 提交到remote Directory远程仓库#git pull</span><br></pre></td></tr></table></figure>
+
+<p>workspace: 自己存放代码的地方</p>
+<p>index/stage:文件,保存即将要提交的东西,跟加了表头或者分批一样,git也看不到,也不想看</p>
+<p>repository: 仓库区,本地仓库</p>
+<p>remote:远程仓库,github,gitee</p>
+<h3 id="git命令使用"><a href="#git命令使用" class="headerlink" title="git命令使用"></a>git命令使用</h3><h4 id="初始化git"><a href="#初始化git" class="headerlink" title="初始化git"></a>初始化git</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init#跟新建.idea 一样</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+<h4 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status# 看看文件状态.git add后可以查看修改了啥.</span><br><span class="line">git add . #添加所有文件</span><br><span class="line">git commit -m &quot;自己想显示的信息&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="gitignore"><a href="#gitignore" class="headerlink" title="gitignore"></a>gitignore</h4><p>里边的文件不用git.</p>
+<p>在主目录下建立<code>.gitignore</code>,</p>
+<p>#此为注释</p>
+<p>* 任意多字符,    ?一个字符,    .任何字符,    !例外文件,不参与正则规则,    [abc]可选字符,    {str1,str2}可选字符串,    /文件,此文件,    文件/,文件下层目录筛选    </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="绑定SSH公钥-在用户-ssh文件"><a href="#绑定SSH公钥-在用户-ssh文件" class="headerlink" title="绑定SSH公钥 在用户.ssh文件"></a>绑定SSH公钥 在用户.ssh文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa#生成两个文件,用.pub文件,配置公钥.</span><br><span class="line">ssh-keygen -t rsa -C &lt;email&gt; -f &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="git-clone-url"><a href="#git-clone-url" class="headerlink" title="git clone [url]"></a>git clone [url]</h4><p>新建私人仓库后,在本地空文件夹中,就可以克隆了</p>
+<p>注意克隆的时候选用ssh<strong>连接就可以避免给私人仓库输入密码了</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+<h2 id="IDEA中使用Git"><a href="#IDEA中使用Git" class="headerlink" title="IDEA中使用Git"></a>IDEA中使用Git</h2><p>1 新建项目绑定git</p>
+<p>即把远程git项目所有文件移动到自己的项目里就可以</p>
+<p>2 git add,放入工程;git commit,工程打包;git push,发送工程包</p>
+<h2 id="分支–多个版本存在"><a href="#分支–多个版本存在" class="headerlink" title="分支–多个版本存在"></a>分支–多个版本存在</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git branch #查看本地分支</span><br><span class="line">git branch -r #查看远程分支</span><br><span class="line">git branch name #新建分支 name</span><br><span class="line">git checkout -b branch-name #切换分支</span><br><span class="line">git checkout name</span><br><span class="line">git switch name</span><br><span class="line"></span><br><span class="line">git branch -d #删除分支</span><br><span class="line">git branch -dr remote-branch #删除远程分支</span><br><span class="line"></span><br><span class="line">git merge branch #冲突协商</span><br><span class="line">git push --set-upstream origin dev #新分支放远程上</span><br></pre></td></tr></table></figure>
+
+<p>新建分支后,git的add等命令都需要来一遍,比如,我建立dev分支后</p>
+<h2 id="github-与-git"><a href="#github-与-git" class="headerlink" title="github 与.git"></a>github 与.git</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[core]	repositoryformatversion = 0	filemode = false	bare = false	logallrefupdates = true	symlinks = false	ignorecase = true[remote &quot;origin&quot;]	url = https://gitee.com/young_for_ever/gitstudy.git	fetch = +refs/heads/*:refs/remotes/origin/*[branch &quot;master&quot;]	remote = origin	merge = refs/heads/master[branch &quot;dev&quot;]	remote = origin	merge = refs/heads/dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># github常用命令git initgit add readme.mdgit commit -m &quot;first&quot;git remote add origin https://githu...git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="remote-User-permission-denied"><a href="#remote-User-permission-denied" class="headerlink" title="remote: User permission denied"></a>remote: User permission denied</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git credential-manager uninstall #清除残存的干扰账号</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ssh/" rel="tag"># ssh</a>
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/09/base/chorme%E6%8F%92%E4%BB%B6%E4%B8%8E%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/" rel="prev" title="chorme插件与视频下载">
+      <i class="fa fa-chevron-left"></i> chorme插件与视频下载
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/09/base/ssh%E5%91%BD%E4%BB%A4%E4%B8%8E%E4%BD%BF%E7%94%A8/" rel="next" title="ssh命令与使用">
+      ssh命令与使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E4%BD%BF%E7%94%A8-win%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">git使用 win版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#npm"><span class="nav-number">1.1.</span> <span class="nav-text">npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9git%E7%8E%AF%E5%A2%83"><span class="nav-number">1.2.</span> <span class="nav-text">修改git环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.3.</span> <span class="nav-text">git理论学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">git命令使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96git"><span class="nav-number">1.4.1.</span> <span class="nav-text">初始化git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.2.</span> <span class="nav-text">处理文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gitignore"><span class="nav-number">1.4.3.</span> <span class="nav-text">gitignore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%91%E5%AE%9ASSH%E5%85%AC%E9%92%A5-%E5%9C%A8%E7%94%A8%E6%88%B7-ssh%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.4.</span> <span class="nav-text">绑定SSH公钥 在用户.ssh文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-clone-url"><span class="nav-number">1.4.5.</span> <span class="nav-text">git clone [url]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8Git"><span class="nav-number">2.</span> <span class="nav-text">IDEA中使用Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E2%80%93%E5%A4%9A%E4%B8%AA%E7%89%88%E6%9C%AC%E5%AD%98%E5%9C%A8"><span class="nav-number">3.</span> <span class="nav-text">分支–多个版本存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-%E4%B8%8E-git"><span class="nav-number">4.</span> <span class="nav-text">github 与.git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remote-User-permission-denied"><span class="nav-number">5.</span> <span class="nav-text">remote: User permission denied</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description">hello world</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Smithol" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Smithol" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216990865@qq.com" title="E-Mail → mailto:1216990865@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      
+  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div id="myCanvasContainer" class="widget tagcloud">
+      <canvas width="250" height="250" id="resCanvas" style="width:100%">
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dos/" rel="tag">Dos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apt/" rel="tag">apt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/" rel="tag">frp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitea/" rel="tag">gitea</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/githubpages/" rel="tag">githubpages</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/help/" rel="tag">help</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/" rel="tag">network</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">vscode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/" rel="tag">下载工具</a><span class="tag-list-count">1</span></li></ul>
+      </canvas>
+    </div>
+  </div>
+
+        
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

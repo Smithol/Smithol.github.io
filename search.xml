@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Linux基础-文件增删改查</title>
-    <url>/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</url>
+    <url>/2021/10/09/base/Linux%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</url>
     <content><![CDATA[<p><strong>Abstract</strong>:主要关于linux服务器使用,以方便使用服务器训练机器学习模型. 主要是增删改查Linux文件</p>
 <p><strong>Keywords</strong>:linux常用命令</p>
 <span id="more"></span>
@@ -70,7 +70,7 @@
   </entry>
   <entry>
     <title>Linux基础2-源码编译</title>
-    <url>/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%802-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/</url>
+    <url>/2021/10/09/base/Linux%E5%9F%BA%E7%A1%802-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/</url>
     <content><![CDATA[<p><strong>Abstract</strong>:源码编译入门知识,我自己也没试验过,所以写的很多.如果不联网,就使用这种方法.</p>
 <p><strong>Keywords</strong>: makefile,linux源码编译</p>
 <span id="more"></span>
@@ -111,26 +111,8 @@
       </tags>
   </entry>
   <entry>
-    <title>codna使用</title>
-    <url>/2021/10/09/10.08/conda%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p><strong>Abstract</strong>:虚拟环境安装需要conda,conda在win与Linux中基本相同.学会使用帮助信息,国内一般都需要镜像考虑,还有移植环境.重点是帮助信息和镜像源.</p>
-<p><strong>Keywords</strong>:conda命令</p>
-<span id="more"></span>
-
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><h2 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h2><h3 id="conda-windows"><a href="#conda-windows" class="headerlink" title="conda windows"></a>conda windows</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建环境</span></span><br><span class="line">conda create -n environment python==version package</span><br><span class="line"><span class="comment"># 移除环境</span></span><br><span class="line">conda remove -n environment --<span class="built_in">all</span></span><br><span class="line"><span class="comment"># conda环境查询</span></span><br><span class="line">conda info -e</span><br><span class="line"><span class="comment"># 进入环境</span></span><br><span class="line">conda activate env</span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">conda install 包名称==version</span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">conda search package</span><br><span class="line"><span class="comment"># 查看环境所有包</span></span><br><span class="line">conda <span class="built_in">list</span></span><br><span class="line"><span class="comment"># 环境重命名</span></span><br><span class="line">conda create --name new_env_name --clone old_env_name</span><br><span class="line"><span class="comment">#复制环境</span></span><br><span class="line">conda create -n name --clone name</span><br><span class="line"><span class="comment"># 升级conda和package</span></span><br><span class="line">conda update conda</span><br><span class="line">conda update package</span><br><span class="line"><span class="comment"># 卸载package</span></span><br><span class="line">conda uninstall package</span><br><span class="line"><span class="comment"># 清理conda</span></span><br><span class="line">conda clean -a <span class="comment">#删除缓存、未使用的包、tar包</span></span><br><span class="line">conda clean -p <span class="comment"># 删除未使用的包</span></span><br><span class="line">conda clean -t <span class="comment">#删除tar包</span></span><br><span class="line"><span class="comment"># 增加镜像源</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"><span class="comment"># 移除环境报错解决方案</span></span><br><span class="line">使用conda remove -n tem --<span class="built_in">all</span>  删除环境时，发现如下错误：</span><br><span class="line">PackagesNotFoundError: The following packages are missing <span class="keyword">from</span> the target environment:</span><br><span class="line">解决方案：</span><br><span class="line">conda env remove -n tem(要移除的环境名称)</span><br></pre></td></tr></table></figure>
-
-<h3 id="conda-linux"><a href="#conda-linux" class="headerlink" title="conda linux"></a>conda linux</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> anacoda 安装</span><br><span class="line"><span class="comment"># 执行安装文件,-p指定位置</span></span><br><span class="line">./Anaconda3-<span class="number">5.2</span><span class="number">.0</span>-Linux-x86_64.sh -p /home/anaconda3/</span><br><span class="line"><span class="comment">#yes </span></span><br><span class="line"><span class="comment">#Do you wish the installer to initialize Anaconda3</span></span><br><span class="line"><span class="comment">#by running conda init? [yes|no] 决定你是否愿意将anaconda放入环境变量</span></span><br><span class="line"><span class="comment">#yes</span></span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="comment"># 在/etc/profile尾部，添加如下，所有用户就都可以用了</span></span><br><span class="line">export PATH=/home/anaconda3/<span class="built_in">bin</span>:$PATH</span><br><span class="line"><span class="number">2</span> 常用命令</span><br><span class="line"><span class="comment"># 创建一个名为envTest的环境，指定Python版本是3.6</span></span><br><span class="line">conda create -n envTest python==<span class="number">3.6</span></span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">activate envTest <span class="comment"># for Windows</span></span><br><span class="line">source activate envTest <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 退出虚拟环境</span></span><br><span class="line">deactivate envTest <span class="comment"># for Windows</span></span><br><span class="line">source deactivate envTest <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 删除一个已有的环境</span></span><br><span class="line">conda remove -n envTest  --<span class="built_in">all</span></span><br><span class="line"><span class="comment"># 复制某个环境</span></span><br><span class="line">conda create -n new_env_name --clone old_env_name </span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">conda install scikit-learn</span><br><span class="line"><span class="comment"># 分享环境 需先activate激活环境</span></span><br><span class="line">conda env export &gt; environment.yml<span class="comment">#传送</span></span><br><span class="line">conda env create -f environment.yml<span class="comment">#接收后操作</span></span><br><span class="line"><span class="number">3</span> 修改python版本</span><br><span class="line"><span class="comment">#1.新建一个anaconda虚拟环境，指定Python版本</span></span><br><span class="line">conda create -n envTest python=<span class="number">3.5</span></span><br><span class="line"><span class="comment">#2.直接将现有的anaconda中python更改为3.5</span></span><br><span class="line">sudo conda install python=<span class="number">3.5</span></span><br><span class="line"><span class="comment">#3.下载并安装对应Python版本的anaconda，anaconda4.2-&gt;python3.5</span></span><br><span class="line"><span class="comment">#https://repo.continuum.io/archive/</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span> 清理conda缓存</span><br><span class="line">conda clean -p      <span class="comment"># 删除没有用的包 --packages</span></span><br><span class="line">conda clean -t      <span class="comment"># 删除tar打包 --tarballs</span></span><br><span class="line">conda clean -y -<span class="built_in">all</span> <span class="comment"># 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> conda国内源</span><br><span class="line"><span class="comment">#	查看当前源</span></span><br><span class="line">conda config --show-sources</span><br><span class="line"><span class="comment">#	添加源</span></span><br><span class="line"><span class="comment">#conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/  #清华源停服 </span></span><br><span class="line"><span class="comment"># 	腾讯云</span></span><br><span class="line">conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"><span class="comment">#	换回默认源</span></span><br><span class="line">conda config --remove-key channels</span><br><span class="line"></span><br><span class="line"><span class="number">6</span> pip国内源</span><br><span class="line">阿里云 ：http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">中国科技大学： https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">豆瓣(douban) ：http://pypi.douban.com/simple/</span><br><span class="line">清华大学 ：https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">中国科学技术大学： http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 使用豆瓣源安装</span></span><br><span class="line">pip install opencv-python -i http://pypi.douban.com/simple </span><br><span class="line"><span class="comment"># 报错说不信任该源，执行如下：</span></span><br><span class="line">pip install opencv-python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com</span><br><span class="line"><span class="comment"># 生成requirements.txt文件</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"><span class="comment"># 安装requirements.txt依赖</span></span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>base</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>conda</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux基础3-实用进阶</title>
-    <url>/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%803-%E5%AE%9E%E7%94%A8%E8%BF%9B%E9%98%B6/</url>
+    <url>/2021/10/09/base/Linux%E5%9F%BA%E7%A1%803-%E5%AE%9E%E7%94%A8%E8%BF%9B%E9%98%B6/</url>
     <content><![CDATA[<p><strong>Abstract</strong>:一些超级实用的Linux技巧.比如管道,权限,进程等命令.从b站学习来的</p>
 <p><strong>Keywords</strong>:Linux学习</p>
 <span id="more"></span>
@@ -414,15 +396,665 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2021/10/09/10.08/Untitled/</url>
-    <content><![CDATA[<p><strong>Abstract</strong>:</p>
-<p><strong>Keywords</strong>:</p>
-<span id="more"></span>]]></content>
+    <title>chorme插件与视频下载</title>
+    <url>/2021/10/09/base/chorme%E6%8F%92%E4%BB%B6%E4%B8%8E%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:因为老师让下载熊老师的上课资源,我发现自己写的爬虫还是不如人家的插件方便</p>
+<p><strong>Keywords</strong>: youtube,视频等资源下载工具及插件,idm,ndm,油猴</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://www.youtube.com/watch?v=_9sNC_iB7Y0&list=PLNnM0zj-wgv7Xw79aG-N0cEZfbmZvsY5_&index=6">下载网页上的视频，简单快捷，软件配合插件，内有彩蛋 - YouTube</a></p>
+<h2 id="下载地址及视频解析网站"><a href="#下载地址及视频解析网站" class="headerlink" title="下载地址及视频解析网站"></a>下载地址及视频解析网站</h2><p>IDM/NDM：链接: <a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbmpvN3RFWHdLdjBwekwxbGpUR0F0dDIzbktBd3xBQ3Jtc0trR1dBbENkWWwxMHNSZV80RjAxNkN4bldXTlRaYjVNeFZOcjhXUElleDdKd0hZV0ZUZVJGclZrMGxwVjB3ZkFKOVlRMjBBSllLMjZLUVFBVmtHdTd3MFJzRXUxUy1hc0RoQTlXcFNSMmhmMkdVTllocw&q=https://pan.baidu.com/s/1S97H5ZO9rmpXIAW6ccXmSw">https://pan.baidu.com/s/1S97H5ZO9rmpX…</a>  密码: pufi </p>
+<p>视频解析网站： 分享网：<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqblJJVlpaN2swdTBRSmVXQmE0Nk15WVRnbE1Zd3xBQ3Jtc0tsS0g5clhsTVRzZEtRcUNWY3RhVUhSMDFGaThfOG1lZG5RdnkyQ2xIUldkM2o4ZUJycWo3LTRmbENnOW8tcVlzd3l0aW9Ob0VsamR2X3RWZ3JTNV94U0R4M3ZlbXZOQlM4ZW1XaE5Pd1kxd2piOTQ0RQ&q=https://vip.fxw.la/">https://vip.fxw.la/</a> 在线工具：<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbWFTOEJOQ3BXQ2hMYTVrdDlLVEFoLXJSanZOZ3xBQ3Jtc0ttN3JQNm1KcEs0MDYwWjJPVlp5WWlENm90VzVpTWM0UzJnUGtrc2pWNUpYbXl4T3dyWVZmeDFncklJS2hmMTBEdXlyQXBVdXgzanVFa0RsVFdHSmFrNkdHcUZXaWhuYVA2MXl0Z1ZTWUwwTXFROFlwcw&q=https://tool.lu/videoparser/">https://tool.lu/videoparser/</a> </p>
+<p>浏览器插件：链接:<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbnJxZ2NQU0g3R1lXb21PRnY5U0xwSG80endrd3xBQ3Jtc0trOVRPc1l3LWtKd0FBUkZCVnVveDF1Si1xYTc0bjJBdnhVeFliSFpKS2p5dE5Sa3ZKaXdEX0FRY2xCWDFCamZGUXdjV2xFV1VITmlsSzRMano0YkRjNHl4a2Foa1dCeUpiYXdWNHRCcHdubmFTb0Nkcw&q=https://pan.baidu.com/s/1Sub0X3mCWruSgcb-9TzNBQ">https://pan.baidu.com/s/1Sub0X3mCWruS…</a> 提取码:7033 </p>
+<p>油猴脚本包：链接:<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3p1enRFVEo0YnBsdC1BSWtnbGh2X0lNSDl2Z3xBQ3Jtc0tsOFoySngtdXR3RDMtZjlRQ0E0aHhlczJPSnBEMXpEcTd4bmlMd1FHU1NGeWphdFB2SGN3dmZxc25xTmdBa1luXzBkcndBNFFqRnJaV21PLVJOcWV5U184a2Nxc1NudjZyQ1lRdmtWQUhKSkRER29kcw&q=https://pan.baidu.com/s/1bGUz_g9cM9pBGLEBoh7XFw">https://pan.baidu.com/s/1bGUz_g9cM9pB…</a> 提取码:6tj8 </p>
+<h3 id="原作者"><a href="#原作者" class="headerlink" title="原作者"></a>原作者</h3><p>电报群：<a href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbW5xLW5ab3c4SjRBYzgyZGxRZ2JNYjltTjM4d3xBQ3Jtc0tsaTctRGphcjlUa2pEcC1YNU9HcjVUSk52N0NqcUJTb2xnUS12eGJoWGktOUtvSW0xZ3RnbVk1T0t5NG8tQlVoeXJoVXM4aVN0Q1I4SnhpQlRJZjhDSVB6d2IzZkpZelptdlhFaVhsdVBWNlNUNEcxaw&q=https://t.me/zhiwushuo">https://t.me/zhiwushuo</a> 欢迎加群交流！ 微信公众号：止吾说</p>
+<p>欢迎订阅频道：<a href="https://www.youtube.com/channel/UCC2uUAHDPwUmmm44zyTLogQ?sub_confirmation=1">https://www.youtube.com/channel/UCC2u…</a></p>
+<h3 id="使用idm-ndm及视频解析网站"><a href="#使用idm-ndm及视频解析网站" class="headerlink" title="使用idm,ndm及视频解析网站"></a>使用idm,ndm及视频解析网站</h3><p>idm:youtube,芒果台</p>
+<p>ndm:腾讯,</p>
+<p>cococut:强力下载,录屏模式;</p>
+<h3 id="油猴脚本"><a href="#油猴脚本" class="headerlink" title="油猴脚本"></a>油猴脚本</h3><p>sleazy fork:呜呜呜;</p>
+<h3 id="cococut"><a href="#cococut" class="headerlink" title="cococut"></a>cococut</h3><p>可以录屏</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>下载工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>codna使用</title>
+    <url>/2021/10/09/base/conda%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:虚拟环境安装需要conda,conda在win与Linux中基本相同.学会使用帮助信息,国内一般都需要镜像考虑,还有移植环境.重点是帮助信息和镜像源.</p>
+<p><strong>Keywords</strong>:conda命令</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><h2 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h2><h3 id="conda-windows"><a href="#conda-windows" class="headerlink" title="conda windows"></a>conda windows</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建环境</span></span><br><span class="line">conda create -n environment python==version package</span><br><span class="line"><span class="comment"># 移除环境</span></span><br><span class="line">conda remove -n environment --<span class="built_in">all</span></span><br><span class="line"><span class="comment"># conda环境查询</span></span><br><span class="line">conda info -e</span><br><span class="line"><span class="comment"># 进入环境</span></span><br><span class="line">conda activate env</span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">conda install 包名称==version</span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">conda search package</span><br><span class="line"><span class="comment"># 查看环境所有包</span></span><br><span class="line">conda <span class="built_in">list</span></span><br><span class="line"><span class="comment"># 环境重命名</span></span><br><span class="line">conda create --name new_env_name --clone old_env_name</span><br><span class="line"><span class="comment">#复制环境</span></span><br><span class="line">conda create -n name --clone name</span><br><span class="line"><span class="comment"># 升级conda和package</span></span><br><span class="line">conda update conda</span><br><span class="line">conda update package</span><br><span class="line"><span class="comment"># 卸载package</span></span><br><span class="line">conda uninstall package</span><br><span class="line"><span class="comment"># 清理conda</span></span><br><span class="line">conda clean -a <span class="comment">#删除缓存、未使用的包、tar包</span></span><br><span class="line">conda clean -p <span class="comment"># 删除未使用的包</span></span><br><span class="line">conda clean -t <span class="comment">#删除tar包</span></span><br><span class="line"><span class="comment"># 增加镜像源</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"><span class="comment"># 移除环境报错解决方案</span></span><br><span class="line">使用conda remove -n tem --<span class="built_in">all</span>  删除环境时，发现如下错误：</span><br><span class="line">PackagesNotFoundError: The following packages are missing <span class="keyword">from</span> the target environment:</span><br><span class="line">解决方案：</span><br><span class="line">conda env remove -n tem(要移除的环境名称)</span><br></pre></td></tr></table></figure>
+
+<h3 id="conda-linux"><a href="#conda-linux" class="headerlink" title="conda linux"></a>conda linux</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> anacoda 安装</span><br><span class="line"><span class="comment"># 执行安装文件,-p指定位置</span></span><br><span class="line">./Anaconda3-<span class="number">5.2</span><span class="number">.0</span>-Linux-x86_64.sh -p /home/anaconda3/</span><br><span class="line"><span class="comment">#yes </span></span><br><span class="line"><span class="comment">#Do you wish the installer to initialize Anaconda3</span></span><br><span class="line"><span class="comment">#by running conda init? [yes|no] 决定你是否愿意将anaconda放入环境变量</span></span><br><span class="line"><span class="comment">#yes</span></span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="comment"># 在/etc/profile尾部，添加如下，所有用户就都可以用了</span></span><br><span class="line">export PATH=/home/anaconda3/<span class="built_in">bin</span>:$PATH</span><br><span class="line"><span class="number">2</span> 常用命令</span><br><span class="line"><span class="comment"># 创建一个名为envTest的环境，指定Python版本是3.6</span></span><br><span class="line">conda create -n envTest python==<span class="number">3.6</span></span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">activate envTest <span class="comment"># for Windows</span></span><br><span class="line">source activate envTest <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 退出虚拟环境</span></span><br><span class="line">deactivate envTest <span class="comment"># for Windows</span></span><br><span class="line">source deactivate envTest <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 删除一个已有的环境</span></span><br><span class="line">conda remove -n envTest  --<span class="built_in">all</span></span><br><span class="line"><span class="comment"># 复制某个环境</span></span><br><span class="line">conda create -n new_env_name --clone old_env_name </span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">conda install scikit-learn</span><br><span class="line"><span class="comment"># 分享环境 需先activate激活环境</span></span><br><span class="line">conda env export &gt; environment.yml<span class="comment">#传送</span></span><br><span class="line">conda env create -f environment.yml<span class="comment">#接收后操作</span></span><br><span class="line"><span class="number">3</span> 修改python版本</span><br><span class="line"><span class="comment">#1.新建一个anaconda虚拟环境，指定Python版本</span></span><br><span class="line">conda create -n envTest python=<span class="number">3.5</span></span><br><span class="line"><span class="comment">#2.直接将现有的anaconda中python更改为3.5</span></span><br><span class="line">sudo conda install python=<span class="number">3.5</span></span><br><span class="line"><span class="comment">#3.下载并安装对应Python版本的anaconda，anaconda4.2-&gt;python3.5</span></span><br><span class="line"><span class="comment">#https://repo.continuum.io/archive/</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span> 清理conda缓存</span><br><span class="line">conda clean -p      <span class="comment"># 删除没有用的包 --packages</span></span><br><span class="line">conda clean -t      <span class="comment"># 删除tar打包 --tarballs</span></span><br><span class="line">conda clean -y -<span class="built_in">all</span> <span class="comment"># 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> conda国内源</span><br><span class="line"><span class="comment">#	查看当前源</span></span><br><span class="line">conda config --show-sources</span><br><span class="line"><span class="comment">#	添加源</span></span><br><span class="line"><span class="comment">#conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/  #清华源停服 </span></span><br><span class="line"><span class="comment"># 	腾讯云</span></span><br><span class="line">conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"><span class="comment">#	换回默认源</span></span><br><span class="line">conda config --remove-key channels</span><br><span class="line"></span><br><span class="line"><span class="number">6</span> pip国内源</span><br><span class="line">阿里云 ：http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">中国科技大学： https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">豆瓣(douban) ：http://pypi.douban.com/simple/</span><br><span class="line">清华大学 ：https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">中国科学技术大学： http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 使用豆瓣源安装</span></span><br><span class="line">pip install opencv-python -i http://pypi.douban.com/simple </span><br><span class="line"><span class="comment"># 报错说不信任该源，执行如下：</span></span><br><span class="line">pip install opencv-python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com</span><br><span class="line"><span class="comment"># 生成requirements.txt文件</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"><span class="comment"># 安装requirements.txt依赖</span></span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker使用</title>
+    <url>/2021/10/09/base/docker%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:那时候为了搭建gitea而学习docker,好像以前看的一篇论文中别人就是把自己的程序放在docker,便于隔离运行,更容易复现.现在看来那时候没掌握学习的方法.国内学习这些需要国外服务器的东西不免镜像设置和代理设置.总之,我现在整理的时候也不想看,我就想直接有个项目使用docker,以项目学习技术知识.</p>
+<p><strong>Keywords</strong>:docker学习 ,如何使用docker</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p>[1] <a href="https://www.bilibili.com/video/BV1Ls411n7mx?p=9">尚硅谷Docker快速入门基础篇-周阳主讲_哔哩哔哩_bilibili</a></p>
+<p><a href="https://www.bilibili.com/video/av74808660/?spm_id_from=333.788.b_765f64657363.2">Docker速通教程（全平台可参考）——司波图 UNRAID 陪玩教程 02_哔哩哔哩_bilibili</a></p>
+<p><a href="https://blog.csdn.net/qq_43648470/article/details/108171050">Ubuntu安装docker教程并配置阿里云镜像加速_危机！的博客-CSDN博客</a></p>
+</blockquote>
+<hr>
+<h2 id="docker基础"><a href="#docker基础" class="headerlink" title="docker基础"></a>docker基础</h2><h3 id="docker概念"><a href="#docker概念" class="headerlink" title="docker概念"></a>docker概念</h3><p>学到一个说法,mysql一个容器,ngix一个容器,我把者两个容器放在鲸鱼背上就可以执行了.</p>
+<blockquote>
+<p>镜像是文件,容器是进程</p>
+</blockquote>
+<h3 id="docker镜像加速"><a href="#docker镜像加速" class="headerlink" title="docker镜像加速"></a>docker镜像加速</h3><p>mark一下</p>
+<h3 id="docker下载对比"><a href="#docker下载对比" class="headerlink" title="docker下载对比"></a>docker下载对比</h3><h4 id="官网下载"><a href="#官网下载" class="headerlink" title="官网下载"></a>官网下载</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br><span class="line">echo &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-cache madison docker-ce #显示版本吧</span><br><span class="line">sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io</span><br></pre></td></tr></table></figure>
+
+<h4 id="阿里云下载-单应用-国内源下载"><a href="#阿里云下载-单应用-国内源下载" class="headerlink" title="阿里云下载 :单应用 国内源下载"></a>阿里云下载 :单应用 国内源下载</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> step 1: 安装必要的一些系统工具</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common</span><br><span class="line"><span class="meta">#</span><span class="bash"> step 2: 安装GPG证书</span></span><br><span class="line">curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 3: 写入软件源信息</span></span><br><span class="line">sudo add-apt-repository &quot;deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 4: 更新并安装Docker-CE</span></span><br><span class="line">sudo apt-get -y update</span><br><span class="line">sudo apt-get -y install docker-ce</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装指定版本的Docker-CE:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 1: 查找Docker-CE的版本:</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> apt-cache madison docker-ce</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   docker-ce | 17.03.1~ce-0~ubuntu-xenial | https://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages</span></span><br><span class="line"><span class="meta">#</span><span class="bash">   docker-ce | 17.03.0~ce-0~ubuntu-xenial | https://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Step 2: 安装指定版本的Docker-CE: (VERSION例如上面的17.03.1~ce-0~ubuntu-xenial)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sudo apt-get -y install docker-ce=[VERSION]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>发现其实mirrors.aliyun.com/docker-ce替换了download.docker.com.</p>
+<p><strong>我给他起名字叫单个应用的国内镜像下载</strong></p>
+<h4 id="手动下载-适合没有网络的-只有安装包"><a href="#手动下载-适合没有网络的-只有安装包" class="headerlink" title="手动下载 :适合没有网络的,只有安装包"></a>手动下载 :适合没有网络的,只有安装包</h4><h4 id="镜像加速-阿里云"><a href="#镜像加速-阿里云" class="headerlink" title="镜像加速 阿里云"></a>镜像加速 阿里云</h4><p>尚硅谷是这样设置的,当然他的是centos,我的是ubuntu,我肯定转换成ubuntu</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">/etc/default/docker</span></span><br><span class="line">other_args=&quot;--registry-mirror=https://uioxz5c8.mirror.aliyuncs.com&quot;</span><br><span class="line">DOCKER_CERT_PATH=/ect/docker</span><br><span class="line">DOCKER_NOWARN_KERNEL_VERSION=1</span><br></pre></td></tr></table></figure>
+
+<p>然后重启docker后台服务: service docker restart</p>
+<p>然后用ps -ef | grep docker ,可以查看到我们的镜像加速网站</p>
+<p>阿里云官网给出的是,新版本安装.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://uioxz5c8.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>或者我vim /etc/docker/daemon.json,自己写入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://uioxz5c8.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后执行systemctl那两条命令</p>
+<h4 id="设置国内源-不用外国"><a href="#设置国内源-不用外国" class="headerlink" title="设置国内源,不用外国"></a>设置国内源,不用外国</h4><h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><p>有点问题</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/a5idc/p/13752839.html">修复 “System has not been booted with systemd as init system “的错误。 - A5互联 - 博客园 (cnblogs.com)</a></p>
+</blockquote>
+<p>wsl是sysvinit系统,linux上是systemd系统.</p>
+<p>wsl打开docker是   service docker start</p>
+<p><img src="/2021/10/09/base/docker%E4%BD%BF%E7%94%A8/image-20210903141031162.png" alt="image-20210903141031162"></p>
+<p>算了,在wsl就严格按照wsl的规则来.就图一乐.</p>
+<p>测试</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br><span class="line"><span class="meta">#</span><span class="bash">人家运行完了会停止.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="重启docker或者启动docker"><a href="#重启docker或者启动docker" class="headerlink" title="重启docker或者启动docker"></a>重启docker或者启动docker</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">service docker restart</span><br><span class="line">#这个命令就相当于重启win,但是他很快.</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速的原理"><a href="#快速的原理" class="headerlink" title="快速的原理"></a>快速的原理</h2><p>docker有更少的抽象层,不需要硬件资源虚拟化,只用自己的大鲸鱼操作系统.</p>
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker info</span><br><span class="line">docker command --help</span><br><span class="line">man docker command</span><br></pre></td></tr></table></figure>
+
+<h2 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h2><p>大海–win10</p>
+<p>鲸鱼–docker</p>
+<p>集装箱–容器实例 ;这个来自镜像</p>
+<p><strong>命令更新了很多,自己man command</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dcoker images #查看镜像</span><br><span class="line">docker run images # 有镜像就生成容器</span><br><span class="line">docker search tomcat # 查找</span><br><span class="line">docker pull tomcat #拉下来</span><br><span class="line">docker rmi hello-world#自动删除latest,运行的时候不能删除</span><br><span class="line">docker rmi -f hello-world # 强制删除,如果运行着,就会删除两层</span><br><span class="line">docker rmi -f hello-world nginx# 删除多个</span><br><span class="line">docker rmi -f $(docker images -qa) #批量删除</span><br><span class="line">docker run [op] image [com] #运行,变实例.</span><br><span class="line">docker run -it -p 主机端口:docker容器端口 镜像 #如果-P就是随机分配端口.</span><br></pre></td></tr></table></figure>
+
+<p>repository:镜像仓库源</p>
+<p>tag: 镜像的标签,版本;同一个仓库源有多个tag,使用repository:tag来定义不同的镜像</p>
+<h3 id="docker-commit命令"><a href="#docker-commit命令" class="headerlink" title="docker commit命令"></a>docker commit命令</h3><p>我们在运行的容器上边做了自定义的修改.然后我们把当前的容器commit,又可以形成一个新的镜像.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker commit -m=&quot;提交描述信息&quot; -a=&quot;作者&quot; 容器ID 要创建的目标镜像名:标签名</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">作者删除了tomcat的webapps下的docs</span></span><br><span class="line">docker commit -a=&quot;dd&quot; -m=&quot;xxx&quot; atguigu/id tomcat:1.2</span><br><span class="line">docker rm -f $(docker ps -q)#删除</span><br><span class="line">docker run -it atguigu/mytomcat:1.2</span><br><span class="line"><span class="meta">#</span><span class="bash">以前是通过镜像生成实例,现在是通过实例生成新镜像,像java的反射.</span></span><br><span class="line">doker run -d -P tomcat# 此时后台运行</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="tomcat-404"><a href="#tomcat-404" class="headerlink" title="tomcat 404"></a>tomcat 404</h3><p>tomcat启动需要webapp 中的root,但是新版本中的root在webapp.dist中,把文件复制过去就好了.</p>
+<h2 id="容器命令"><a href="#容器命令" class="headerlink" title="容器命令"></a>容器命令</h2><h3 id="运行centos"><a href="#运行centos" class="headerlink" title="运行centos"></a>运行centos</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it id#开启了centos了;i 交互；t 分配一个伪终端</span><br><span class="line">docker ps #docker 进程</span><br><span class="line">docker ps #l 上一个容器；a 当前加过往的容器；-n 3 上三次运行的容器；q 只显示容器id；</span><br><span class="line"><span class="meta">exit#</span><span class="bash">退出并停止,和c+p+q不同</span></span><br><span class="line">docker run -it --name mycentos centos#改名字</span><br><span class="line">ctrl+p+q#跳到宿主机,不停止</span><br><span class="line">docker start 容器id#把以前关的容器再打开</span><br><span class="line">docker restart 容器id #容器重启</span><br><span class="line">docker stop 容器id #正常关机</span><br><span class="line">docker kill 容器id #强制关机</span><br><span class="line">docker rm 容器id #不带i是删除容器记录</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d centos#后台启动,但是ps命令查不出来</span><br><span class="line">docker logs -f -t --tail 容器id#t 时间戳;f 追加最新日志打印; tail 数字 显示后几条</span><br></pre></td></tr></table></figure>
+
+<p>docker容器后台运行,必须有一个前台进程;如果不挂起,就会自动退出,自杀.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d centos /bin/sh -c &quot;while true;do echo hello zzyy;sleep 2;done&quot;  #/bin/sh 是指以sh格式交互,但是默认是bash</span><br><span class="line">docker run -it -P tomcat ls -l#默认在shell中执行</span><br><span class="line">docker logs 容器id #发现跑着呢</span><br><span class="line">docker logs -t -f --tail3 容器id#意思是带着时间戳,动态最新日志,只看最后三条.</span><br><span class="line">docker top 容器id #因为容器就是简易版的linux环境,其实有很多命令和linux相似,这个就是看这个容器的内部top</span><br><span class="line">docker inspect 容器id#查看容器内部细节,json串</span><br><span class="line">docker attach 容器id#进入正运行的容器</span><br><span class="line">docker exec -it 容器id ls -l /tmp#界面不进入,但是拿到了结果</span><br><span class="line">docker exec -it 容器id /bin/bash #可以打开界面了,和attach一样了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it -P tomcat ls -l#默认在shell中执行,造成tomcat最后的cmd命令被覆盖,造成tomcat不启动</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker cp 容器id:/tmp/yum.log /root#容器log copy到宿主主机 </span><br></pre></td></tr></table></figure>
+
+<h2 id="镜像原理"><a href="#镜像原理" class="headerlink" title="镜像原理"></a>镜像原理</h2><p>镜像就是千层饼.对文件系统的修改作为一次提交来一层层的叠加.</p>
+<p>unionfs(联合文件系统):union文件系统是一种分层,轻量级并且高性能的文件系统,它支持对文件系统的修改作为一次提交来一层层的叠加,同时可以将不同目录挂载到同一个虚拟文件系统下.union文件系统是docker镜像的基础.镜像可以通过分层来进行继承,基于基础镜像(没有父镜像),可以制作各种具体的应用镜像.</p>
+<p>特性: 一次同时加载多个文件系统,但是从外面看起来,只能看到一个文件系统,联合加载会把各层文件系统叠加起来,这样最终的文件系统会包含所有底层的文件和目录.</p>
+<p>bootfs就类似linux的kernel,rootfs就是ubuntu或者centos</p>
+<p>对于一个精简的os,rootfs可以很小,只需要包括最基本的命令,工具和程序库就可以了,因为底层直接用host的kernel,自己只需要提供rootfs就行了.由此可见对于不同的linux发行版,bootfs基本是一致的,rootfs会有差别.因此不同的发行版空一公用bootfs</p>
+<p>所有dockrer pull xxx的时候会发现好像是一层层下载,就是一层层加载文件.</p>
+<p>所有的镜像好像是把软件运行的环境包括操作系统的rootfs都打包了.比如我们要用tomcat,那么需要linux kernel,centos,jdk8,tomcat这些东西</p>
+<p><img src="/2021/10/09/base/docker%E4%BD%BF%E7%94%A8/image-20210904105030362.png" alt="image-20210904105030362"></p>
+<p>联合文件系统的好处:<strong>共享资源</strong>. 比如,多个镜像从相同的base镜像构建而来,那么宿主机只需要在磁盘上保存一份base镜像,同时内存中也只需加载一份base镜像,就可以为所有容器服务了.而且镜像的每一层都可以被共享.</p>
+<p>docker镜像都是只读的,当容器启动时,一个新的可写层被加载到镜像的顶部.这一层通常被称作”容器层”,”容器层”之下的都叫”镜像层”</p>
+<h3 id="docker-容器数据卷"><a href="#docker-容器数据卷" class="headerlink" title="docker 容器数据卷"></a>docker 容器数据卷</h3><p>容器运行中产生的文件我想要长久保存,比如内存中的数据关了就没了,硬盘才靠谱.就像一个u盘. redis 分布式内存数据库.</p>
+<p>特点是 1 数据卷可以在容器之间共享或重用数据 2 卷中的更改可以直接生效 3 数据卷中的更改不会包含在镜像的更新中  4 数据卷的生命周期一直持续到没有容器使用它为止</p>
+<p>如何数据持久化呢?</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it -v /宿主机 绝对路径:/容器内目录 镜像名# volume卷#docker run -it -v /mydata : /data xxx#这样就在宿主主机自动有mydata,容器自动有datadocker inspect 容器id#可以查看Volumes,也可以查看HostConfig中的Bindsdocker run -it -v /宿主机 绝对路径:/容器内目录:ro 镜像名#容器内部只可读共享文件</span><br></pre></td></tr></table></figure>
+
+<p>这个概念我挺想在服务器和我的电脑上实现的,就可以数据共享了,不用通过pycharm每次上传文件了,就可以时时更新了.</p>
+<h3 id="dockerfile添加容器数据卷"><a href="#dockerfile添加容器数据卷" class="headerlink" title="dockerfile添加容器数据卷"></a>dockerfile添加容器数据卷</h3><p>做着做着就会了.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello.java 编译成 hello.classimages 相当于编译成 dockerfile</span><br></pre></td></tr></table></figure>
+
+<p>示例dockerfile</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos <span class="comment">#算是内核VOLUME [&quot;/1&quot;,&quot;/2&quot;]CMD echo &quot;finished&quot;CMD /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it -v /host1:/1 -v /host2:/2 centos /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>然后docker build 文件生成一个新镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker build -f /你的dockerfile -t liji/centos . #liji/centos是一个镜像名字;. 是在当前目录下</span><br></pre></td></tr></table></figure>
+
+<p>运行一下命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it liji/centos#注意我们没有指定宿主机 的共享文件,所以docker给我们的是默认的,</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>小注意</strong></p>
+<p>如果以下之类的命令不成功,就试着改成如下的命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it -v /host1:/1 -v /host2:/2 centos /bin/bash#docker run -it -v /host1:/1 -v /host2:/2 --privileged=centos /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="dockerfile使用"><a href="#dockerfile使用" class="headerlink" title="dockerfile使用"></a>dockerfile使用</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1 编写dockerfile2 docker build,获得自定义镜像3 docker run</span><br></pre></td></tr></table></figure>
+
+<p>本源,源镜像:scratch</p>
+<p>开头的指令是大写字母,且后边跟着一个参数.</p>
+<p>每条指令都会创建一个新的镜像曾,并对镜像层进行提交</p>
+<p>保留字指令</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span><span class="comment">#基于那个镜像的MAINTAINER#作者姓名和邮箱RUN#容器构建时需要运行的linux命令EXPOSE#端口号WORKDIR#登录后的工作目录;没有指定就是根目录ENV#构建镜像过程中的环境变量;ENV path /usr  WORKDIR $pathADD#拷贝,解压COPY#VOLUME#数据容器卷CMD#和run相似;可多个cmd命令,但只有最后一个生效;cmd会被docker run之后的参数替换;就是被覆盖了最后一条命令;docker run -it -P tomcat ls -l 可能会覆盖启动的命令,造成tomcat不启动了ENTRYPOINT#不会被覆盖命令 ;把docker run之后的命令当参数传给ONBUILD#</span></span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> centosenv mypath /tmpworkdir $mypathrun yum -y install vim <span class="comment">#按需下载东西run yum -y install net-toolsexpose 80#端口cmd /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>build一下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker build -t mycentos:1.3 .#.为当前路径下创建</span><br></pre></td></tr></table></figure>
+
+<h4 id="列出镜像的变更历史"><a href="#列出镜像的变更历史" class="headerlink" title="列出镜像的变更历史"></a>列出镜像的变更历史</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker history 镜像id</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker网络"><a href="#docker网络" class="headerlink" title="docker网络"></a>docker网络</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">容器网卡成对;veth-pari;docker0担任路由器docker <span class="built_in">exec</span> -it tomcat02 ping (tomcat01)</span></span><br></pre></td></tr></table></figure>
+
+<p>link技术</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d -P --name tomcat03 --link tomcat#docker exec -it tomcat02 ping tomcat01 不行#docker exec -it tomcat03 ping tomcat 02 行,反向不行.</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network --helpdocker network lsdocker network inspect bridge的iddocker inspect 容器的id</span><br></pre></td></tr></table></figure>
+
+<p>网络联通的操作及自定义网络</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network --helpdocker network ls#查看所有的docker网络#以前都是默认的--net bridgedocker run -d -P --name tomcat01 --net bridge tomcat</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network create --driver bridge --subnet 192.168.0.0/16 --gatway 192.168.0.1 mynetdocker network inspect mynetdocker run -d -P --name tomcat-net-01 --net mynet tomcatdocker run -d -P --name tomcat-net-02 --net mynet tomcatdocker exec -it tomcat-net-01 ping 192.168.0.3#行docker exec -it tomcat-net-01 ping 192.168.0.3#行</span><br></pre></td></tr></table></figure>
+
+
+
+<p>网络模式:</p>
+<p>bridge:桥接模式,就是交换机.</p>
+<p>host:宿主机模式</p>
+<p>联通阿里网络</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network connect --helpdocker network connect mynet tomcat01docker network inspect mynet#一个容器两个ip,就是公网ip,私网iipdocker ex</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="docker小总结"><a href="#docker小总结" class="headerlink" title="docker小总结"></a>docker小总结</h3><h4 id="总体步骤"><a href="#总体步骤" class="headerlink" title="总体步骤"></a>总体步骤</h4><p>搜索镜像,拉去镜像,查看镜像,启动镜像,停止镜像,移除镜像</p>
+<p>mysql</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 12345:3306 --name mysql-v /zz/mysql/conf:/etc/mysql/conf.d-v /zz/mysql/logs:/logs-v /zz/mysql/data:/var/lib/mysql-e MYSQL_ROOT_PASSWORD=123456-d mysql:5.6docker exec -it mysql的id /bin/bashmysql&gt; mysql -uroot -p#数据备份docker exec id sh -c &#x27;exec mysqldump --all-databases -uroot -p&quot;123456&quot;&#x27; &gt; /zz/all-databases.sql</span><br></pre></td></tr></table></figure>
+
+<p>redis</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -p 6379:6379-v /zz/myredis/data:/data-v /zz/myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf-d redis:3.2 redis-server /usr/local/etc/redis/redis.conf--appendony yes #持久化</span><br></pre></td></tr></table></figure>
+
+<p>修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /zz/myredis/conf/redis.conf/redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>连接redis</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis的id redis-cli&gt; SHUTDOWN 退出#东西放在data文件里了.</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker学习-补充"><a href="#docker学习-补充" class="headerlink" title="docker学习-补充"></a>docker学习-补充</h2><h3 id="参考文献-1"><a href="#参考文献-1" class="headerlink" title="参考文献"></a>参考文献</h3><blockquote>
+<p> [1] <a href="https://www.bilibili.com/video/av74808660/?spm_id_from=333.788.b_765f64657363.2">Docker速通教程（全平台可参考）——司波图 UNRAID 陪玩教程 02_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<hr>
+<h3 id="docker模型"><a href="#docker模型" class="headerlink" title="docker模型"></a>docker模型</h3><p>container 容器,当成集装箱吧</p>
+<p>image 映像,当成物品,运行环境和库等东西</p>
+<p>镜像  容器: run commit</p>
+<p>镜像  tar文件: save load</p>
+<p>镜像 dockerfile: build</p>
+<p>镜像 仓库: push pull</p>
+<hr>
+<p>docker狂神</p>
+<h3 id="docker学习"><a href="#docker学习" class="headerlink" title="docker学习"></a>docker学习</h3><p>按照官网的doc来,看来ubuntu 和centos安装有很大的不一样.</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>docker官网</p>
+<p><a href="https://www.docker.com/">Empowering App Development for Developers | Docker</a></p>
+<p>docker文档</p>
+<p><a href="https://docs.docker.com/">Docker Documentation | Docker Documentation</a></p>
+<p>dockerhub</p>
+<p><a href="https://hub.docker.com/">Docker Hub</a></p>
+<p>镜像(image):</p>
+<p>docker镜像,一个模板,通过模板创建容器,tomcat镜像-&gt;run-&gt;tomcat01容器,通过这个镜像可以创建多个容器,项目运行是在容器中的</p>
+<p>容器(container):</p>
+<p>通过镜像创立,基本命令:启动,停止,删除.</p>
+<p>把容器理解成最简易的linux系统</p>
+<p>仓库(repository):</p>
+<p>和github一样,存放镜像的地方,阿里云也有容器服务,我们通过阿里云配置镜像加速.</p>
+<h4 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h4><p>这个人把官网翻译下来,并且用了阿里云镜像,我就为了学习ubuntu下载docker如何使用阿里云镜像.</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_43648470/article/details/108171050">Ubuntu安装docker教程并配置阿里云镜像加速_危机！的博客-CSDN博客</a></p>
+</blockquote>
+<p>整理程序,不要注释</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br><span class="line">sudo apt-get update</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">sudo apt-key fingerprint 0EBFCD88</span><br><span class="line">sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo \</span><br><span class="line">  &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/linux/ubuntu \</span><br><span class="line">  $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>算了,还是按照阿里云镜像网址上来吧</p>
+<p>命令</p>
+<p>镜像</p>
+<p>容器数据卷</p>
+<p>dockerfile</p>
+<p>docker网络原理</p>
+<p>IDEA整合docker</p>
+<p>集群 docker compose</p>
+<p>docker swarm(简化版的k8s)</p>
+<p>CI\CD jenkins</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gitea搭建</title>
+    <url>/2021/10/09/base/gitea%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>: 因为有人说gitlab比较臃肿,换成了gitea.其实按照gitea官网就差不多安装好,不配置mysql,使用小数据库也凑合用.其中一些配置没有理解映射关系,废了很大力气.现在这些方案都能成功.</p>
+<p>gitea搭建,建议使用docker.</p>
+<p><strong>Keywords</strong>:如何搭建gitea</p>
+<span id="more"></span>
+
+<h3 id="测试方案1"><a href="#测试方案1" class="headerlink" title="测试方案1"></a>测试方案1</h3><p>参考文献</p>
+<p>[1] [<a href="https://www.bilibili.com/video/BV1b741177ku?from=search&seid=13104590433235353282&spm_id_from=333.337.0.0">Docker 教學] 不用五分鐘安裝好 Gitea (自架 Git Hosting 最佳選擇)_哔哩哔哩_bilibili</a></p>
+<p>[2] <a href="https://www.bilibili.com/video/BV12y4y1S76p?from=search&seid=597077431223595758&spm_id_from=333.337.0.0">gitea生产环境安装_哔哩哔哩_bilibili</a></p>
+<p>gitea</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">version: <span class="string">&#x27;2&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    image: gitea/gitea:<span class="number">1.12</span>.<span class="number">4</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./data:/data</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;3000:3000&quot;</span></span><br><span class="line">      - <span class="string">&quot;22:22&quot;</span></span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">    restart: always</span><br><span class="line">  db:</span><br><span class="line">    image: mariadb:<span class="number">10</span></span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      - MYSQL_ROOT_PASSWORD=changeme</span><br><span class="line">      - MYSQL_DATABASE=gitea</span><br><span class="line">      - MYSQL_USER=gitea</span><br><span class="line">      - MYSQL_PASSWORD=changeme</span><br><span class="line">    volumes:</span><br><span class="line">      - ./db/:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+
+<p>docker-compose.yml</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up #-d sh</span><br><span class="line">docker-compose down -v</span><br><span class="line">在gitea base url 中 localhost 换成 自己主机的名字</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/10/09/base/gitea%E6%90%AD%E5%BB%BA/image-20210906105347806.png" alt="image-20210906105347806"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker rm -f id id id </span><br><span class="line">docker-compose ps</span><br></pre></td></tr></table></figure>
+
+<h4 id="不使用docker-compose"><a href="#不使用docker-compose" class="headerlink" title="不使用docker compose"></a>不使用docker compose</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run --name myredis -d -p 6379:6379 redis</span><br><span class="line">docker build -t myapplication</span><br><span class="line">docker run --name myapp_using_redis -p 5000:5000 --link myredis:redis -d myapplication</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="测试方案2"><a href="#测试方案2" class="headerlink" title="测试方案2"></a>测试方案2</h3><p>参考文献</p>
+<blockquote>
+<p>[1] <a href="https://learnku.com/articles/39945">使用 docker 搭建一个 gitea 的 Git 服务器 | Go 技术论坛 (learnku.com)</a></p>
+<p>[2] <a href="https://zhuanlan.zhihu.com/p/386948662">使用docker搭建最新版本的gitea，并配置HTTPS访问 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<h4 id="记录修改"><a href="#记录修改" class="headerlink" title="记录修改"></a>记录修改</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 添加了/data/gitea</span><br><span class="line">2 docker run -d --privileged=true --restart=always --name=gitea -p 20022:22 -p 20080:3000 -v /var/lib/gitea:/data gitea/gitea:latest</span><br></pre></td></tr></table></figure>
+
+<h4 id="测试端口"><a href="#测试端口" class="headerlink" title="测试端口"></a>测试端口</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet ip port</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python3 -m http.server 8001 --directory ./</span><br></pre></td></tr></table></figure>
+
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>通过20080端口,可以实现进入gitea,但是因为没有数据库,所有不能安装gitea</p>
+<p>我们把数据库换成sqlite,这是一个手机app都在用的轻量化数据库.</p>
+<p>现在可以运行了.</p>
+<h5 id="测试管理员"><a href="#测试管理员" class="headerlink" title="测试管理员"></a>测试管理员</h5><p>liji : liji .数据库:sqlite</p>
+<h5 id="测试新建用户"><a href="#测试新建用户" class="headerlink" title="测试新建用户"></a>测试新建用户</h5><p>成功</p>
+<h5 id="测试git命令"><a href="#测试git命令" class="headerlink" title="测试git命令"></a>测试git命令</h5><p>成功</p>
+<h5 id="测试download"><a href="#测试download" class="headerlink" title="测试download"></a>测试download</h5><p>成功</p>
+<h3 id="docker-compose学习-狂神"><a href="#docker-compose学习-狂神" class="headerlink" title="docker compose学习-狂神"></a>docker compose学习-狂神</h3><blockquote>
+<p><a href="https://www.bilibili.com/video/BV1kv411q7Qc?p=2">【狂神说Java】Docker进阶篇超详细版教程通俗易懂_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;2.0&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="attr">web:</span></span><br><span class="line">		<span class="string">build</span></span><br><span class="line">		<span class="string">ports</span></span><br><span class="line">		<span class="string">volumes</span></span><br><span class="line">		<span class="attr">links:</span></span><br><span class="line">			<span class="string">redis</span></span><br><span class="line">	<span class="attr">redis:</span></span><br><span class="line">		<span class="string">image:redis#g</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"></span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p>services,应用,比如mysql</p>
+<p>备用地址</p>
+<h3 id="测试方案3"><a href="#测试方案3" class="headerlink" title="测试方案3"></a>测试方案3</h3><p>docker-compose.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">gitea:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">server:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">gitea/gitea:1</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gitea</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">USER_UID=1000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">USER_GID=1000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_TYPE=mysql</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_HOST=db:3306</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_NAME=gitea123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_USER=gitea123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">DB_PASSWD=gitea123</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">gitea</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./gitea:/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/timezone:/etc/timezone:ro</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;10003:3000&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;10002:22&quot;</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span></span><br><span class="line"> </span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:8</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gitea_mnt_mysql</span></span><br><span class="line">    <span class="attr">security_opt:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">seccomp=unconfined</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_ROOT_PASSWORD=gitea123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_USER=gitea123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_PASSWORD=gitea123</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_DATABASE=gitea123</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">gitea</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./mysql:/var/lib/mysql</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>修改后的313gitea</p>
+<p><img src="/2021/10/09/base/gitea%E6%90%AD%E5%BB%BA/image-20210908020058311.png" alt="image-20210908020058311"></p>
+<p>修改后的421 gitea</p>
+<p><img src="/2021/10/09/base/gitea%E6%90%AD%E5%BB%BA/image-20210908020208324.png" alt="image-20210908020208324"></p>
+<p><img src="/2021/10/09/base/gitea%E6%90%AD%E5%BB%BA/image-20210908020345948.png" alt="image-20210908020345948"></p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>gitea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github,gitee的page与加速</title>
+    <url>/2021/10/09/base/github,gitee%E7%9A%84page%E4%B8%8E%E5%8A%A0%E9%80%9F/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:实现在github上搭建page.实现在github上的pull/push加速.实现gitee对github 的导入,使得gitee具有备份功能. </p>
+<p>就是为github搭建代理,包括加速http和ssh.然后搭建github pages.</p>
+<p>实现了之后,我问我自己为什么要选择jekyll呢,那是何等的折磨.搭建方案不重要,重要的是我的博客文字.</p>
+<p><strong>Keywords</strong>:github pages,hexo</p>
+<span id="more"></span>
+
+
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://kouyt5.github.io/2020/12/23/windows-SSH%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE.html">代理服务器与ssh和git - cc的小站 (kouyt5.github.io)</a></p>
+<p>[2] <a href="https://www.jianshu.com/p/e9764e61ef90">Git Stash命令的使用 - 简书 (jianshu.com)</a></p>
+<p>[3] <a href="https://blog.csdn.net/dxxzst/article/details/76135935">Hexo 最常用的几个命令_到现在负的博客-CSDN博客</a></p>
+<h2 id="github的pull-push加速问题"><a href="#github的pull-push加速问题" class="headerlink" title="github的pull/push加速问题"></a>github的pull/push加速问题</h2><h3 id="私钥是否能通用-gitee和github能同时用一个公钥吗"><a href="#私钥是否能通用-gitee和github能同时用一个公钥吗" class="headerlink" title="私钥是否能通用,gitee和github能同时用一个公钥吗?"></a>私钥是否能通用,gitee和github能同时用一个公钥吗?</h3><p>按照原理,我认为是可以的.因为仓库才能决定要发往哪个地方.</p>
+<p>先尝试使用github专用的密钥</p>
+<h2 id="实验过程"><a href="#实验过程" class="headerlink" title="实验过程"></a>实验过程</h2><p>1 测试了一下,<code>git init</code>.<code>config</code>文件只是有core,没有用户名邮箱之类的东西.</p>
+<p>2 加入ssh-key,这是gitea使用的.测试<code>git clone</code>.</p>
+<p>成功,但有问题.原因是没找到私钥<code>github</code>.原来是我写了两个Host,一个私钥是<code>github</code>,一个私钥是<code>gitea</code>的,虽然文件名字不带gitea.遂删除一个Host,继续测试.成功.</p>
+<p>我想测试网速问题.但是通过<code>ssh -T</code>终端说<code>but github does not provide shell access</code>.先测试一下能不能push.不能push,原因是没有用户名和邮箱,添加上,测试.成功.但是网速273kb,有点慢,加点文件试一下,测试.938kb,还可以呀,关掉vpn,测试.成功,网速1m多,可以呀,还要啥自行车,为啥ssh连接github不用vpn也很快呢.哪个没有用户名的原因可能是我的gitea中邮箱是<a href="mailto:&#x6c;&#105;&#106;&#x69;&#x40;&#103;&#105;&#116;&#x65;&#x61;&#46;&#99;&#x6f;&#x6d;">&#x6c;&#105;&#106;&#x69;&#x40;&#103;&#105;&#116;&#x65;&#x61;&#46;&#99;&#x6f;&#x6d;</a>,而github是qq邮箱,所以才不让我用,所以我要把密钥改成gitee的.还是不行，是不是密钥都被污染了？重新生成新的密钥试一试,测试.</p>
+<p>最终我放弃了.我就这样吧,每一个仓库我都用local的用户名和邮箱.不折腾了.</p>
+<p>3 实验: ssh加速的github测试?</p>
+<p>1)测试方案一</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 基于http的git和基于http或socks5的代理</span></span><br><span class="line">git config --global http.proxy &quot;http://127.0.0.1:1080&quot;#换成自己代理的端口号</span><br><span class="line">git config --global https.proxy &quot;http://127.0.0.1:1080&quot;</span><br><span class="line">git config --global http.proxy &quot;socks5://127.0.0.1:1080&quot;</span><br><span class="line">git config --global https.proxy &quot;socks5://127.0.0.1:1080&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash">基于ssh的git和基于http或socks5的代理</span></span><br><span class="line">Host github.com</span><br><span class="line">ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=1080</span><br><span class="line">Host github.com</span><br><span class="line">ProxyCommand nc -v -x 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+
+<p>结果都不行,这好像是Linux的</p>
+<p>**注意<code>[http]    proxy=http://user:password@ip:1080</code>**还好我们的没有用户名和密码限制,直接输入@后边的ip及之后内容就可以了.</p>
+<ol start="2">
+<li>测试2 [^1]</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ProxyCommand &quot;C:\Program Files\Git\mingw64\bin\connect.exe&quot; -H 127.0.0.1:10809 %h %p</span><br><span class="line">ProxyCommand &quot;C:\Program Files\Git\mingw64\bin\connect.exe&quot; -S 127.0.0.1:10808 %h %p</span><br></pre></td></tr></table></figure>
+
+<p>结果可以</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>下载速度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ssh 无</td>
+<td>1.30m/s</td>
+</tr>
+<tr>
+<td>ssh socks5</td>
+<td>1.15m/s</td>
+</tr>
+<tr>
+<td>ssh http</td>
+<td>1.34m/s</td>
+</tr>
+</tbody></table>
+<p>合着费了半天劲,没啥用呀.</p>
+<p>4 实验: ssh实现github不用设置gitconfig或者用户名和邮箱也能push?</p>
+<ol>
+<li>使用如下设置去push?</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    #User git</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_github</span><br><span class="line">    #ProxyCommand nc -X 5 x 127.0.0.1:10808 %h %p</span><br></pre></td></tr></table></figure>
+
+<p>不行,改成<code>User Smithol</code>也不行.可能需要重新来.</p>
+<ol start="2">
+<li>如下设置去push</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> github</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_github</span><br><span class="line">    #ProxyCommand nc -X 5 x 127.0.0.1:10808 %h %p</span><br></pre></td></tr></table></figure>
+
+<p> 不行,估计现在改了user git 会还是不行</p>
+<ol start="3">
+<li>如下设置去push</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> github</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User Smithol </span><br><span class="line">    #PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_github</span><br><span class="line">    #ProxyCommand nc -X 5 x 127.0.0.1:10808 %h %p</span><br></pre></td></tr></table></figure>
+
+<p>不行</p>
+<p>4)设置<code>.gitconfig</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line">	name = li--ji#这是gitee中的名字</span><br><span class="line">	email = 1216990865@qq.com#gitee和github都用这个名字</span><br></pre></td></tr></table></figure>
+
+<p>设置完了居然就能push了.</p>
+<p>5)在4)基础上去掉user呢.</p>
+<p>结果是可以的,看来就是和<code>.gitconfig</code>有关.</p>
+<p>6)如果<code>.gitconfig</code>改成没有邮箱呢?</p>
+<p>不行</p>
+<ol start="7">
+<li>如下设置<code>.gitconfig</code>呢</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line"><span class="meta">	#</span><span class="bash">name = li--ji</span></span><br><span class="line">	email = adopemind@163.com</span><br><span class="line">	email = 1216990865@qq.com</span><br></pre></td></tr></table></figure>
+
+<p>可以的.但是感觉不太合适,<strong>命令行添加多个邮箱应该报错吧?</strong></p>
+<p>总之,也算是解决了不能push的问题.最终如下设置<code>.gitconfig</code>即可.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line"><span class="meta">	#</span><span class="bash">name = li--ji</span></span><br><span class="line"><span class="meta">	#</span><span class="bash">email = adopemind@163.com</span></span><br><span class="line">	email = 1216990865@qq.com</span><br></pre></td></tr></table></figure>
+
+<p>我好像明白了，gitconfig可以不用正确的Email，或者name。这个只是说明是谁修改的，至于你叫啥啥来头，没必要。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line">	name = liji</span><br><span class="line">	email = 1216990865@qq.com</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="git-pull实验-2-及常用命令"><a href="#git-pull实验-2-及常用命令" class="headerlink" title="git pull实验[2]及常用命令"></a>git pull实验[2]及常用命令</h2><p>改动后的文件会影响git的正常拉取(git提示先处理本地的改动才可以拉取)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git stash</span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h2 id="github-page实现"><a href="#github-page实现" class="headerlink" title="github page实现"></a>github page实现</h2><h3 id="1github寻找模板"><a href="#1github寻找模板" class="headerlink" title="1github寻找模板"></a>1github寻找模板</h3><p> 在github上搜索jekyll,或jekyll pages,好看的就fork,最后pull到本地改成自己的.</p>
+<h3 id="2-不错的安装hexo的网站"><a href="#2-不错的安装hexo的网站" class="headerlink" title="2 不错的安装hexo的网站"></a>2 不错的安装hexo的网站</h3><p><a href="https://ryanluoxu.github.io/2017/11/24/%E7%94%A8-Hexo-%E5%92%8C-GitHub-Pages-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">用 Hexo 和 GitHub Pages 搭建博客 | 途探生灵 (ryanluoxu.github.io)</a></p>
+<h3 id="3-最终选择了chirpy-jekyll主题"><a href="#3-最终选择了chirpy-jekyll主题" class="headerlink" title="3 最终选择了chirpy jekyll主题"></a>3 最终选择了chirpy jekyll主题</h3><p><a href="https://github.com/cotes2020/jekyll-theme-chirpy">cotes2020/jekyll-theme-chirpy: A minimal, responsive, and powerful Jekyll theme for presenting professional writing (github.com)</a></p>
+<p>遇到的问题</p>
+<p>1）原始主题在linux系统中完成，<strong>而且删除index.html文件,不然page老是显示这个界面</strong></p>
+<ol start="2">
+<li>可能会用到docker.将s2020020922加入docker组</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker     #添加docker用户组</span><br><span class="line">addgroup xingxing docker #将xingxing用户添加到docker</span><br><span class="line">newgrp docker     #更新用户组;这个很重要.</span><br><span class="line">docker ps    #测试docker命令是否可以使用sudo正常使用</span><br><span class="line">groups xingxing  #查看xingxing用户所属于的组.</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-哦-我亲爱的hexo"><a href="#4-哦-我亲爱的hexo" class="headerlink" title="4 哦,我亲爱的hexo"></a>4 哦,我亲爱的hexo</h3><p>由于chirpy老是没法添加分类，这就很烦。我决定放弃jekyll,选择大众化的hexo,还是稳定的好呀,烂大街也没事,重要的是内容.</p>
+<p>1)安装git和node.js,node是js的运行环境.</p>
+<p>2)安装Hexo</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org #国内镜像,在用户下的.npmrc中.</span><br><span class="line">npm i hexo-cli -g</span><br><span class="line">hexo init . #.是当前文件夹,不是当前文件就指定文件</span><br><span class="line">npm install</span><br><span class="line"><span class="meta">#</span><span class="bash"> 新建博客</span></span><br><span class="line">hexo new &quot;博客名&quot; #可以取_post中自己建立md文件</span><br><span class="line">hexo g # 生成静态网页 ,generate</span><br><span class="line">hexo s# 打开本地服务器,serve</span><br></pre></td></tr></table></figure>
+
+<p>其他常用命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean #清除db.json,public.网络异常时就使用这个重新生成网页.</span><br><span class="line">hexo new page aboutme # 新建一个标题为 aboutme 的页面，默认链接地址为 主页地址/aboutme/</span><br></pre></td></tr></table></figure>
+
+
+
+<p>目录结构</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line"> ├── _config.yml # 网站配置信息</span><br><span class="line"> ├── package.json # 应用程序信息</span><br><span class="line"> ├── scaffolds # 模板文件夹.新建文章时,hexo根据scaffolds建立文件</span><br><span class="line"> ├── source # 存放用户资源</span><br><span class="line"> |   ├── _drafts</span><br><span class="line"> |   └── _posts</span><br><span class="line"> └── themes # 主题文件夹,可更换主题.</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>与github连接</li>
+</ol>
+<p>就是把<code>public</code>文件夹上传到Page的仓库.</p>
+<p>方法一:把Page的git放在public文件夹,push文件</p>
+<p>方法二: 如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save #安装此库</span><br><span class="line"><span class="meta">#</span><span class="bash">修改_config.yml.对 Hexo 根目录 _config.yml 的修改，需要重启本地服务器后才能预览效果</span></span><br><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: git@github.com:xxx/xxx.github.io.git</span><br><span class="line">	branch: main</span><br><span class="line"><span class="meta">#</span><span class="bash">现在是main了.xxx是github用户名.</span></span><br><span class="line"><span class="meta">#</span><span class="bash">deploy</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>4)自动部署hexo</p>
+<blockquote>
+<p>参考文献</p>
+<p>[1] <a href="https://zhuanlan.zhihu.com/p/170563000">GitHub Actions 来自动部署 Hexo - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<p>目的是使用github的actions,要创建<code>.github/workflows/deploy.yml</code>,有时间再看,想起了被jekyll支配的恐惧.</p>
+<ol start="5">
+<li>更换主题</li>
+</ol>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/149710191">为 Hexo 博客更换主题 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<p>当然是next了.</p>
+<blockquote>
+<p>有人使用了<code>git submodule add https://github.com/theme-next/hexo-theme-next themes/next</code>,可我不需要,我的hexo项目中就没有<code>.git</code>文件,也就不能<code>submodule</code>了.</p>
+<p>所以我是在theme文件下用<code>git clone git@github.com:Smithol/hexo-theme-next.git ./next</code></p>
+</blockquote>
+<p><code>_config.yml</code>中<code>theme</code>添加<code>theme:next</code>就可以使用next主题了</p>
+<ol start="6">
+<li>next 中 为tags等添加page</li>
+</ol>
+<blockquote>
+<p>参考文献:[1]  <a href="https://blog.csdn.net/mqdxiaoxiao/article/details/93644533">Hexo博客NexT主题下添加分类、标签、关于菜单项_野猿新一-CSDN博客_next 标签</a></p>
+<p>[2] <a href="https://zhuanlan.zhihu.com/p/149710191">为 Hexo 博客更换主题 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">source</span>/tags/index.md 添加</span></span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>next添加标签云</li>
+</ol>
+<h4 id="参考文献-1"><a href="#参考文献-1" class="headerlink" title="参考文献"></a>参考文献</h4><blockquote>
+<p>参考文献: <a href="https://blog.csdn.net/Aoman_Hao/article/details/89416634">Hexo博客Next主题建立标签云hexo-tag-cloud及效果展示_AomanHao的博客-CSDN博客</a></p>
+</blockquote>
+<p>修改内容可以去github找hexo-tag-cloud.</p>
+<p>8)常见问题</p>
+<h4 id="参考文献-2"><a href="#参考文献-2" class="headerlink" title="参考文献"></a>参考文献</h4><blockquote>
+<p><a href="https://sspai.com/post/59568">hexo next 主题优化 | 这里可能有你遇到所有问题的答案 - 少数派 (sspai.com)</a></p>
+</blockquote>
+<p>这篇文章解决了很多问题.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">文章部分显示</span><br><span class="line">修改头像</span><br><span class="line">修改站点icon</span><br><span class="line">搜索功能</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>next 自带的标签云</li>
+</ol>
+<p>自带的标签云太小了。在<code>theme/next/_config.yml</code>修改<code>tagcloud</code>.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">tagcloud:</span><br><span class="line">  min: <span class="number">20</span> # Minimun font size in px</span><br><span class="line">  max: <span class="number">30</span> # Maxium font size in px</span><br><span class="line">  start: <span class="string">&quot;#666&quot;</span> # Start color (hex, rgba, hsla or color keywords)</span><br><span class="line">  end: <span class="string">&quot;#111&quot;</span> # End color (hex, rgba, hsla or color keywords)</span><br><span class="line">  amount: <span class="number">200</span> </span><br></pre></td></tr></table></figure>
+
+<p>#666即#6666666.颜色0-255即00-ff.</p>
+<ol start="10">
+<li>官方文档yyds</li>
+</ol>
+<h4 id="参考文献-3"><a href="#参考文献-3" class="headerlink" title="参考文献"></a>参考文献</h4><blockquote>
+<p>nexT官方文档: <a href="http://theme-next.iissnan.com/getting-started.html#theme-settings">开始使用 - NexT 使用文档 (iissnan.com)</a></p>
+</blockquote>
+<ol start="11">
+<li>博客名字颜色</li>
+</ol>
+<h4 id="参考文献-4"><a href="#参考文献-4" class="headerlink" title="参考文献"></a>参考文献</h4><blockquote>
+<p><a href="https://nokiasonic.github.io/2020/12/10/[Hexo]Next%E4%B8%BB%E9%A2%98%E6%A0%87%E9%A2%98%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE/">【Hexo】Next主题标题颜色设置 | 橘子树下 (nokiasonic.github.io)</a></p>
+</blockquote>
+<p>找到<code>\themes\next\source\css\_common\outline\header\site-meta.styl</code>文件。编辑修改<code>.brand&#123;&#125;</code>里<code>color</code>参数配置为<code>#fc6423</code>(橘色)</p>
+<p>12)喜欢的博客主题</p>
+<blockquote>
+<p><a href="https://blog.cofess.com/">Cofess - Web Developer &amp; Designer</a></p>
+<p><a href="https://github.com/cofess">cofess (Sunny) (github.com)</a></p>
+</blockquote>
+<p>我的jekyll呀</p>
+<blockquote>
+<p><a href="https://codeswift.top/">CodeSwift</a></p>
+</blockquote>
+<ol start="12">
+<li>添加图片</li>
+</ol>
+<h4 id="参考文献-5"><a href="#参考文献-5" class="headerlink" title="参考文献"></a>参考文献</h4><blockquote>
+<p><a href="https://blog.csdn.net/weixin_44999716/article/details/112401495">hexo博客中插入的图片不显示_煜成’Studio的博客-CSDN博客_hexo 图片不显示</a></p>
+<p><a href="https://www.jianshu.com/p/f72aaad7b852">HEXO插入图片（详细版） - 简书 (jianshu.com)</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save #download</span><br><span class="line">打开/node_modules/hexo-asset-image/index.js,替换一些东西</span><br><span class="line">_config.yml文件，post_asset_folder: true</span><br><span class="line">文件路径:./111/222.png</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>githubpages</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gitlab搭建</title>
+    <url>/2021/10/09/base/gitlab%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:那时候内网想搭建一个服务器,供大家push代码.现在搭建好了,因为局域网不通而无法共用,现在看来如果共用,也一定会夭折.所以先把自己的仓库弄好,不要贪多.此文是关于gitlab的内网服务器搭建的方法,建议使用docker.</p>
+<p><strong>Keywords</strong>:如何搭建gitlab服务器</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://zhuanlan.zhihu.com/p/63786567">使用 Docker 搭建 GitLab - 知乎 (zhihu.com)</a></p>
+<h2 id="Gitlab的搭建"><a href="#Gitlab的搭建" class="headerlink" title="Gitlab的搭建"></a>Gitlab的搭建</h2><p>在421服务器，usr/local/docker/gitlab文件下建立gitlab.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd usr/local/docker/gitlab</span><br><span class="line">sudo docker ps #加sudo因为可能权限不够,以下都是.</span><br><span class="line">docker ps #看看有啥容器</span><br><span class="line">vi docker-compose.yml</span><br></pre></td></tr></table></figure>
+
+<p>docker-compose.yml</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">version: <span class="number">3</span></span><br><span class="line">services:</span><br><span class="line">    gitlab:</span><br><span class="line">        image: gitlab/gitla-ce:laste或者版本号</span><br><span class="line">        restart: always</span><br><span class="line">        hostname: 服务器ip</span><br><span class="line">        environment:</span><br><span class="line">            TZ: Asia/Shanghai</span><br><span class="line">            GITLAB_OMNIBUS_CONFIG:</span><br><span class="line">                external_url: http://...</span><br><span class="line">                gitlab_rails[<span class="string">&#x27;gitlab_shell_ssh_port&#x27;</span>]=<span class="number">2222</span></span><br><span class="line">                unicorn[<span class="string">&#x27;port&#x27;</span>]=<span class="number">8888</span></span><br><span class="line">                nginx[<span class="string">&#x27;listen_port&#x27;</span>]=<span class="number">8080</span></span><br><span class="line">        ports:</span><br><span class="line">            <span class="number">8080</span>:<span class="number">8080</span></span><br><span class="line">            ....</span><br><span class="line">        volumes:</span><br><span class="line">            -/usr/local/docker/gitlab/config:/etc/gitlab</span><br></pre></td></tr></table></figure>
+
+<p>docker harbor</p>
+<p>b 站第二个用户,这家伙是在win用户下操作的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\users\Administrator</span><br><span class="line"># 下载gitlab,这是最新版本</span><br><span class="line">docker pull gitlab/gitlab-ce</span><br><span class="line"># 配置gitlab的配置etc,日志log,数据data</span><br><span class="line">mkdir -p /srv/gitlab/config</span><br><span class="line">mkdir -p /srv/gitlab/logs</span><br><span class="line">mkdir -p /srv/gitlab/data</span><br></pre></td></tr></table></figure>
+
+<p>配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">  --hostname gitlab.example.com \</span><br><span class="line">  --publish 443:443 --publish 80:80 --publish 22:22 \</span><br><span class="line">  --name gitlab \</span><br><span class="line">  --restart always \</span><br><span class="line">  --volume /srv/gitlab/config:/etc/gitlab \</span><br><span class="line">  --volume /srv/gitlab/logs:/var/log/gitlab \</span><br><span class="line">  --volume /srv/gitlab/data:/var/opt/gitlab \</span><br><span class="line">  gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo docker run --detach \</span><br><span class="line">  --hostname gitlab.example.com \   # 设置主机名或域名</span><br><span class="line">  --publish 443:443 --publish 80:80 --publish 22:22 \ # 本地端口的映射</span><br><span class="line">  --name gitlab \     # gitlab-ce 的镜像运行成为一个容器，这里是对容器的命名</span><br><span class="line">  --restart always \  # 设置重启方式，always 代表一直开启，服务器开机后也会自动开启的</span><br><span class="line">  --volume /srv/gitlab/config:/etc/gitlab \   # 将 gitlab 的配置文件目录映射到 /srv/gitlab/config 目录中</span><br><span class="line">  --volume /srv/gitlab/logs:/var/log/gitlab \ # 将 gitlab 的log文件目录映射到 /srv/gitlab/logs 目录中</span><br><span class="line">  --volume /srv/gitlab/data:/var/opt/gitlab \ # 将 gitlab 的数据文件目录映射到 /srv/gitlab/data 目录中</span><br><span class="line">  gitlab/gitlab-ce:latest  # 需要运行的镜像</span><br></pre></td></tr></table></figure>
+
+<p>映射–8443:443 8880:89 8222:22</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>gitlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git常用命令-配置ssh公钥</title>
+    <url>/2021/10/09/base/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-%E9%85%8D%E7%BD%AEssh%E5%85%AC%E9%92%A5/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:gitconfig设置名字和邮箱,在github添加公钥,使用ssh下载.一些配置信息注意看仓库中的config.</p>
+<p><strong>Keywords</strong>:git,ssh</p>
+<span id="more"></span>
+
+<h2 id="git使用-win版本"><a href="#git使用-win版本" class="headerlink" title="git使用 win版本"></a>git使用 win版本</h2><h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>据说 npm是nodejs的前端maven</p>
+<h3 id="修改git环境"><a href="#修改git环境" class="headerlink" title="修改git环境"></a>修改git环境</h3><p>就是在win 用户下修改.gitconfig.<strong>注意这里的名字和邮箱就是让git知道是谁发出的修改.所以不必用和github上的用户名一样</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;liji&quot;</span><br><span class="line">git config --global user.email &quot;1216990865@qq.com&quot;</span><br><span class="line">或者</span><br><span class="line">直接去修改文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="git理论学习"><a href="#git理论学习" class="headerlink" title="git理论学习"></a>git理论学习</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add files# 提交至暂存区,即stage,index#git checkout</span><br><span class="line">git commit #提交至本地仓库,History#git reset</span><br><span class="line">git push # 提交到remote Directory远程仓库#git pull</span><br></pre></td></tr></table></figure>
+
+<p>workspace: 自己存放代码的地方</p>
+<p>index/stage:文件,保存即将要提交的东西,跟加了表头或者分批一样,git也看不到,也不想看</p>
+<p>repository: 仓库区,本地仓库</p>
+<p>remote:远程仓库,github,gitee</p>
+<h3 id="git命令使用"><a href="#git命令使用" class="headerlink" title="git命令使用"></a>git命令使用</h3><h4 id="初始化git"><a href="#初始化git" class="headerlink" title="初始化git"></a>初始化git</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init#跟新建.idea 一样</span><br><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+<h4 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status# 看看文件状态.git add后可以查看修改了啥.</span><br><span class="line">git add . #添加所有文件</span><br><span class="line">git commit -m &quot;自己想显示的信息&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="gitignore"><a href="#gitignore" class="headerlink" title="gitignore"></a>gitignore</h4><p>里边的文件不用git.</p>
+<p>在主目录下建立<code>.gitignore</code>,</p>
+<p>#此为注释</p>
+<p>* 任意多字符,    ?一个字符,    .任何字符,    !例外文件,不参与正则规则,    [abc]可选字符,    {str1,str2}可选字符串,    /文件,此文件,    文件/,文件下层目录筛选    </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="绑定SSH公钥-在用户-ssh文件"><a href="#绑定SSH公钥-在用户-ssh文件" class="headerlink" title="绑定SSH公钥 在用户.ssh文件"></a>绑定SSH公钥 在用户.ssh文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa#生成两个文件,用.pub文件,配置公钥.</span><br><span class="line">ssh-keygen -t rsa -C &lt;email&gt; -f &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="git-clone-url"><a href="#git-clone-url" class="headerlink" title="git clone [url]"></a>git clone [url]</h4><p>新建私人仓库后,在本地空文件夹中,就可以克隆了</p>
+<p>注意克隆的时候选用ssh<strong>连接就可以避免给私人仓库输入密码了</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone [url]</span><br></pre></td></tr></table></figure>
+
+<h2 id="IDEA中使用Git"><a href="#IDEA中使用Git" class="headerlink" title="IDEA中使用Git"></a>IDEA中使用Git</h2><p>1 新建项目绑定git</p>
+<p>即把远程git项目所有文件移动到自己的项目里就可以</p>
+<p>2 git add,放入工程;git commit,工程打包;git push,发送工程包</p>
+<h2 id="分支–多个版本存在"><a href="#分支–多个版本存在" class="headerlink" title="分支–多个版本存在"></a>分支–多个版本存在</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git branch #查看本地分支</span><br><span class="line">git branch -r #查看远程分支</span><br><span class="line">git branch name #新建分支 name</span><br><span class="line">git checkout -b branch-name #切换分支</span><br><span class="line">git checkout name</span><br><span class="line">git switch name</span><br><span class="line"></span><br><span class="line">git branch -d #删除分支</span><br><span class="line">git branch -dr remote-branch #删除远程分支</span><br><span class="line"></span><br><span class="line">git merge branch #冲突协商</span><br><span class="line">git push --set-upstream origin dev #新分支放远程上</span><br></pre></td></tr></table></figure>
+
+<p>新建分支后,git的add等命令都需要来一遍,比如,我建立dev分支后</p>
+<h2 id="github-与-git"><a href="#github-与-git" class="headerlink" title="github 与.git"></a>github 与.git</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[core]	repositoryformatversion = 0	filemode = false	bare = false	logallrefupdates = true	symlinks = false	ignorecase = true[remote &quot;origin&quot;]	url = https://gitee.com/young_for_ever/gitstudy.git	fetch = +refs/heads/*:refs/remotes/origin/*[branch &quot;master&quot;]	remote = origin	merge = refs/heads/master[branch &quot;dev&quot;]	remote = origin	merge = refs/heads/dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># github常用命令git initgit add readme.mdgit commit -m &quot;first&quot;git remote add origin https://githu...git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="remote-User-permission-denied"><a href="#remote-User-permission-denied" class="headerlink" title="remote: User permission denied"></a>remote: User permission denied</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git credential-manager uninstall #清除残存的干扰账号</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title>shell脚本入门</title>
-    <url>/2021/10/09/10.08/shell%E8%84%9A%E6%9C%AC/</url>
+    <url>/2021/10/09/base/shell%E8%84%9A%E6%9C%AC/</url>
     <content><![CDATA[<p><strong>Abstract</strong>:关于shell脚本的理念.还有一些关于编程学习的思路.</p>
 <p><strong>Keywords</strong>:Linux学习,shell脚本</p>
 <span id="more"></span>
@@ -462,74 +1094,192 @@
       </tags>
   </entry>
   <entry>
-    <title>win系统常见问题</title>
-    <url>/2021/10/09/10.08/win%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><strong>Abstract</strong>: 主要一些win环境遇到的问题.特别注意 :1)文件的权限,管理员权限的问题. 2)注册表问题. 3) 环境变量问题</p>
-<p><strong>Keywords</strong>: win文件权限,注册表,右键</p>
+    <title>ssh命令与使用</title>
+    <url>/2021/10/09/base/ssh%E5%91%BD%E4%BB%A4%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:记录了我学习ssh连接服务器和github的日子,很难想象我居然花了这么多时间,确实菜了一点.ssh连接服务器及ssh的原理.</p>
+<p><strong>Keywords</strong>:ssh命令,如何ssh连接服务器</p>
 <span id="more"></span>
 
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
-<p> <a href="https://blog.csdn.net/weixin_42613703/article/details/112169956">powershell无法激活conda虚拟环境</a></p>
-<p>[1] <a href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
-<p>[2] <a href="https://blog.csdn.net/qq_32087569/article/details/53706285?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control"> 计算机权限 用户组 system everyone 深入理解_辰皓的博客-CSDN博客</a></p>
-<p>[3] <a href="https://blog.csdn.net/funi16/article/details/12654505?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.control&spm=1001.2101.3001.4242">Windows 用户组权限_funi16的专栏-CSDN博客</a></p>
-<p>[1] <a href="https://www.cnblogs.com/sepmaple/articles/9401215.html">Windows注册表内容详解 - 九月如枫 - 博客园 (cnblogs.com)</a></p>
-<p>[2] <a href="https://www.cnblogs.com/fczjuever/archive/2013/04/09/3010711.html">使用注册表文件（REG）添加、修改或删除Windows注册表项和值 - 最初的幸福ever - 博客园 (cnblogs.com)</a></p>
-<p>[3] <a href="https://blog.csdn.net/stilling2006/article/details/5733276">注册表reg文件语法规则_stilling2006的专栏-CSDN博客</a></p>
-</blockquote>
-<h2 id="PowerShell-如何使用conda"><a href="#PowerShell-如何使用conda" class="headerlink" title="PowerShell 如何使用conda"></a>PowerShell 如何使用conda</h2><blockquote>
-<p> <a href="https://blog.csdn.net/weixin_42613703/article/details/112169956">powershell无法激活conda虚拟环境</a></p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#需要设置conda init powershell</span></span><br><span class="line"><span class="comment">#需要设置 executionpolicy</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://www.bilibili.com/video/BV15J411p7gU?from=search&seid=10894663129281934416">SSH小白教程一次弄懂SSH入门到精通,openssh/SSH协议/服务别名/秘钥文件/配置免密登录/SSH Github/Gitlab/VPS远程管理配置_哔哩哔哩_bilibili</a></p>
+<p>[2] <a href="https://ccstudio.com.cn/linux/part3/tg.html">5. Telegram · Linux-运维之美 (ccstudio.com.cn)</a></p>
+<p>[3] <a href="https://www.bilibili.com/video/BV1Ai4y1x7qK?from=search&seid=12279514146353174272">Linux操作系统—-SSH协议的工作原理_哔哩哔哩_bilibili</a></p>
+<p>[4] <a href="https://blog.csdn.net/aliaichidantong/article/details/86242540">Linux 实现密钥免密登录_aliaichidantong的博客-CSDN博客_linux免密钥登录</a></p>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>一般在用户下的.ssh,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#命令,ssh进入服务器</span><br><span class="line">ssh user@hostname</span><br><span class="line"></span><br><span class="line">known_hosts #作为客户端,记录曾连接服务器授权</span><br><span class="line"># .ssh下的config文件</span><br><span class="line">Host 200#这是个别名</span><br><span class="line">	HostName 192.168.0.200#服务器地址,hostname</span><br><span class="line">	User colin #user</span><br><span class="line">	Port 22</span><br><span class="line">#这样就不用每次连接都输入密码了</span><br><span class="line"></span><br><span class="line">#直接命令</span><br><span class="line">ssh 200</span><br><span class="line">#之后就是直接输入密码,其实也没什么,就是ssh命令读取了一个文件嘛,</span><br></pre></td></tr></table></figure>
 
-<h2 id="文件获得conda程序读取-文件权限"><a href="#文件获得conda程序读取-文件权限" class="headerlink" title="文件获得conda程序读取-文件权限"></a>文件获得conda程序读取-文件权限</h2><blockquote>
-<p>[1] <a href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
-<p>[2] <a href="https://blog.csdn.net/qq_32087569/article/details/53706285?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control"> 计算机权限 用户组 system everyone 深入理解_辰皓的博客-CSDN博客</a></p>
-<p>[3] <a href="https://blog.csdn.net/funi16/article/details/12654505?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.control&spm=1001.2101.3001.4242">Windows 用户组权限_funi16的专栏-CSDN博客</a></p>
-</blockquote>
-<p>1 将文件的安全，加上权限 anthenticated users或者everyone</p>
-<p>这两个特殊权限的区别见参考文献.简单说就是anthenticated users 是 everyone 的子集</p>
-<p>2 添加权限后,文件可以受conda等程序的读写</p>
-<h2 id="安装拒绝访问"><a href="#安装拒绝访问" class="headerlink" title="安装拒绝访问"></a>安装拒绝访问</h2><p>直接以管理员身份打开安装程序</p>
-<p>win注意管理员身份</p>
-<h2 id="注册表"><a href="#注册表" class="headerlink" title="注册表"></a>注册表</h2><p>[1] <a href="https://www.cnblogs.com/sepmaple/articles/9401215.html">Windows注册表内容详解 - 九月如枫 - 博客园 (cnblogs.com)</a></p>
-<p>[2] <a href="https://www.cnblogs.com/fczjuever/archive/2013/04/09/3010711.html">使用注册表文件（REG）添加、修改或删除Windows注册表项和值 - 最初的幸福ever - 博客园 (cnblogs.com)</a></p>
-<p>[3] <a href="https://blog.csdn.net/stilling2006/article/details/5733276">注册表reg文件语法规则_stilling2006的专栏-CSDN博客</a></p>
-<hr>
-<p><strong>regedit命令可以打开注册表</strong></p>
-<h3 id="编辑注册表"><a href="#编辑注册表" class="headerlink" title="编辑注册表"></a>编辑注册表</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">classes_root:程序,比如设置右键等</span><br><span class="line">current_user:用户设置,比如设置小鹤双拼键盘</span><br></pre></td></tr></table></figure>
+<h4 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h4><p>密钥文件,git也用过,ssh连接.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen #这和git没关系</span><br><span class="line">-t rsa # 一种加密方式</span><br><span class="line"></span><br><span class="line"># 密钥上传服务器</span><br><span class="line">ssh-copy-id user@hostname -i 公钥文件路径t</span><br><span class="line"></span><br><span class="line">#之后用命令进入,可以不用输入密码</span><br><span class="line">ssh -i id_rsa 200</span><br><span class="line"></span><br><span class="line">#还可以输入id_rsa,即key值</span><br><span class="line">Host 200#这是个别名</span><br><span class="line">	HostName 192.168.0.200#服务器地址,hostname</span><br><span class="line">	User colin #user</span><br><span class="line">	Port 22</span><br><span class="line">	IdentityFile ~/.ssh/id_rsa</span><br><span class="line">	</span><br><span class="line">$ ssh 200  #直接进入服务器了</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]</span><br><span class="line">&quot;EnableExtraDomainType&quot;=dword:00000001</span><br><span class="line">&quot;Enable Double Pinyin&quot;=dword:00000001</span><br><span class="line">&quot;DoublePinyinScheme&quot;=dword:0000000a</span><br><span class="line">&quot;UserDefinedDoublePinyinScheme0&quot;=&quot;小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#密钥上传命令,可以直接在云服务器,有上传公钥的地方,比如gitee中配置公钥,同理于github</span><br><span class="line"> 用生成的key就行,只要把公钥给github就行.就能用ssh去clone文件了.</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[键,也叫项] 值项(名称,类型,值)</span><br></pre></td></tr></table></figure>
+<p><strong>注意服务器.ssh权限是755，autho…权限是600;倒也不是,就是.ssh和autho..都是root有写权力,其他的用户都不能有写权限就好</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 服务器改了名字,ip地址等,就不能连接了.</span><br><span class="line">#就把known_hosts删除,j</span><br></pre></td></tr></table></figure>
 
-<p>删除</p>
-<p>删除try及她下属的键</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TCPIP6\try]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>删除值项</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TCPIP6\try\abc]</span><br><span class="line">&quot;valueItem&quot;=-</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="备份还原注册表"><a href="#备份还原注册表" class="headerlink" title="备份还原注册表"></a>备份还原注册表</h3><p>右击-&gt;导出</p>
-<p>导出的文件 双击-&gt;就添加了,算是还原吧</p>
-<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>我认为在这里建,就是在文件夹的背景或者桌面背景下右键的效果 ,也可以说是目录</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\HKEY_CLASSES_ROOT\Directory\Background\shell\Typora\command</span><br></pre></td></tr></table></figure>
-
-<p>* 中的shell是对文件,比如.文件的右键效果</p>
-<p>最终失败,改成启动指定文件夹</p>
+<h3 id="linux系统中的ssh协议"><a href="#linux系统中的ssh协议" class="headerlink" title="linux系统中的ssh协议"></a>linux系统中的ssh协议</h3><p>一种网络协议,全称secure shell ,安全.</p>
+<p><img src="/2021/10/09/base/ssh%E5%91%BD%E4%BB%A4%E4%B8%8E%E4%BD%BF%E7%94%A8/image-20210830142804383.png" alt="image-20210830142804383"></p>
+<p>a生成一个公钥私钥对,公钥给b.</p>
+<p>然后开始了,请求登录,检查有公钥吗,有经过一系列验证,成功登录.</p>
 ]]></content>
       <categories>
         <category>base</category>
       </categories>
       <tags>
-        <tag>windowns</tag>
+        <tag>linux</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vim简单用法-配合pycharm</title>
+    <url>/2021/10/09/base/vim%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95-%E9%85%8D%E5%90%88pycharm/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:常用的vim使用方法,不要陷入这些语法,挑选正常能用的就行.这对linux中man命令的使用也会有帮助,知道一些快捷键的用法.这是关于pycharm安装插件的使用,vscode也能用.不经常写英文不建议使用这个东西.</p>
+<p><strong>Keywords</strong>:vim使用</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p>[1] <a href="https://github.com/yuck1412/VimCtrolTypora">yuck1412/VimCtrolTypora: using gvim &amp; typora write markdown, gvim control typora view (github.com)</a></p>
+<p>[2] <a href="https://www.bilibili.com/video/BV1Sy4y117jj/">Gvim+Typora写markdown_哔哩哔哩_bilibili</a></p>
+<p>[3] <a href="https://www.bilibili.com/video/BV114411J7Z8">vim 命令记不住？可能是姿势不对_哔哩哔哩_bilibili</a></p>
+<p>[4] <a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">Graphical vi-vim Cheat Sheet and Tutorial (viemu.com)</a></p>
+<p>[5] <a href="https://blog.csdn.net/yiqishangxuewu/article/details/105647272">Vim指令对应的英语全称_yiqishangxuewu的博客-CSDN博客_vim全称</a></p>
+</blockquote>
+<h2 id="pycharm安装vim插件"><a href="#pycharm安装vim插件" class="headerlink" title="pycharm安装vim插件"></a>pycharm安装vim插件</h2><p>1 pycharm 在setting中搜索plugin,安装ideaVim,重启pycharm;</p>
+<p>2 在tool-&gt;vim,切换正常和vim模式 </p>
+<h2 id="常用Vim操作"><a href="#常用Vim操作" class="headerlink" title="常用Vim操作"></a>常用Vim操作</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#vim插入模式;命令模式</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p>/var:搜索以var开头的文字</p>
+<p>同行跳转:fm</p>
+<p>改单词:cw</p>
+<p>删除字符串:di’ 删除到’</p>
+<p>行首:^</p>
+<p>行末:$</p>
+<p>搜索没到我的地方: n 下一个 N 上一个</p>
+<p>单词移动: w b</p>
+<p>重复跳转操作 : ;</p>
+<p>进入函数: gd</p>
+<p>退出函数: ctrl+o</p>
+<h3 id="英语对应的命令-增删改查撤销"><a href="#英语对应的命令-增删改查撤销" class="headerlink" title="英语对应的命令-增删改查撤销"></a>英语对应的命令-增删改查撤销</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">大写和小写一般是相反的命令</span><br><span class="line">i:insert </span><br><span class="line">o:open new line</span><br><span class="line">a:append</span><br><span class="line"></span><br><span class="line">d:delete</span><br><span class="line">dd:delete line</span><br><span class="line">dw:delete word</span><br><span class="line">diw:delete inner word</span><br><span class="line">daw:delete around word</span><br><span class="line">x:向后删除字符</span><br><span class="line"></span><br><span class="line">c:change</span><br><span class="line">ciw:change inner word</span><br><span class="line">ct):change to )</span><br><span class="line">ci&quot;:change inner &quot;&quot;</span><br><span class="line"></span><br><span class="line">fs:往前查s</span><br><span class="line">Fs:往回查s</span><br><span class="line">/word:往前查word</span><br><span class="line">?word:往回查word</span><br><span class="line"></span><br><span class="line">;:重复操作</span><br><span class="line"></span><br><span class="line">u:undo,撤销</span><br><span class="line">ctrl+R: redo</span><br><span class="line"></span><br><span class="line">##: c/d/v  i/a/t x</span><br></pre></td></tr></table></figure>
+
+<p>移动</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">j 下 k 上</span><br><span class="line">w:word</span><br><span class="line">b:begin word</span><br><span class="line">e:end word</span><br><span class="line"></span><br><span class="line">:18:18行</span><br><span class="line">14G:14行</span><br><span class="line">0,$:行头,行尾</span><br><span class="line">gg:文件开头</span><br><span class="line">G:文件结尾</span><br><span class="line">ctrl+o:返回上一光标位置</span><br><span class="line"></span><br><span class="line">ctrl+f:forward,翻页</span><br><span class="line">ctrl+upward: upward,翻页</span><br></pre></td></tr></table></figure>
+
+<p>复制粘贴</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">y :yank</span><br><span class="line">p:put,patse</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改-ideavimrc文件"><a href="#修改-ideavimrc文件" class="headerlink" title="修改.ideavimrc文件"></a>修改.ideavimrc文件</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">imap jk &lt;ESc&gt;</span><br><span class="line">imap jj &lt;Esc&gt;</span><br><span class="line">nmap H ^</span><br><span class="line">nmap L $</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="vim狂热者"><a href="#vim狂热者" class="headerlink" title="vim狂热者"></a>vim狂热者</h2><p>这个人真是个狂热者,给typora都写了个鼠标移动的脚本[1],[2];其实没啥用.</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode学习</title>
+    <url>/2021/10/09/base/vscode%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>: vscode很强,我现在连接服务器都使用它</p>
+<p><strong>Keywords</strong>:vscode</p>
+<span id="more"></span>
+
+<h2 id="注意点-坑"><a href="#注意点-坑" class="headerlink" title="注意点(坑)"></a>注意点(坑)</h2><p>ssh远程控制:注意w权限.</p>
+<p>vim:注意togglevim.可以暂时关闭vim.因为vim写汉字太不方便了.</p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>c+s+p</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win系统命令及Dos命令</title>
+    <url>/2021/10/09/base/win%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E5%8F%8ADos%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:一些关于windows的命令的操作.其实能看懂基本的dos命令就能看懂很多win脚本,其他不会的再上网查询</p>
+<p><strong>Keywords</strong>:Dos,win脚本,net ping curl  netstat</p>
+<span id="more"></span>
+
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><blockquote>
+<p> [1] <a href="https://www.bilibili.com/video/BV1Gb411B7md?p=9">Windows命令行教程(中英双字幕)_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<h3 id="进入文件"><a href="#进入文件" class="headerlink" title="进入文件"></a>进入文件</h3><p>cd chage directory</p>
+<p>cd .. 是进入上一级文件,cd . 是当前文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cd desktop\videos</span><br><span class="line">cd ..\..</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dir</span><br><span class="line">dir /b 常用,简单显示文件</span><br><span class="line">dir e: 显示e盘的当前文件,而不用改变文件目录</span><br><span class="line">dir e:\ 显示e盘的文件,注意和上边不一样偶,微软垃圾</span><br></pre></td></tr></table></figure>
+
+<h3 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">help</span><br><span class="line">help dir</span><br><span class="line">或者</span><br><span class="line">dir /?</span><br><span class="line">dir /help</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则-和正则又不太一样"><a href="#正则-和正则又不太一样" class="headerlink" title="正则(和正则又不太一样)"></a>正则(和正则又不太一样)</h3><p>如果正则匹配文件的化应该是<code>.*\.txt</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* 匹配任何字符</span><br><span class="line">dir *.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="清理屏幕"><a href="#清理屏幕" class="headerlink" title="清理屏幕"></a>清理屏幕</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cls</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开文档"><a href="#打开文档" class="headerlink" title="打开文档"></a>打开文档</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello.txt</span><br><span class="line">直接打开了</span><br></pre></td></tr></table></figure>
+
+<p>ipconfig</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ipconfig /? 只能这样帮助</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建删除文件夹"><a href="#创建删除文件夹" class="headerlink" title="创建删除文件夹"></a>创建删除文件夹</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir</span><br><span class="line">rmdir 能删除空文件加</span><br><span class="line">rmdir /s 能删除非空文件夹</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动技巧"><a href="#移动技巧" class="headerlink" title="移动技巧"></a>移动技巧</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ctrl+&lt;- 或者ctrl+-&gt; 移动一个单词</span><br></pre></td></tr></table></figure>
+
+<h3 id="powershell"><a href="#powershell" class="headerlink" title="powershell"></a>powershell</h3><p>可以直接在cmd中运行powershell偶</p>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><p>可以修改颜色</p>
+<h3 id="创建文件-删除文件"><a href="#创建文件-删除文件" class="headerlink" title="创建文件,删除文件"></a>创建文件,删除文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo hey &gt; apple.txt del apple.txtecho hey gay &gt;&gt; apple.txt #这是追加文字</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件添加删除属性"><a href="#文件添加删除属性" class="headerlink" title="文件添加删除属性"></a>文件添加删除属性</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">attrib +h 添加隐藏attrib -h +r 删除隐藏 添加只读</span><br></pre></td></tr></table></figure>
+
+<h3 id="控制台打印文件"><a href="#控制台打印文件" class="headerlink" title="控制台打印文件"></a>控制台打印文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">type apple.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="复制文件-移动文件-重命名文件"><a href="#复制文件-移动文件-重命名文件" class="headerlink" title="复制文件 移动文件 重命名文件"></a>复制文件 移动文件 重命名文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">copy 文件 文件夹 #文件夹到文件夹也行xcopy 文件夹 文件夹 #这个命令不确定,可能是深度复制?move 文件 文件 #文件夹也可以rename 文件(夹)</span><br></pre></td></tr></table></figure>
+
+<h3 id="重定向运算"><a href="#重定向运算" class="headerlink" title="重定向运算"></a>重定向运算</h3><p>换地方存储</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就是&gt; ,&gt;&gt; ,type</span><br></pre></td></tr></table></figure>
+
+<h3 id="管道命令"><a href="#管道命令" class="headerlink" title="管道命令"></a>管道命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a|b: a命令的输出作为b命令的输入执行dir|find &quot;.txt&quot; #查找含有txt 的所有文件netstat -an | find &quot;xxx&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="批处理-多参数"><a href="#批处理-多参数" class="headerlink" title="批处理 多参数"></a>批处理 多参数</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@echo offecho %1echo %2net user %1 %2 /add</span><br></pre></td></tr></table></figure>
+
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rem   remember 注释</span><br></pre></td></tr></table></figure>
+
+<h3 id="时间日期"><a href="#时间日期" class="headerlink" title="时间日期"></a>时间日期</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">date time</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动命令start"><a href="#启动命令start" class="headerlink" title="启动命令start"></a>启动命令start</h3><p>start  1.bat</p>
+<h3 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">taskkill /pid xxx /t</span><br></pre></td></tr></table></figure>
+
+<h3 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h3><p>shutdown</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo %path%</span><br></pre></td></tr></table></figure>
+
+<h3 id="网络常用命令"><a href="#网络常用命令" class="headerlink" title="网络常用命令"></a>网络常用命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net user #新建用户名</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ping 127.0.0.1 # 查看自己的网卡</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 网络连接,控制协议</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tracert 8.8.8.8 # trace router</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ipconfig renew # 重置自己的ch</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>Dos</tag>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
     <title>wsl系统</title>
-    <url>/2021/10/09/10.08/wsl%E7%B3%BB%E7%BB%9F/</url>
+    <url>/2021/10/09/base/wsl%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p><strong>Abstract</strong>:现在看来就是按照官网搭好wsl内核,然后把适用的ubuntu安装在非c盘启动就好.但是不推荐,和真是linux有区别</p>
 <p><strong>Keywords</strong>:wsl</p>
 <span id="more"></span>
@@ -599,8 +1349,192 @@
       </tags>
   </entry>
   <entry>
+    <title>win系统常见问题</title>
+    <url>/2021/10/09/base/win%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>: 主要一些win环境遇到的问题.特别注意 :1)文件的权限,管理员权限的问题. 2)注册表问题. 3) 环境变量问题</p>
+<p><strong>Keywords</strong>: win文件权限,注册表,右键</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p> <a href="https://blog.csdn.net/weixin_42613703/article/details/112169956">powershell无法激活conda虚拟环境</a></p>
+<p>[1] <a href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://blog.csdn.net/qq_32087569/article/details/53706285?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control"> 计算机权限 用户组 system everyone 深入理解_辰皓的博客-CSDN博客</a></p>
+<p>[3] <a href="https://blog.csdn.net/funi16/article/details/12654505?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.control&spm=1001.2101.3001.4242">Windows 用户组权限_funi16的专栏-CSDN博客</a></p>
+<p>[1] <a href="https://www.cnblogs.com/sepmaple/articles/9401215.html">Windows注册表内容详解 - 九月如枫 - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://www.cnblogs.com/fczjuever/archive/2013/04/09/3010711.html">使用注册表文件（REG）添加、修改或删除Windows注册表项和值 - 最初的幸福ever - 博客园 (cnblogs.com)</a></p>
+<p>[3] <a href="https://blog.csdn.net/stilling2006/article/details/5733276">注册表reg文件语法规则_stilling2006的专栏-CSDN博客</a></p>
+</blockquote>
+<h2 id="PowerShell-如何使用conda"><a href="#PowerShell-如何使用conda" class="headerlink" title="PowerShell 如何使用conda"></a>PowerShell 如何使用conda</h2><blockquote>
+<p> <a href="https://blog.csdn.net/weixin_42613703/article/details/112169956">powershell无法激活conda虚拟环境</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#需要设置conda init powershell</span></span><br><span class="line"><span class="comment">#需要设置 executionpolicy</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文件获得conda程序读取-文件权限"><a href="#文件获得conda程序读取-文件权限" class="headerlink" title="文件获得conda程序读取-文件权限"></a>文件获得conda程序读取-文件权限</h2><blockquote>
+<p>[1] <a href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://blog.csdn.net/qq_32087569/article/details/53706285?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control"> 计算机权限 用户组 system everyone 深入理解_辰皓的博客-CSDN博客</a></p>
+<p>[3] <a href="https://blog.csdn.net/funi16/article/details/12654505?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.control&spm=1001.2101.3001.4242">Windows 用户组权限_funi16的专栏-CSDN博客</a></p>
+</blockquote>
+<p>1 将文件的安全，加上权限 anthenticated users或者everyone</p>
+<p>这两个特殊权限的区别见参考文献.简单说就是anthenticated users 是 everyone 的子集</p>
+<p>2 添加权限后,文件可以受conda等程序的读写</p>
+<h2 id="安装拒绝访问"><a href="#安装拒绝访问" class="headerlink" title="安装拒绝访问"></a>安装拒绝访问</h2><p>直接以管理员身份打开安装程序</p>
+<p>win注意管理员身份</p>
+<h2 id="注册表"><a href="#注册表" class="headerlink" title="注册表"></a>注册表</h2><p>[1] <a href="https://www.cnblogs.com/sepmaple/articles/9401215.html">Windows注册表内容详解 - 九月如枫 - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://www.cnblogs.com/fczjuever/archive/2013/04/09/3010711.html">使用注册表文件（REG）添加、修改或删除Windows注册表项和值 - 最初的幸福ever - 博客园 (cnblogs.com)</a></p>
+<p>[3] <a href="https://blog.csdn.net/stilling2006/article/details/5733276">注册表reg文件语法规则_stilling2006的专栏-CSDN博客</a></p>
+<hr>
+<p><strong>regedit命令可以打开注册表</strong></p>
+<h3 id="编辑注册表"><a href="#编辑注册表" class="headerlink" title="编辑注册表"></a>编辑注册表</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">classes_root:程序,比如设置右键等</span><br><span class="line">current_user:用户设置,比如设置小鹤双拼键盘</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]</span><br><span class="line">&quot;EnableExtraDomainType&quot;=dword:00000001</span><br><span class="line">&quot;Enable Double Pinyin&quot;=dword:00000001</span><br><span class="line">&quot;DoublePinyinScheme&quot;=dword:0000000a</span><br><span class="line">&quot;UserDefinedDoublePinyinScheme0&quot;=&quot;小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[键,也叫项] 值项(名称,类型,值)</span><br></pre></td></tr></table></figure>
+
+<p>删除</p>
+<p>删除try及她下属的键</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TCPIP6\try]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>删除值项</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TCPIP6\try\abc]</span><br><span class="line">&quot;valueItem&quot;=-</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="备份还原注册表"><a href="#备份还原注册表" class="headerlink" title="备份还原注册表"></a>备份还原注册表</h3><p>右击-&gt;导出</p>
+<p>导出的文件 双击-&gt;就添加了,算是还原吧</p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>我认为在这里建,就是在文件夹的背景或者桌面背景下右键的效果 ,也可以说是目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\HKEY_CLASSES_ROOT\Directory\Background\shell\Typora\command</span><br></pre></td></tr></table></figure>
+
+<p>* 中的shell是对文件,比如.文件的右键效果</p>
+<p>最终失败,改成启动指定文件夹</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多种系统或软件的help信息</title>
+    <url>/2021/10/09/base/%E5%A4%9A%E7%A7%8D%E7%B3%BB%E7%BB%9F%E6%88%96%E8%BD%AF%E4%BB%B6%E7%9A%84help%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:目的是学习使用help来查询帮助信息,比如win系统命令,Linux系统命令的帮助信息,python,ananconda等应用软件命令的帮助信息</p>
+<p><strong>Keywords</strong>:help,帮助信息使用,查询函数功能</p>
+<span id="more"></span>
+
+
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://blog.csdn.net/weixin_41010198/article/details/87174818">windows命令行帮助文档如何使用_星空-CSDN博客</a></p>
+<p>[2] <a href="https://www.cnblogs.com/sisimi/articles/7737371.html">怎么看懂Linux命令行帮助【转】 - sisimi_2017 - 博客园 (cnblogs.com)</a></p>
+<h2 id="总体"><a href="#总体" class="headerlink" title="总体"></a>总体</h2><p>不管是啥系统或者软件,多试试以下命令就好</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">help &lt;command&gt;</span><br><span class="line">&lt;command&gt; [-h] [-]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="win系统命令查询帮助信息"><a href="#win系统命令查询帮助信息" class="headerlink" title="win系统命令查询帮助信息"></a>win系统命令查询帮助信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">help</span> &lt;<span class="built_in">command</span>&gt;<span class="comment">#eg:help more</span></span><br><span class="line">&lt;<span class="built_in">command</span>&gt; /?</span><br></pre></td></tr></table></figure>
+
+<p>和linux不同,win多/t等之类的命令,linux是-t;</p>
+<h2 id="Linux系统命令查询帮助信息"><a href="#Linux系统命令查询帮助信息" class="headerlink" title="Linux系统命令查询帮助信息"></a>Linux系统命令查询帮助信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;<span class="built_in">command</span>&gt; --<span class="built_in">help</span></span><br><span class="line">man &lt;<span class="built_in">command</span>&gt;</span><br><span class="line">whatis &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中man命令</p>
+<table>
+<thead>
+<tr>
+<th>操作键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>空格</td>
+<td>下一屏</td>
+</tr>
+<tr>
+<td>回车</td>
+<td>下一行</td>
+</tr>
+<tr>
+<td>b</td>
+<td>上一屏</td>
+</tr>
+<tr>
+<td>f</td>
+<td>下一屏</td>
+</tr>
+<tr>
+<td>q (quit)</td>
+<td>退出</td>
+</tr>
+</tbody></table>
+<p>关于命令的说明:</p>
+<p>[]:表示可选;</p>
+<p>&lt;&gt;: 表示可变化</p>
+<p>x|y|z:选择一个</p>
+<p>-abc:可任意组合使用</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>help</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络及frp等知识</title>
+    <url>/2021/10/09/base/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8F%8Afrp%E7%AD%89%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:记录自己现在看来太浪费时间的东西.验证了那句话思而不学则殆.其实这些没必要学,都有很好东西去解决.<code>teamviewer</code>对远程问题就挺好的,何苦为难自己.服务器配合vscode使用<code>code .</code>就可以在本地修改文件,效率的很.</p>
+<p>计算机网络关于端口,ip等知识.frp技术的简介.host修改映射的方法.</p>
+<p><strong>Keywords</strong>:</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p><a href="https://blog.csdn.net/qq_27825451/article/details/101213110?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-15.essearch_pc_relevant&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-15.essearch_pc_relevant">详解远程桌面协议， Linux 和 Windows 间的远程桌面互相访问（RDP、VNC协议）_MIss-Y的博客-CSDN博客_远程桌面协议</a></p>
+<p> <a href="https://www.bilibili.com/video/BV1fE411Q7xY?p=2&spm_id_from=pageDriver">2019 Wireshark基本原理与操作实战视频课程_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<h2 id="协议错误0x1104"><a href="#协议错误0x1104" class="headerlink" title="协议错误0x1104"></a>协议错误0x1104</h2><p>可能是因为远程桌面不能用22端口吧,只要是一用22端口号,就出现这个错误.</p>
+<p>换成3389端口,或者直接ip地址,应该是自带3389端口吧</p>
+<p><strong>通过参考文献1发现,3389本不可以控制linux服务器的,只是有了中继协议,两个操作系统就可以相互控制了</strong></p>
+<h2 id="cmd中的ssh命令"><a href="#cmd中的ssh命令" class="headerlink" title="cmd中的ssh命令"></a>cmd中的ssh命令</h2><p>可以直接 ssh user@host 来连接远程服务器.</p>
+<p>我感觉可能是本来的连接就是通过黑框框连接,连接两个系统.但是通过软件协议,可以看服务器的图形界面.比如通过win10 的远程桌面可以查看linux服务器的图形界面,win 部分的端口号为3389,反之也可以实现.</p>
+<p>就这样理解吧,我们通过ssh连接也好,还是远程连接也好,都是应用程序之间的通信.</p>
+<h2 id="Frp技术"><a href="#Frp技术" class="headerlink" title="Frp技术"></a>Frp技术</h2><p>去github搜索frp,里边也有中文文档.</p>
+<h2 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h2><blockquote>
+<p> [1] <a href="https://www.bilibili.com/video/BV1fE411Q7xY?p=2&spm_id_from=pageDriver">2019 Wireshark基本原理与操作实战视频课程_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>wireshark </p>
+<p>win:winpcap+wireshark</p>
+<p>linux:libpcap+wireshark</p>
+<p>winpcap是底层的驱动,wireshark是把winpcap捕获的解析.</p>
+<p>组件安装默认的就可以了.</p>
+<p>usb packer capture: 计算机和usb接口的通信可以被捕获;或者对打印机有用.</p>
+<p>装了winpcap就会重启</p>
+<p>wireshark与wireshark legacy:</p>
+<p>传统的是legacy,新的是不带legacy的.</p>
+<h2 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h2><h3 id="专用地址"><a href="#专用地址" class="headerlink" title="专用地址"></a>专用地址</h3><p>10.0.0.0-10.255.255.255</p>
+<p>172.16.0.0-172.31.255.255</p>
+<p>192.168.0.0-192.168.255.255</p>
+<h3 id="hosts-1"><a href="#hosts-1" class="headerlink" title="hosts"></a>hosts</h3><p>hosts文件就是电话本,就是域名和ip 地址的映射.</p>
+<p>网络共享中心–更改适配器设置–属性–修改dns服务器</p>
+<p>dns服务器,就是个114查号台.</p>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p>本机IP: 127.0.0.1</p>
+<p>专业网络IP:192.168    172.16-172.37    10-10</p>
+<p>电信级NAT地址: 100.64</p>
+<p>NAT技术,即小区给一个IP,进入小区后就和外边没关系了,就是内网了.</p>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>tieba.baidu.com #三级.二级.一级;通常说的是二级域名;</p>
+<p>域名:IP  == baidu.com:xxxx</p>
+<h3 id="DNS-DDNS"><a href="#DNS-DDNS" class="headerlink" title="DNS DDNS"></a>DNS DDNS</h3><p>dynamic domain name server:动态dns</p>
+<h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>交给哪个软件.比如百度来了响应,我们应给自己电脑上的百度网站,而不是给哔哩哔哩网站</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+        <tag>frp</tag>
+        <tag>network</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>个人10月总结</title>
-    <url>/2021/10/09/10.08/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/</url>
+    <url>/2021/10/09/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p><strong>Abstract</strong>:个人十月总结</p>
 <span id="more"></span>
 
