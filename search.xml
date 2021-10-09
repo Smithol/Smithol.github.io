@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/10/08/2021-10-08-hello-world-test/</url>
-    <content><![CDATA[<h1 id="Hello-liji"><a href="#Hello-liji" class="headerlink" title="Hello liji"></a>Hello liji</h1><p>hi，guys！</p>
-<p>我的世界</p>
+    <title>test1</title>
+    <url>/2021/10/09/test1/</url>
+    <content><![CDATA[<p>t</p>
+<p><img src="/2021/10/09/test1/image-20211009094554986.jpg" alt="image-20211009094554986"></p>
+<p><img src="/2021/10/09/test1/R-C.c6c03edea530e9caa677c9d17f193a4d" alt="查看源图像"></p>
 ]]></content>
-      <tags>
-        <tag>hello</tag>
-      </tags>
   </entry>
   <entry>
     <title>Linux基础</title>
@@ -38,8 +36,8 @@
 <p>war：java web应用程序的包</p>
 <h2 id="4-Linux-常用命令"><a href="#4-Linux-常用命令" class="headerlink" title="4 Linux 常用命令"></a>4 Linux 常用命令</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前路径 print working directory</span></span><br><span class="line">pwd</span><br><span class="line"><span class="comment"># 查看以字母s打头的文件 list</span></span><br><span class="line">ls -ltr s*</span><br><span class="line"><span class="comment"># 覆盖源文件,当改名字了，copy</span></span><br><span class="line">cp -f test.txt test1.txt</span><br><span class="line"><span class="comment"># 切换到linuxcool用户，环境变仍是root用户的</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su linuxcool</span></span><br><span class="line"><span class="comment">#切换到用户，环境变量改变</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su - linuxcool  </span></span><br><span class="line"><span class="comment">#常用参数 </span></span><br><span class="line">? 可代替单个字符</span><br><span class="line">* 可代替多个字符</span><br><span class="line"><span class="comment"># 重命名，rename需要apt，权限不够</span></span><br><span class="line"><span class="comment">#将main1.c 变成main.c，用到了正则表达式</span></span><br><span class="line">rename main1.c main.c my_main1.c</span><br><span class="line">rename .jpg .png *.jpg</span><br><span class="line">rename foo foo0 foo?</span><br><span class="line">rename foo0 foo foo0[<span class="number">1</span>]*</span><br><span class="line"><span class="comment"># mkdir make directories 创建目录</span></span><br><span class="line"><span class="comment"># 用绝对路径创建as</span></span><br><span class="line">mkdir <span class="built_in">dir</span></span><br><span class="line">mkdir /home/<span class="built_in">dir</span>/<span class="keyword">as</span> </span><br><span class="line"><span class="comment"># mv move 移动</span></span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">mv file_1 file_2</span><br><span class="line"><span class="comment">#cat命令</span></span><br><span class="line"><span class="comment"># 当文件内容较大时，文本内容会在屏幕上快速闪动（滚屏），用户往往看不清所显示的具体内容。因此对于较长文件内容可以按Ctrl+S键，停止滚屏；以及Ctrl+Q键可以恢复滚屏；而按Ctrl+C（中断）键则可以终止该命令的执行。或者对于大文件，干脆用more命令吧！</span></span><br><span class="line">cat filename.txt</span><br><span class="line">cat -n filename.txt</span><br><span class="line"><span class="comment">#显示版本号和帮助</span></span><br><span class="line">cat --<span class="built_in">help</span></span><br><span class="line">cat --version</span><br><span class="line"><span class="comment"># 删除rm，remove，</span></span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line">rm (-i -f) test.txt</span><br><span class="line"><span class="comment">#删除目录</span></span><br><span class="line">rm -r <span class="built_in">dir</span></span><br><span class="line"><span class="comment"># find 查询</span></span><br><span class="line">find. 查询当前目录下</span><br><span class="line"><span class="comment"># 记得ctrl+c终止命令,ctrl+l 清屏</span></span><br><span class="line"><span class="comment">#创建文件</span></span><br><span class="line">&gt; tip.txt</span><br><span class="line">vim tip.txt</span><br><span class="line">touch tip.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-linux-正则表达式"><a href="#5-linux-正则表达式" class="headerlink" title="5 linux 正则表达式"></a>5 linux 正则表达式</h2><p><img src="Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png" alt="image-20210326125353524"></p>
-<p><img src="Linux%E5%9F%BA%E7%A1%80/image-20210326125427835.png" alt="image-20210326125427835"></p>
+<h2 id="5-linux-正则表达式"><a href="#5-linux-正则表达式" class="headerlink" title="5 linux 正则表达式"></a>5 linux 正则表达式</h2><p><img src="/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png" alt="image-20210326125353524"></p>
+<p><img src="/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125427835.png" alt="image-20210326125427835"></p>
 <h2 id="6-Linux常用命令（2）"><a href="#6-Linux常用命令（2）" class="headerlink" title="6 Linux常用命令（2）"></a>6 Linux常用命令（2）</h2><p>1 帮助命令</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ifconfig  --<span class="built_in">help</span>     //查看 ifconfig 命令的用法</span><br><span class="line">man shutdown         //打开命令说明后，可按<span class="string">&quot;q&quot;</span>键退出</span><br></pre></td></tr></table></figure>
 
@@ -78,60 +76,6 @@
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2021/10/09/Linux%E5%9F%BA%E7%A1%80/%E7%AE%80%E7%9F%AD%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h3 id="1-Linux在win上的可视化"><a href="#1-Linux在win上的可视化" class="headerlink" title="1 Linux在win上的可视化"></a>1 Linux在win上的可视化</h3><p>1 和xmanager配合使用</p>
-<p>gedit :跟创建txt一样</p>
-<p>eye of ghome:查看图片</p>
-<p>2 使用网页查看,无法修改</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m http.server <span class="comment">#默认端口号8000,可自行设置</span></span><br><span class="line"><span class="comment">#在win浏览器输入http://172.27.66.249:8000/</span></span><br><span class="line"><span class="comment">#即服务器+端口.</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2"><a href="#2" class="headerlink" title="2"></a>2</h3><p>wode </p>
-]]></content>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/2021/10/09/ui/%E8%88%AA%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h2><p>ubuntu的包管理工具,用来升级卸载安装包.</p>
-<blockquote>
-<p>下载的软件存放位置 /var/cache/apt/archives 2.安装后软件默认位置 /usr/share 3.可执行文件位置 /usr/bin 4.配置文件位置 /etc 5.lib文件位置 /usr/lib</p>
-</blockquote>
-<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><p>$x_1$</p>
-<h2 id="图表"><a href="#图表" class="headerlink" title="图表"></a>图表</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>a</th>
-<th>b</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>h</td>
-<td>h</td>
-<td>h</td>
-</tr>
-<tr>
-<td>h</td>
-<td>hh</td>
-<td>h</td>
-</tr>
-<tr>
-<td>h</td>
-<td>h</td>
-<td>h</td>
-</tr>
-</tbody></table>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="image-20211009084553709.png" alt="image-20211009084553709"></p>
-<p><img src="image-20211009090109319.png" alt="image-20211009090109319"></p>
-]]></content>
-      <categories>
-        <category>独立</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
       </tags>
   </entry>
 </search>

@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="科研点滴">
 <meta property="og:description" content="Abstract: 因为需要服务器训练机器学习的模型,需要学会使用基础的Linux.本文主要针对简单使用Linux服务器来做机器学习实验">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png">
-<meta property="og:image" content="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/Linux%E5%9F%BA%E7%A1%80/image-20210326125427835.png">
+<meta property="og:image" content="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png">
+<meta property="og:image" content="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125427835.png">
 <meta property="article:published_time" content="2021-10-08T12:20:18.200Z">
-<meta property="article:modified_time" content="2021-10-08T12:37:56.036Z">
+<meta property="article:modified_time" content="2021-10-09T01:37:01.276Z">
 <meta property="article:author" content="Dream">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png">
+<meta name="twitter:image" content="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png">
 
 <link rel="canonical" href="http://example.com/2021/10/08/Linux%E5%9F%BA%E7%A1%80/">
 
@@ -219,10 +219,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-10-08 20:20:18 / Modified: 20:37:56" itemprop="dateCreated datePublished" datetime="2021-10-08T20:20:18+08:00">2021-10-08</time>
+              <time title="Created: 2021-10-08 20:20:18" itemprop="dateCreated datePublished" datetime="2021-10-08T20:20:18+08:00">2021-10-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-09 09:37:01" itemprop="dateModified" datetime="2021-10-09T09:37:01+08:00">2021-10-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,8 +275,8 @@
 <p>war：java web应用程序的包</p>
 <h2 id="4-Linux-常用命令"><a href="#4-Linux-常用命令" class="headerlink" title="4 Linux 常用命令"></a>4 Linux 常用命令</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前路径 print working directory</span></span><br><span class="line">pwd</span><br><span class="line"><span class="comment"># 查看以字母s打头的文件 list</span></span><br><span class="line">ls -ltr s*</span><br><span class="line"><span class="comment"># 覆盖源文件,当改名字了，copy</span></span><br><span class="line">cp -f test.txt test1.txt</span><br><span class="line"><span class="comment"># 切换到linuxcool用户，环境变仍是root用户的</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su linuxcool</span></span><br><span class="line"><span class="comment">#切换到用户，环境变量改变</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su - linuxcool  </span></span><br><span class="line"><span class="comment">#常用参数 </span></span><br><span class="line">? 可代替单个字符</span><br><span class="line">* 可代替多个字符</span><br><span class="line"><span class="comment"># 重命名，rename需要apt，权限不够</span></span><br><span class="line"><span class="comment">#将main1.c 变成main.c，用到了正则表达式</span></span><br><span class="line">rename main1.c main.c my_main1.c</span><br><span class="line">rename .jpg .png *.jpg</span><br><span class="line">rename foo foo0 foo?</span><br><span class="line">rename foo0 foo foo0[<span class="number">1</span>]*</span><br><span class="line"><span class="comment"># mkdir make directories 创建目录</span></span><br><span class="line"><span class="comment"># 用绝对路径创建as</span></span><br><span class="line">mkdir <span class="built_in">dir</span></span><br><span class="line">mkdir /home/<span class="built_in">dir</span>/<span class="keyword">as</span> </span><br><span class="line"><span class="comment"># mv move 移动</span></span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">mv file_1 file_2</span><br><span class="line"><span class="comment">#cat命令</span></span><br><span class="line"><span class="comment"># 当文件内容较大时，文本内容会在屏幕上快速闪动（滚屏），用户往往看不清所显示的具体内容。因此对于较长文件内容可以按Ctrl+S键，停止滚屏；以及Ctrl+Q键可以恢复滚屏；而按Ctrl+C（中断）键则可以终止该命令的执行。或者对于大文件，干脆用more命令吧！</span></span><br><span class="line">cat filename.txt</span><br><span class="line">cat -n filename.txt</span><br><span class="line"><span class="comment">#显示版本号和帮助</span></span><br><span class="line">cat --<span class="built_in">help</span></span><br><span class="line">cat --version</span><br><span class="line"><span class="comment"># 删除rm，remove，</span></span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line">rm (-i -f) test.txt</span><br><span class="line"><span class="comment">#删除目录</span></span><br><span class="line">rm -r <span class="built_in">dir</span></span><br><span class="line"><span class="comment"># find 查询</span></span><br><span class="line">find. 查询当前目录下</span><br><span class="line"><span class="comment"># 记得ctrl+c终止命令,ctrl+l 清屏</span></span><br><span class="line"><span class="comment">#创建文件</span></span><br><span class="line">&gt; tip.txt</span><br><span class="line">vim tip.txt</span><br><span class="line">touch tip.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-linux-正则表达式"><a href="#5-linux-正则表达式" class="headerlink" title="5 linux 正则表达式"></a>5 linux 正则表达式</h2><p><img src="Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png" alt="image-20210326125353524"></p>
-<p><img src="Linux%E5%9F%BA%E7%A1%80/image-20210326125427835.png" alt="image-20210326125427835"></p>
+<h2 id="5-linux-正则表达式"><a href="#5-linux-正则表达式" class="headerlink" title="5 linux 正则表达式"></a>5 linux 正则表达式</h2><p><img src="/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125353524.png" alt="image-20210326125353524"></p>
+<p><img src="/2021/10/08/Linux%E5%9F%BA%E7%A1%80/image-20210326125427835.png" alt="image-20210326125427835"></p>
 <h2 id="6-Linux常用命令（2）"><a href="#6-Linux常用命令（2）" class="headerlink" title="6 Linux常用命令（2）"></a>6 Linux常用命令（2）</h2><p>1 帮助命令</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig  --<span class="built_in">help</span>     //查看 ifconfig 命令的用法</span><br><span class="line">man shutdown         //打开命令说明后，可按<span class="string">&quot;q&quot;</span>键退出</span><br></pre></td></tr></table></figure>
 
@@ -320,13 +326,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/10/08/2021-10-08-hello-world-test/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/09/ui/%E8%88%AA%E7%A8%8B/" rel="next" title="测试">
-      测试 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/10/09/test1/" rel="next" title="test1">
+      test1 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -402,20 +405,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -434,17 +437,6 @@
       </div>
 
       
-  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
-  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div id="myCanvasContainer" class="widget tagcloud">
-      <canvas width="250" height="250" id="resCanvas" style="width:100%">
-        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hello/" rel="tag">hello</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a><span class="tag-list-count">1</span></li></ul>
-      </canvas>
-    </div>
-  </div>
-
         
     </div>
   </aside>
