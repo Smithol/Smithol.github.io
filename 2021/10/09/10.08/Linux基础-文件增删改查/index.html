@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Abstract:主要关于linux服务器使用,以方便使用服务器训练机器学习模型. 主要是增删改查Linux文件 Keywords:linux常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础-文件增删改查">
+<meta property="og:url" content="http://example.com/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/index.html">
+<meta property="og:site_name" content="科研点滴">
+<meta property="og:description" content="Abstract:主要关于linux服务器使用,以方便使用服务器训练机器学习模型. 主要是增删改查Linux文件 Keywords:linux常用命令">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-09T03:24:52.647Z">
+<meta property="article:modified_time" content="2021-10-09T03:04:01.533Z">
+<meta property="article:author" content="Dream">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Linux基础-文件增删改查 | 科研点滴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">科研点滴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Dream">
+      <meta itemprop="description" content="hello world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="科研点滴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux基础-文件增删改查
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-09 11:24:52 / Modified: 11:04:01" itemprop="dateCreated datePublished" datetime="2021-10-09T11:24:52+08:00">2021-10-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/base/" itemprop="url" rel="index"><span itemprop="name">base</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>Abstract</strong>:主要关于linux服务器使用,以方便使用服务器训练机器学习模型. 主要是增删改查Linux文件</p>
+<p><strong>Keywords</strong>:linux常用命令</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p> <a target="_blank" rel="noopener" href="https://docs.conda.io/projects/conda/en/latest/commands/clean.html">conda 官网</a></p>
+<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33127753/article/details/82842002">anaconda linux 常用命令、安装源、清理缓存</a></p>
+<p><a target="_blank" rel="noopener" href="https://pip.pypa.io/en/stable/reference/pip_freeze/"> pip 官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43770382/article/details/119214331">Linux正则表达式_linux那些事儿的博客-CSDN博客</a></p>
+<p> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105096446">详解 Linux 帮助命令 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1 能看懂帮助信息就好</p>
+<p>2 会使用常用的一两个就好,其他的上网查阅</p>
+<p>3 正则表达式,shell脚本,管道,重定向的组合很强大,apt包管理和文件权限问题很重要,源码即不联网也能解决问题,联网也能解决问题的双重能力.</p>
+<p>4 <code>? 可代替单个字符 ;*可代替多个字符</code></p>
+<p>5 操作的命令最好指定操作什么文件夹,不要痴迷于命令,很多命令不过是别人写的批处理罢了.如<code>.gitconfig</code>文件的设置.</p>
+<h2 id="使用xshell与服务器"><a href="#使用xshell与服务器" class="headerlink" title="使用xshell与服务器"></a>使用xshell与服务器</h2><p>使用 <code>Ctrl+Alt+T </code>调出可在Linux终端，输入 <code>source activate </code>激活<code>conda</code>，使用 <code>conda create -n 名称 python==3.x</code> 创建新的环境并且激活使用。</p>
+<p>校内访问： 主机： 172.27.64.209 端口号： 22<br>校外访问： frp穿透,需要使用云服务器</p>
+<h2 id="tar，jar，war包"><a href="#tar，jar，war包" class="headerlink" title="tar，jar，war包"></a>tar，jar，war包</h2><p>tar：linux下的打包工具，可压缩可不压缩</p>
+<p>jar：java下的打包，包含配置和class文件</p>
+<p>war：java web应用程序的包</p>
+<h2 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前路径 print working directory</span></span><br><span class="line">pwd</span><br><span class="line"><span class="comment"># 查看以字母s打头的文件 list</span></span><br><span class="line">ls -ltr s*</span><br><span class="line"><span class="comment"># 覆盖源文件,当改名字了，copy</span></span><br><span class="line">cp -f test.txt test1.txt</span><br><span class="line"><span class="comment"># 切换到linuxcool用户，环境变仍是root用户的</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su linuxcool</span></span><br><span class="line"><span class="comment">#切换到用户，环境变量改变</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su - linuxcool  </span></span><br><span class="line"><span class="comment">#常用参数 </span></span><br><span class="line">? 可代替单个字符</span><br><span class="line">* 可代替多个字符</span><br><span class="line"><span class="comment"># 重命名，rename需要apt，权限不够</span></span><br><span class="line"><span class="comment">#将main1.c 变成main.c，用到了正则表达式</span></span><br><span class="line">rename main1.c main.c my_main1.c</span><br><span class="line">rename .jpg .png *.jpg</span><br><span class="line">rename foo foo0 foo?</span><br><span class="line">rename foo0 foo foo0[<span class="number">1</span>]*</span><br><span class="line"><span class="comment"># mkdir make directories 创建目录</span></span><br><span class="line"><span class="comment"># 用绝对路径创建as</span></span><br><span class="line">mkdir <span class="built_in">dir</span></span><br><span class="line">mkdir /home/<span class="built_in">dir</span>/<span class="keyword">as</span> </span><br><span class="line"><span class="comment"># mv move 移动</span></span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">mv file_1 file_2</span><br><span class="line"><span class="comment">#cat命令</span></span><br><span class="line"><span class="comment"># 当文件内容较大时，文本内容会在屏幕上快速闪动（滚屏），用户往往看不清所显示的具体内容。因此对于较长文件内容可以按Ctrl+S键，停止滚屏；以及Ctrl+Q键可以恢复滚屏；而按Ctrl+C（中断）键则可以终止该命令的执行。或者对于大文件，干脆用more命令吧！</span></span><br><span class="line">cat filename.txt</span><br><span class="line">cat -n filename.txt</span><br><span class="line"><span class="comment">#显示版本号和帮助</span></span><br><span class="line">cat --<span class="built_in">help</span></span><br><span class="line">cat --version</span><br><span class="line"><span class="comment"># 删除rm，remove，</span></span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line">rm (-i -f) test.txt</span><br><span class="line"><span class="comment">#删除目录</span></span><br><span class="line">rm -r <span class="built_in">dir</span></span><br><span class="line"><span class="comment"># find 查询</span></span><br><span class="line">find. 查询当前目录下</span><br><span class="line"><span class="comment"># 记得ctrl+c终止命令,ctrl+l 清屏</span></span><br><span class="line"><span class="comment">#创建文件</span></span><br><span class="line">&gt; tip.txt</span><br><span class="line">vim tip.txt</span><br><span class="line">touch tip.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="linux-正则表达式"><a href="#linux-正则表达式" class="headerlink" title="linux 正则表达式"></a>linux 正则表达式</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43770382/article/details/119214331">Linux正则表达式_linux那些事儿的博客-CSDN博客</a></p>
+</blockquote>
+<h2 id="Linux常用命令（2）"><a href="#Linux常用命令（2）" class="headerlink" title="Linux常用命令（2）"></a>Linux常用命令（2）</h2><p>1 帮助命令</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig  --<span class="built_in">help</span>     //查看 ifconfig 命令的用法</span><br><span class="line">man shutdown         //打开命令说明后，可按<span class="string">&quot;q&quot;</span>键退出</span><br></pre></td></tr></table></figure>
+
+<p>2 切换用户 su</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su yao               //切换为用户<span class="string">&quot;yao&quot;</span>,输入后回车需要输入该用户的密码</span><br><span class="line">exit                 //退出当前用户</span><br></pre></td></tr></table></figure>
+
+<p>3 目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /                 //切换到根目录</span><br><span class="line">cd /<span class="built_in">bin</span>              //切换到根目录下的<span class="built_in">bin</span>目录</span><br><span class="line">cd ../               //切换到上一级目录 或者使用命令：cd ..</span><br><span class="line">cd ~                 //切换到home目录</span><br><span class="line">cd -                 //切换到上次访问的目录</span><br><span class="line">cd xx(文件夹名)       //切换到本目录下的名为xx的文件目录，如果目录不存在报错</span><br><span class="line">cd /xxx/xx/x         //可以输入完整的路径，直接切换到目标目录，输入过程中可以使用tab键快速补全</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir tools          //在当前目录下创建一个名为tools的目录</span><br><span class="line">mkdir /<span class="built_in">bin</span>/tools     //在指定目录下创建一个名为tools的目录</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  rm 文件名              //删除当前目录下的文件</span><br><span class="line">  rm -f 文件名           //删除当前目录的的文件（不询问）</span><br><span class="line">  rm -r 文件夹名         //递归删除当前目录下此名的目录</span><br><span class="line">  rm -rf 文件夹名        //递归删除当前目录下此名的目录（不询问）</span><br><span class="line">  rm -rf *              //将当前目录下的所有目录和文件全部删除</span><br><span class="line">  rm -rf /*             //将根目录下的所有文件全部删除【慎用！相当于格式化系统】</span><br><span class="line"><span class="comment">#好像删除是 rm -r 文件名/    带个/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv 当前目录名 新目录名        //修改目录名，同样适用与文件操作</span><br><span class="line">mv /usr/tmp/tool /opt       //将/usr/tmp目录下的tool目录剪切到 /opt目录下面</span><br><span class="line">mv -r /usr/tmp/tool /opt    //递归剪切目录中所有文件和文件夹</span><br></pre></td></tr></table></figure>
+
+<p>4 查看文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat a.txt          //查看文件最后一屏内容</span><br><span class="line">less a.txt         //PgUp向上翻页，PgDn向下翻页，<span class="string">&quot;q&quot;</span>退出查看</span><br><span class="line">more a.txt         //显示百分比，回车查看下一行，空格查看下一页，<span class="string">&quot;q&quot;</span>退出查看</span><br><span class="line">tail -<span class="number">100</span> a.txt    //查看文件的后<span class="number">100</span>行，<span class="string">&quot;Ctrl+C&quot;</span>退出查看</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux各文件夹作用"><a href="#Linux各文件夹作用" class="headerlink" title="Linux各文件夹作用"></a>Linux各文件夹作用</h2><p>linux文件夹，有</p>
+<p>/bin：系统指令，cat，mkdir，rm等，/sbin是超级指令</p>
+<p>/usr/bin：后期安装的运行脚本，gcc，g++等</p>
+<p>开始anacoda在/usr/local/anacoda3</p>
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><blockquote>
+<p> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105096446">详解 Linux 帮助命令 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">help cmd</span><br><span class="line">cmd --help</span><br><span class="line">man cmd</span><br><span class="line">info cmd</span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h2><p>ubuntu的包管理工具,用来升级卸载安装包.</p>
+<blockquote>
+<p>下载的软件存放位置 /var/cache/apt/archives 2.安装后软件默认位置 /usr/share 3.可执行文件位置 /usr/bin 4.配置文件位置 /etc 5.lib文件位置 /usr/lib</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/09/10.08/conda%E4%BD%BF%E7%94%A8/" rel="prev" title="codna使用">
+      <i class="fa fa-chevron-left"></i> codna使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%802-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/" rel="next" title="Linux基础2-源码编译">
+      Linux基础2-源码编译 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">1.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8xshell%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">使用xshell与服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tar%EF%BC%8Cjar%EF%BC%8Cwar%E5%8C%85"><span class="nav-number">4.</span> <span class="nav-text">tar，jar，war包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">Linux 常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">linux 正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%882%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">Linux常用命令（2）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E5%90%84%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BD%9C%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">Linux各文件夹作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="nav-number">9.</span> <span class="nav-text">帮助命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get"><span class="nav-number">10.</span> <span class="nav-text">apt-get</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Dream"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Dream</p>
+  <div class="site-description" itemprop="description">hello world</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Smithol" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Smithol" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1216990865@qq.com" title="E-Mail → mailto:1216990865@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      
+  <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div id="myCanvasContainer" class="widget tagcloud">
+      <canvas width="250" height="250" id="resCanvas" style="width:100%">
+        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/apt/" rel="tag">apt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/conda/" rel="tag">conda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windowns/" rel="tag">windowns</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a><span class="tag-list-count">1</span></li></ul>
+      </canvas>
+    </div>
+  </div>
+
+        
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dream</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

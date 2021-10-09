@@ -1,12 +1,614 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test1</title>
-    <url>/2021/10/09/a/test1/</url>
-    <content><![CDATA[<p>t</p>
-<p><img src="/2021/10/09/a/test1/image-20211009094554986.jpg" alt="image-20211009094554986"></p>
-<p><img src="/2021/10/09/a/test1/R-C.c6c03edea530e9caa677c9d17f193a4d" alt="查看源图像"></p>
-<p><img src="/2021/10/09/a/test1/image-20211009105437126.png" alt="image-20211009105437126"></p>
+    <title>Linux基础-文件增删改查</title>
+    <url>/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:主要关于linux服务器使用,以方便使用服务器训练机器学习模型. 主要是增删改查Linux文件</p>
+<p><strong>Keywords</strong>:linux常用命令</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p> <a href="https://docs.conda.io/projects/conda/en/latest/commands/clean.html">conda 官网</a></p>
+<p> <a href="https://blog.csdn.net/weixin_33127753/article/details/82842002">anaconda linux 常用命令、安装源、清理缓存</a></p>
+<p><a href="https://pip.pypa.io/en/stable/reference/pip_freeze/"> pip 官网</a></p>
+<p><a href="https://blog.csdn.net/weixin_43770382/article/details/119214331">Linux正则表达式_linux那些事儿的博客-CSDN博客</a></p>
+<p> <a href="https://zhuanlan.zhihu.com/p/105096446">详解 Linux 帮助命令 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1 能看懂帮助信息就好</p>
+<p>2 会使用常用的一两个就好,其他的上网查阅</p>
+<p>3 正则表达式,shell脚本,管道,重定向的组合很强大,apt包管理和文件权限问题很重要,源码即不联网也能解决问题,联网也能解决问题的双重能力.</p>
+<p>4 <code>? 可代替单个字符 ;*可代替多个字符</code></p>
+<p>5 操作的命令最好指定操作什么文件夹,不要痴迷于命令,很多命令不过是别人写的批处理罢了.如<code>.gitconfig</code>文件的设置.</p>
+<h2 id="使用xshell与服务器"><a href="#使用xshell与服务器" class="headerlink" title="使用xshell与服务器"></a>使用xshell与服务器</h2><p>使用 <code>Ctrl+Alt+T </code>调出可在Linux终端，输入 <code>source activate </code>激活<code>conda</code>，使用 <code>conda create -n 名称 python==3.x</code> 创建新的环境并且激活使用。</p>
+<p>校内访问： 主机： 172.27.64.209 端口号： 22<br>校外访问： frp穿透,需要使用云服务器</p>
+<h2 id="tar，jar，war包"><a href="#tar，jar，war包" class="headerlink" title="tar，jar，war包"></a>tar，jar，war包</h2><p>tar：linux下的打包工具，可压缩可不压缩</p>
+<p>jar：java下的打包，包含配置和class文件</p>
+<p>war：java web应用程序的包</p>
+<h2 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前路径 print working directory</span></span><br><span class="line">pwd</span><br><span class="line"><span class="comment"># 查看以字母s打头的文件 list</span></span><br><span class="line">ls -ltr s*</span><br><span class="line"><span class="comment"># 覆盖源文件,当改名字了，copy</span></span><br><span class="line">cp -f test.txt test1.txt</span><br><span class="line"><span class="comment"># 切换到linuxcool用户，环境变仍是root用户的</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su linuxcool</span></span><br><span class="line"><span class="comment">#切换到用户，环境变量改变</span></span><br><span class="line">[root@linuxcool ~]<span class="comment"># su - linuxcool  </span></span><br><span class="line"><span class="comment">#常用参数 </span></span><br><span class="line">? 可代替单个字符</span><br><span class="line">* 可代替多个字符</span><br><span class="line"><span class="comment"># 重命名，rename需要apt，权限不够</span></span><br><span class="line"><span class="comment">#将main1.c 变成main.c，用到了正则表达式</span></span><br><span class="line">rename main1.c main.c my_main1.c</span><br><span class="line">rename .jpg .png *.jpg</span><br><span class="line">rename foo foo0 foo?</span><br><span class="line">rename foo0 foo foo0[<span class="number">1</span>]*</span><br><span class="line"><span class="comment"># mkdir make directories 创建目录</span></span><br><span class="line"><span class="comment"># 用绝对路径创建as</span></span><br><span class="line">mkdir <span class="built_in">dir</span></span><br><span class="line">mkdir /home/<span class="built_in">dir</span>/<span class="keyword">as</span> </span><br><span class="line"><span class="comment"># mv move 移动</span></span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">mv file_1 file_2</span><br><span class="line"><span class="comment">#cat命令</span></span><br><span class="line"><span class="comment"># 当文件内容较大时，文本内容会在屏幕上快速闪动（滚屏），用户往往看不清所显示的具体内容。因此对于较长文件内容可以按Ctrl+S键，停止滚屏；以及Ctrl+Q键可以恢复滚屏；而按Ctrl+C（中断）键则可以终止该命令的执行。或者对于大文件，干脆用more命令吧！</span></span><br><span class="line">cat filename.txt</span><br><span class="line">cat -n filename.txt</span><br><span class="line"><span class="comment">#显示版本号和帮助</span></span><br><span class="line">cat --<span class="built_in">help</span></span><br><span class="line">cat --version</span><br><span class="line"><span class="comment"># 删除rm，remove，</span></span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line">rm (-i -f) test.txt</span><br><span class="line"><span class="comment">#删除目录</span></span><br><span class="line">rm -r <span class="built_in">dir</span></span><br><span class="line"><span class="comment"># find 查询</span></span><br><span class="line">find. 查询当前目录下</span><br><span class="line"><span class="comment"># 记得ctrl+c终止命令,ctrl+l 清屏</span></span><br><span class="line"><span class="comment">#创建文件</span></span><br><span class="line">&gt; tip.txt</span><br><span class="line">vim tip.txt</span><br><span class="line">touch tip.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="linux-正则表达式"><a href="#linux-正则表达式" class="headerlink" title="linux 正则表达式"></a>linux 正则表达式</h2><blockquote>
+<p><a href="https://blog.csdn.net/weixin_43770382/article/details/119214331">Linux正则表达式_linux那些事儿的博客-CSDN博客</a></p>
+</blockquote>
+<h2 id="Linux常用命令（2）"><a href="#Linux常用命令（2）" class="headerlink" title="Linux常用命令（2）"></a>Linux常用命令（2）</h2><p>1 帮助命令</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ifconfig  --<span class="built_in">help</span>     //查看 ifconfig 命令的用法</span><br><span class="line">man shutdown         //打开命令说明后，可按<span class="string">&quot;q&quot;</span>键退出</span><br></pre></td></tr></table></figure>
+
+<p>2 切换用户 su</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">su yao               //切换为用户<span class="string">&quot;yao&quot;</span>,输入后回车需要输入该用户的密码</span><br><span class="line">exit                 //退出当前用户</span><br></pre></td></tr></table></figure>
+
+<p>3 目录</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cd /                 //切换到根目录</span><br><span class="line">cd /<span class="built_in">bin</span>              //切换到根目录下的<span class="built_in">bin</span>目录</span><br><span class="line">cd ../               //切换到上一级目录 或者使用命令：cd ..</span><br><span class="line">cd ~                 //切换到home目录</span><br><span class="line">cd -                 //切换到上次访问的目录</span><br><span class="line">cd xx(文件夹名)       //切换到本目录下的名为xx的文件目录，如果目录不存在报错</span><br><span class="line">cd /xxx/xx/x         //可以输入完整的路径，直接切换到目标目录，输入过程中可以使用tab键快速补全</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mkdir tools          //在当前目录下创建一个名为tools的目录</span><br><span class="line">mkdir /<span class="built_in">bin</span>/tools     //在指定目录下创建一个名为tools的目录</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">  rm 文件名              //删除当前目录下的文件</span><br><span class="line">  rm -f 文件名           //删除当前目录的的文件（不询问）</span><br><span class="line">  rm -r 文件夹名         //递归删除当前目录下此名的目录</span><br><span class="line">  rm -rf 文件夹名        //递归删除当前目录下此名的目录（不询问）</span><br><span class="line">  rm -rf *              //将当前目录下的所有目录和文件全部删除</span><br><span class="line">  rm -rf /*             //将根目录下的所有文件全部删除【慎用！相当于格式化系统】</span><br><span class="line"><span class="comment">#好像删除是 rm -r 文件名/    带个/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">mv 当前目录名 新目录名        //修改目录名，同样适用与文件操作</span><br><span class="line">mv /usr/tmp/tool /opt       //将/usr/tmp目录下的tool目录剪切到 /opt目录下面</span><br><span class="line">mv -r /usr/tmp/tool /opt    //递归剪切目录中所有文件和文件夹</span><br></pre></td></tr></table></figure>
+
+<p>4 查看文件</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cat a.txt          //查看文件最后一屏内容</span><br><span class="line">less a.txt         //PgUp向上翻页，PgDn向下翻页，<span class="string">&quot;q&quot;</span>退出查看</span><br><span class="line">more a.txt         //显示百分比，回车查看下一行，空格查看下一页，<span class="string">&quot;q&quot;</span>退出查看</span><br><span class="line">tail -<span class="number">100</span> a.txt    //查看文件的后<span class="number">100</span>行，<span class="string">&quot;Ctrl+C&quot;</span>退出查看</span><br></pre></td></tr></table></figure>
+
+<h2 id="Linux各文件夹作用"><a href="#Linux各文件夹作用" class="headerlink" title="Linux各文件夹作用"></a>Linux各文件夹作用</h2><p>linux文件夹，有</p>
+<p>/bin：系统指令，cat，mkdir，rm等，/sbin是超级指令</p>
+<p>/usr/bin：后期安装的运行脚本，gcc，g++等</p>
+<p>开始anacoda在/usr/local/anacoda3</p>
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><blockquote>
+<p> <a href="https://zhuanlan.zhihu.com/p/105096446">详解 Linux 帮助命令 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">help cmd</span><br><span class="line">cmd --help</span><br><span class="line">man cmd</span><br><span class="line">info cmd</span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h2><p>ubuntu的包管理工具,用来升级卸载安装包.</p>
+<blockquote>
+<p>下载的软件存放位置 /var/cache/apt/archives 2.安装后软件默认位置 /usr/share 3.可执行文件位置 /usr/bin 4.配置文件位置 /etc 5.lib文件位置 /usr/lib</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux基础2-源码编译</title>
+    <url>/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%802-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:源码编译入门知识,我自己也没试验过,所以写的很多.如果不联网,就使用这种方法.</p>
+<p><strong>Keywords</strong>: makefile,linux源码编译</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p>[1] <a href="https://www.jianshu.com/p/6432015c52a6">Linux软件安装管理之——dpkg与apt-*详解 - 简书 (jianshu.com)</a></p>
+<p>[2] <a href="https://www.jianshu.com/p/ee60a9d6bd7d">Linux软件安装管理之——源码安装详解 - 简书 (jianshu.com)</a></p>
+<p>[3] <a href="https://blog.csdn.net/dta0502/article/details/83445205">(2条消息) Linux 源码的编译安装和卸载_dta0502的博客-CSDN博客_编译卸载</a></p>
+</blockquote>
+<hr>
+<h2 id="dpkg与apt"><a href="#dpkg与apt" class="headerlink" title="dpkg与apt"></a>dpkg与apt</h2><p>包管理技术,dpkg,常用debian常用,apt 是ubuntu常用.</p>
+<h2 id="软件源码安装"><a href="#软件源码安装" class="headerlink" title="软件源码安装"></a>软件源码安装</h2><p>源码包: tar.gz 一般是打包 压缩的东西</p>
+<p>二进制包: rpm包,deb包都是</p>
+<p><strong>源码安装分三步</strong>:</p>
+<p>获取程序源代码文件-&gt;编译,如gcc-&gt;生成二进制文件,也即可执行文件</p>
+<p><strong>源码包安装详解</strong></p>
+<p>1 获取源码包 : 一般解压 到 /usr/local/src</p>
+<p>2 运行<code>./config </code>或者<code>./configure -- prefix=prefix</code> 或者其他关于configure的东西,目的是生成makefile : 推荐安装在/usr/local/xxx,<strong>prefix指的是安装位置</strong></p>
+<p>3 make 编译 : 利用makefile 进行make</p>
+<p>4 make install 安装</p>
+<blockquote>
+<p>在上图第二步中的–prefix后面接的路径表示这个软件将要安装到哪个目录去，如果没有指定–prefix=/path这个参数，通常默认为/usr/local。本人推荐安装位置为 /usr/local/XXX，XXX为自己的实际目录，这样会方便以后的管理。</p>
+<p>​    源码包安装方式的man文件默认保存在/usr/local/man或/usr/local/share/man中，如果你的安装路径自定义为如/usr/local/XXX，则man文件则一般是在/usr/local/XXX/share/man中。此时如果你想要通过man来查看你所安装软件的man手册，则需要自行修改man的路径配置文件（可能是man.config或者manpath.config）。需要在相应位置添加如下一行：</p>
+<p>作者：Nosee123<br>链接：<a href="https://www.jianshu.com/p/ee60a9d6bd7d">https://www.jianshu.com/p/ee60a9d6bd7d</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<p>文献[3]</p>
+<blockquote>
+<p><code>configure</code>文件是一个可执行的脚本文件，它有很多选项，在待安装的源码目录下使用命令<code>./configure –help</code>可以输出详细的选项列表。</p>
+<p>其中<code>--prefix</code>选项是配置安装目录，如果不配置该选项，安装后可执行文件默认放在<code>/usr /local/bin</code>，库文件默认放在<code>/usr/local/lib</code>，配置文件默认放在<code>/usr/local/etc</code>，其它的资源文件放在<code>/usr /local/share</code>，比较凌乱。 </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>codna使用</title>
+    <url>/2021/10/09/10.08/conda%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:虚拟环境安装需要conda,conda在win与Linux中基本相同.学会使用帮助信息,国内一般都需要镜像考虑,还有移植环境.重点是帮助信息和镜像源.</p>
+<p><strong>Keywords</strong>:conda命令</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><h2 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h2><h3 id="conda-windows"><a href="#conda-windows" class="headerlink" title="conda windows"></a>conda windows</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建环境</span></span><br><span class="line">conda create -n environment python==version package</span><br><span class="line"><span class="comment"># 移除环境</span></span><br><span class="line">conda remove -n environment --<span class="built_in">all</span></span><br><span class="line"><span class="comment"># conda环境查询</span></span><br><span class="line">conda info -e</span><br><span class="line"><span class="comment"># 进入环境</span></span><br><span class="line">conda activate env</span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">conda install 包名称==version</span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">conda search package</span><br><span class="line"><span class="comment"># 查看环境所有包</span></span><br><span class="line">conda <span class="built_in">list</span></span><br><span class="line"><span class="comment"># 环境重命名</span></span><br><span class="line">conda create --name new_env_name --clone old_env_name</span><br><span class="line"><span class="comment">#复制环境</span></span><br><span class="line">conda create -n name --clone name</span><br><span class="line"><span class="comment"># 升级conda和package</span></span><br><span class="line">conda update conda</span><br><span class="line">conda update package</span><br><span class="line"><span class="comment"># 卸载package</span></span><br><span class="line">conda uninstall package</span><br><span class="line"><span class="comment"># 清理conda</span></span><br><span class="line">conda clean -a <span class="comment">#删除缓存、未使用的包、tar包</span></span><br><span class="line">conda clean -p <span class="comment"># 删除未使用的包</span></span><br><span class="line">conda clean -t <span class="comment">#删除tar包</span></span><br><span class="line"><span class="comment"># 增加镜像源</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"><span class="comment"># 移除环境报错解决方案</span></span><br><span class="line">使用conda remove -n tem --<span class="built_in">all</span>  删除环境时，发现如下错误：</span><br><span class="line">PackagesNotFoundError: The following packages are missing <span class="keyword">from</span> the target environment:</span><br><span class="line">解决方案：</span><br><span class="line">conda env remove -n tem(要移除的环境名称)</span><br></pre></td></tr></table></figure>
+
+<h3 id="conda-linux"><a href="#conda-linux" class="headerlink" title="conda linux"></a>conda linux</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> anacoda 安装</span><br><span class="line"><span class="comment"># 执行安装文件,-p指定位置</span></span><br><span class="line">./Anaconda3-<span class="number">5.2</span><span class="number">.0</span>-Linux-x86_64.sh -p /home/anaconda3/</span><br><span class="line"><span class="comment">#yes </span></span><br><span class="line"><span class="comment">#Do you wish the installer to initialize Anaconda3</span></span><br><span class="line"><span class="comment">#by running conda init? [yes|no] 决定你是否愿意将anaconda放入环境变量</span></span><br><span class="line"><span class="comment">#yes</span></span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="comment"># 在/etc/profile尾部，添加如下，所有用户就都可以用了</span></span><br><span class="line">export PATH=/home/anaconda3/<span class="built_in">bin</span>:$PATH</span><br><span class="line"><span class="number">2</span> 常用命令</span><br><span class="line"><span class="comment"># 创建一个名为envTest的环境，指定Python版本是3.6</span></span><br><span class="line">conda create -n envTest python==<span class="number">3.6</span></span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">activate envTest <span class="comment"># for Windows</span></span><br><span class="line">source activate envTest <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 退出虚拟环境</span></span><br><span class="line">deactivate envTest <span class="comment"># for Windows</span></span><br><span class="line">source deactivate envTest <span class="comment"># for Linux &amp; Mac</span></span><br><span class="line"><span class="comment"># 删除一个已有的环境</span></span><br><span class="line">conda remove -n envTest  --<span class="built_in">all</span></span><br><span class="line"><span class="comment"># 复制某个环境</span></span><br><span class="line">conda create -n new_env_name --clone old_env_name </span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">conda install scikit-learn</span><br><span class="line"><span class="comment"># 分享环境 需先activate激活环境</span></span><br><span class="line">conda env export &gt; environment.yml<span class="comment">#传送</span></span><br><span class="line">conda env create -f environment.yml<span class="comment">#接收后操作</span></span><br><span class="line"><span class="number">3</span> 修改python版本</span><br><span class="line"><span class="comment">#1.新建一个anaconda虚拟环境，指定Python版本</span></span><br><span class="line">conda create -n envTest python=<span class="number">3.5</span></span><br><span class="line"><span class="comment">#2.直接将现有的anaconda中python更改为3.5</span></span><br><span class="line">sudo conda install python=<span class="number">3.5</span></span><br><span class="line"><span class="comment">#3.下载并安装对应Python版本的anaconda，anaconda4.2-&gt;python3.5</span></span><br><span class="line"><span class="comment">#https://repo.continuum.io/archive/</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span> 清理conda缓存</span><br><span class="line">conda clean -p      <span class="comment"># 删除没有用的包 --packages</span></span><br><span class="line">conda clean -t      <span class="comment"># 删除tar打包 --tarballs</span></span><br><span class="line">conda clean -y -<span class="built_in">all</span> <span class="comment"># 删除所有的安装包及cache(索引缓存、锁定文件、未使用过的包和tar包)</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> conda国内源</span><br><span class="line"><span class="comment">#	查看当前源</span></span><br><span class="line">conda config --show-sources</span><br><span class="line"><span class="comment">#	添加源</span></span><br><span class="line"><span class="comment">#conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/  #清华源停服 </span></span><br><span class="line"><span class="comment"># 	腾讯云</span></span><br><span class="line">conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.cloud.tencent.com/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"><span class="comment">#	换回默认源</span></span><br><span class="line">conda config --remove-key channels</span><br><span class="line"></span><br><span class="line"><span class="number">6</span> pip国内源</span><br><span class="line">阿里云 ：http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">中国科技大学： https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">豆瓣(douban) ：http://pypi.douban.com/simple/</span><br><span class="line">清华大学 ：https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line">中国科学技术大学： http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 使用豆瓣源安装</span></span><br><span class="line">pip install opencv-python -i http://pypi.douban.com/simple </span><br><span class="line"><span class="comment"># 报错说不信任该源，执行如下：</span></span><br><span class="line">pip install opencv-python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com</span><br><span class="line"><span class="comment"># 生成requirements.txt文件</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"><span class="comment"># 安装requirements.txt依赖</span></span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux基础3-实用进阶</title>
+    <url>/2021/10/09/10.08/Linux%E5%9F%BA%E7%A1%803-%E5%AE%9E%E7%94%A8%E8%BF%9B%E9%98%B6/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:一些超级实用的Linux技巧.比如管道,权限,进程等命令.从b站学习来的</p>
+<p><strong>Keywords</strong>:Linux学习</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p>[1] <a href="https://www.bilibili.com/video/BV1DE41157Bg?p=8&spm_id_from=pageDriver">基于ubuntu的linux学习教程，由入门到精通_哔哩哔哩_bilibili</a></p>
+<p>[2] <a href="https://www.bilibili.com/video/BV1ti4y1t7BF?p=68&spm_id_from=pageDriver">linux系统全套学习课程-Ubuntu_哔哩哔哩_bilibili</a></p>
+<p><a href="http://c.biancheng.net/view/5956.html">Linux重定向（输入输出重定向）详解 (biancheng.net)</a></p>
+<p><a href="https://developer.aliyun.com/article/710681">值得收藏-史上最全Linux ps命令详解-阿里云开发者社区 (aliyun.com)</a></p>
+<p><a href="https://blog.csdn.net/qq_15682815/article/details/87921482">ps命令用户名过长显示不全_码行天下-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_30762363/article/details/116982025">linux 指定ps comm输出长度,ps命令查看进程指定项目信息、用户名过长显示UID_三月小公举的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/qq_44159028/article/details/118099689">python3之http.server模块_辰辰啊-CSDN博客</a></p>
+</blockquote>
+<hr>
+<h2 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h2><p>ubuntu没有关于盘符的概念,即没有cde硬盘.win是单用户操作系统,linux是多用户操作系统.</p>
+<p>home中存放的是用户</p>
+<p>根目录 就是/</p>
+<p>etc 系统配置文件</p>
+<p>bin 可执行的程序,类似于exe文件集合</p>
+<table>
+<thead>
+<tr>
+<th>/bin</th>
+<th>可执行文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/sbin</td>
+<td>system bin,管理系统的</td>
+</tr>
+<tr>
+<td>/usr/bin</td>
+<td>后期安装的软件</td>
+</tr>
+<tr>
+<td>/usr/sbin</td>
+<td>超级用户的管理程序</td>
+</tr>
+</tbody></table>
+<p><strong>最好把命令和对应英文联系起来</strong></p>
+<p>list,print work directory,clear,remove,touch,change directory.</p>
+<p><strong>新建文件 touch</strong></p>
+<h2 id="帮助信息-man"><a href="#帮助信息-man" class="headerlink" title="帮助信息 man"></a>帮助信息 man</h2><table>
+<thead>
+<tr>
+<th>空格,f</th>
+<th>下一页</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>b</td>
+<td>上一页</td>
+</tr>
+<tr>
+<td>/word</td>
+<td>搜索word字符串</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>enter</td>
+<td>下一行</td>
+</tr>
+</tbody></table>
+<h2 id="cat-more-less"><a href="#cat-more-less" class="headerlink" title="cat,more,less"></a>cat,more,less</h2><p>就和help与man一样,一个分屏一个不分屏.</p>
+<p>还是less好用,谁用谁知道</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat xxx | less</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>搜索文件中的文本,但是我直接用vim不行吗?</p>
+<p>^wrod,word$:行首匹配,行尾匹配.</p>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">head -n 5</span><br></pre></td></tr></table></figure>
+
+<p>和grep一样的使用,显示起来随自己.也不错</p>
+<h2 id="echo-与重定向"><a href="#echo-与重定向" class="headerlink" title="echo 与重定向"></a>echo 与重定向</h2><p>很少单独使用,和重定向配合,&gt;,&gt;&gt;,输入和追加.</p>
+<blockquote>
+<p><a href="http://c.biancheng.net/view/5956.html">Linux重定向（输入输出重定向）详解 (biancheng.net)</a></p>
+</blockquote>
+<p>输入很难理解.以下#是在root下的意思,普通用户是$</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# cat /etc/passwd</span><br><span class="line"><span class="meta">#</span><span class="bash">这里省略输出信息，读者可自行查看</span></span><br><span class="line">[root@localhost ~]# cat &lt; /etc/passwd</span><br><span class="line"><span class="meta">#</span><span class="bash">输出结果同上面命令相同</span></span><br><span class="line"><span class="meta">#</span><span class="bash">注意，虽然执行结果相同，但第一行代表是以键盘作为输入设备，而第二行代码是以 /etc/passwd 文件作为输入设备。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# cat a.txt</span><br><span class="line">[root@localhost ~]# cat &lt; /etc/passwd &gt; a.txt</span><br><span class="line">[root@localhost ~]# cat a.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">输出了和 /etc/passwd 文件内容相同的数据</span></span><br><span class="line"><span class="meta">#</span><span class="bash">复制文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cat &lt;&lt; 0</span></span><br><span class="line">&gt;c.biancheng.net</span><br><span class="line">&gt;Linux</span><br><span class="line">&gt;0</span><br><span class="line">c.biancheng.net</span><br><span class="line">Linux</span><br><span class="line"><span class="comment">#不输入0就可以一直输入数据,通常EOF,因为ctrl+d就是EOF</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -lh | more #其实less挺好用的</span><br><span class="line">ls -lh | grep xxx</span><br></pre></td></tr></table></figure>
+
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>web服务器 端口80;我们访问百度,不用加80也可以直接找到百度的web服务器.</p>
+<p>注意我们找到的是百度的web服务器,而不是百度那台机器.</p>
+<p>只有加上端口才能连上web服务器软件,才能享有web服务.</p>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>ssh在linux是开始就有的.在win中要自己安装,或者安装xshell,putty客户端来模拟</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh [-p port] user@remote</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="meta">#</span><span class="bash">把.pub文件传到服务器.</span></span><br><span class="line">ssh-copy-id user@remote</span><br></pre></td></tr></table></figure>
+
+<p>传输文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp 文件 user@remote:目录</span><br></pre></td></tr></table></figure>
+
+<p>.ssh/config</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Host 别名	HostName ip地址	User 用户名	Port 22#现在可以用ssh 别名来连接电脑了#现在也可以用scp 别名来传输文件了</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户权限相关命令"><a href="#用户权限相关命令" class="headerlink" title="用户权限相关命令"></a>用户权限相关命令</h2><p>read:r  4</p>
+<p>write:w  2</p>
+<p>excute:x  1</p>
+<table>
+<thead>
+<tr>
+<th>read</th>
+<th>r</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>write</td>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>excute</td>
+<td>x</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h3 id="1-组概念"><a href="#1-组概念" class="headerlink" title="1. 组概念"></a>1. 组概念</h3><p>简化我们对用户权限的设置,可以一次设置一个组</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-rw-rw-r-- s2020020922 studrwxrwxr-x s2020020922 stu</span><br></pre></td></tr></table></figure>
+
+<p>1 标记为文件还是目录</p>
+<p>剩下的每三个一组,分三组;第一组是用户s2020020922;第二组是组对应权限,stu;第三组是其他用户的权限</p>
+<h3 id="2-硬链接数"><a href="#2-硬链接数" class="headerlink" title="2. 硬链接数"></a>2. 硬链接数</h3><p>可以到达这个文件或者目录的道路.</p>
+<p>其实和tree命令有关系的.</p>
+<h3 id="3-修改文件权限"><a href="#3-修改文件权限" class="headerlink" title="3. 修改文件权限"></a>3. 修改文件权限</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod -x test #就不能cd进testchmod +x test #加上可执行权限</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-chmod-数字化"><a href="#4-chmod-数字化" class="headerlink" title="4. chmod 数字化"></a>4. chmod 数字化</h3><p>read 4; write 2; excute 1</p>
+<p>R 目录递归修改权限</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod -R 755 文件名或目录名</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="超级用户root与普通用户"><a href="#超级用户root与普通用户" class="headerlink" title="超级用户root与普通用户"></a>超级用户root与普通用户</h2><p>root是添加用户,安装软件等.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su #substitute usersudo #root身份执行,要输入密码,5分钟期限.</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建用户-设置密码-删除用户"><a href="#创建用户-设置密码-删除用户" class="headerlink" title="创建用户/设置密码/删除用户"></a>创建用户/设置密码/删除用户</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">useradd -m -g 组名 #创建用户,m有奇用passwd 用户名 #修改密码userdel -r 用户名</span><br></pre></td></tr></table></figure>
+
+<p>421服务器是在home421中创建的所有用户和组.</p>
+<h3 id="查看用户-设置用户"><a href="#查看用户-设置用户" class="headerlink" title="查看用户/设置用户"></a>查看用户/设置用户</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">/etc/group 存放组信息<span class="comment">#/etc/passwd 存放用户信息id 用户名 #查看用户信息who #查看当前有谁用服务器whomi#查看自己是谁</span></span></span><br></pre></td></tr></table></figure>
+
+<p>以自身为例子</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">id#</span><span class="bash">用户id=1015(s2020020922) 组id=1001(stu) 组=1001(stu)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat -n /etc/passwd |grep s2020020922#64	s2020020922:x:1015:1001::/home/s2020020922:/bin/bash# x:有密码且加密;</span><br></pre></td></tr></table></figure>
+
+<p>home421可以通过sudo创建新用户,我的不在sudo ers组中就不能有这种操作.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat -n /etc/group | grep home421#5	adm:x:4:syslog,home421#18	cdrom:x:24:home421#21	sudo:x:27:home421#23	dip:x:30:home421#35	plugdev:x:46:home421#59	lpadmin:x:120:home421#70	lxd:x:131:home421#71	home421:x:1000:#72	sambashare:x:132:home421#人家home421用户可以使用sudo和很多,即有很多附加组.</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-添加附加组usermod"><a href="#1-添加附加组usermod" class="headerlink" title="1. 添加附加组usermod"></a>1. 添加附加组usermod</h4><p>不写了,用到就百度就好</p>
+<h4 id="2-用户使用shell设置避免乱码如-A"><a href="#2-用户使用shell设置避免乱码如-A" class="headerlink" title="2. 用户使用shell设置避免乱码如^A"></a>2. 用户使用shell设置避免乱码如^A</h4><p>shell就是命令行窗口</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">s2020020922@home421:~$#这个是/bin/bash$#这个是dash.在xp下边输入会乱码,比如^H,^A.</span><br></pre></td></tr></table></figure>
+
+<p>如何避免以上情况</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">usermod -s /bin/bash 用户名</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看命令which-命令文件所在位置"><a href="#查看命令which-命令文件所在位置" class="headerlink" title="查看命令which,命令文件所在位置"></a>查看命令which,命令文件所在位置</h3><p>说明很多命令的可执行文件都在bin目录下.或者sbin</p>
+<h3 id="切换用户-su"><a href="#切换用户-su" class="headerlink" title="切换用户 su"></a>切换用户 su</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">su -用户名#切换用户,-可切换至用户的目录,否则保持不变#不加用户名就是到root,非常不安全.exit #退出.</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统信息相关命令-进程等"><a href="#系统信息相关命令-进程等" class="headerlink" title="系统信息相关命令:进程等"></a>系统信息相关命令:进程等</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>date</td>
+<td>系统时间</td>
+</tr>
+<tr>
+<td>cal</td>
+<td>日历</td>
+</tr>
+<tr>
+<td>df -h</td>
+<td>disk free 磁盘剩余空间</td>
+</tr>
+<tr>
+<td>du -h</td>
+<td>disk usage 显示目录下的文件大小</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>人性化显示文件大小</td>
+</tr>
+<tr>
+<td>ps aux</td>
+<td>process status 查看进程的详细状态</td>
+</tr>
+<tr>
+<td>a</td>
+<td>显示终端所有进程,包括其他用户进程</td>
+</tr>
+<tr>
+<td>u</td>
+<td>进程详细状态;感觉是显示用户的信息</td>
+</tr>
+<tr>
+<td>x</td>
+<td>显示没有控制终端的进程,更多进程了.</td>
+</tr>
+<tr>
+<td>top</td>
+<td>动态显示运行中的进程并且排序,q退出.不按q永远不停</td>
+</tr>
+<tr>
+<td>kill -9 pid</td>
+<td>强制终止;不能中止系统的命令</td>
+</tr>
+</tbody></table>
+<p>经过查看发现,ps ef和au差不多.</p>
+<p>发现ps -w 可以拓宽显示长度,但是好像要-wwww才行.当然这样也是不能显示全2020020922这类的用户名.为啥?往下看</p>
+<p>对了,-w是有用的,因为grep查找的就是在终端看到的,如果因为隐藏了而在终端不显示,自然用grep也查不到</p>
+<h3 id="1-ps命令选项-之多种风格"><a href="#1-ps命令选项-之多种风格" class="headerlink" title="1. ps命令选项  之多种风格"></a>1. ps命令选项  之多种风格</h3><blockquote>
+<p><a href="https://developer.aliyun.com/article/710681">值得收藏-史上最全Linux ps命令详解-阿里云开发者社区 (aliyun.com)</a></p>
+</blockquote>
+<p>这篇文章是大佬.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">BSD风格语法，必须不能以中横线开头；# ps uSYSV风格语法，必须仅一个中横线开头；# ps -lGNU风格语法，必须以两个中横线开头； # ps --pid l</span><br></pre></td></tr></table></figure>
+
+<p>ps命令中会有这三种风格,根据ps的容错机制,三种风格部分命令可以混搭.</p>
+<p>比如,ps -axu,一般先以sysv解析,不成功,然后转换成bsd风格,也不行,反正就是根据这个命令的内部机制就是不行,也可能下个版本就行了.总之,明白这个意思就好</p>
+<p>GNU风格的选项都是带参数值的,如–sid 1</p>
+<h3 id="2-查看进程的名字"><a href="#2-查看进程的名字" class="headerlink" title="2. 查看进程的名字"></a>2. 查看进程的名字</h3><p>没错就是为了看看哪个小可爱再用服务器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -q pid -o user  #不知道为啥必须用小写,大写不行.#USER#s2020020911其实ps -p pid -o user #也可以.</span><br></pre></td></tr></table></figure>
+
+<p>为了这个查看进程名字费了很多事,比如</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_15682815/article/details/87921482">ps命令用户名过长显示不全_码行天下-CSDN博客</a></p>
+</blockquote>
+<p>这个哥们用了这条命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -o ruser=userForLongName -e -o pid,ppid,c,stime,tty,time,cmd#其实 user=fiodsaaaaafjdsoaaaaaaaa 也就行了#或者ps -o pid,user     把user放最后就不会显示不全了</span><br></pre></td></tr></table></figure>
+
+<p>我以为userforlongname是个啥参数,其实就是修改了列的名字,以前的列叫USER,对应的用户名s2020020922过长,就是显示不全,把USER改成userforlongname,就可以显示全用户名了</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/weixin_30762363/article/details/116982025">linux 指定ps comm输出长度,ps命令查看进程指定项目信息、用户名过长显示UID_三月小公举的博客-CSDN博客</a></p>
+</blockquote>
+<h2 id="查找文件find-树文件结构tree"><a href="#查找文件find-树文件结构tree" class="headerlink" title="查找文件find,树文件结构tree"></a>查找文件find,树文件结构tree</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find [path] -name &quot;*.py&quot; #这个通配符不适合配合grep,因为.才是匹配任何字符</span><br><span class="line">find /etc -name &quot;passwd*&quot; -exec grep &quot;liji-wsl&quot; &#123;&#125; \; #真的强</span><br><span class="line">find /etc -name &quot;passwd*&quot; -exec ls &#123;&#125; \;#&#123;&#125;是find出来的文件,就像python中的filter一样,对每一个文件都同样操作,h \;是为了转义字符,必须加上\;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打包压缩-tar-gz"><a href="#打包压缩-tar-gz" class="headerlink" title="打包压缩  tar.gz"></a>打包压缩  tar.gz</h2><p>tar只是打包,不压缩.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">打包文件</span></span><br><span class="line">tar -cvf xxx.tar xxx xxx xxx 要存放的路径</span><br><span class="line"><span class="meta">#</span><span class="bash">解包文件</span></span><br><span class="line">tar -xvf xxx.tar</span><br></pre></td></tr></table></figure>
+
+<p>gzip 压缩</p>
+<p>tar 打包, gz 压缩</p>
+<p>其扩展名为 xxx.tar.gz</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">打包 压缩</span></span><br><span class="line">tar -zcvf xxx.tar.gz xxx xxx 路径</span><br><span class="line"><span class="meta">#</span><span class="bash">解包 解压</span></span><br><span class="line">tar -zxvf xxx.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash">解压指定路径</span></span><br><span class="line">tar -zxvf  xxx.tar.gz -C m</span><br></pre></td></tr></table></figure>
+
+<h2 id="apt-get-软件安装卸载更新"><a href="#apt-get-软件安装卸载更新" class="headerlink" title="apt-get 软件安装卸载更新"></a>apt-get 软件安装卸载更新</h2><p>每个apt前都有sudo;</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装软件</span></span><br><span class="line">sudo apt install xxx</span><br><span class="line"><span class="meta">#</span><span class="bash">卸载</span></span><br><span class="line">sudo apt remove xxx</span><br><span class="line"><span class="meta">#</span><span class="bash">更新</span></span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置软件源-不全"><a href="#配置软件源-不全" class="headerlink" title="配置软件源,不全"></a>配置软件源,不全</h2><p>外国的主服务器就是软件源. 但是太慢了</p>
+<p>国内有镜像源,如阿里镜像,清华镜像.</p>
+<h2 id="Linux服务器资源在本地可视化"><a href="#Linux服务器资源在本地可视化" class="headerlink" title="Linux服务器资源在本地可视化"></a>Linux服务器资源在本地可视化</h2><h3 id="1-Linux在win上的可视化-不推荐"><a href="#1-Linux在win上的可视化-不推荐" class="headerlink" title="1 Linux在win上的可视化(不推荐)"></a>1 Linux在win上的可视化(不推荐)</h3><p>1 和xmanager配合使用</p>
+<p>gedit :跟创建txt一样</p>
+<p>eye of ghome:查看图片</p>
+<h3 id="2-使用网页查看-无法修改"><a href="#2-使用网页查看-无法修改" class="headerlink" title="2 使用网页查看,无法修改"></a>2 使用网页查看,无法修改</h3><p>这个真的强</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_44159028/article/details/118099689">python3之http.server模块_辰辰啊-CSDN博客</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m http.server <span class="comment">#默认端口号8000,可自行设置</span></span><br><span class="line"><span class="comment">#在win浏览器输入http://172.27.66.249:8000/</span></span><br><span class="line"><span class="comment">#即服务器+端口.</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/10/09/10.08/Untitled/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:</p>
+<p><strong>Keywords</strong>:</p>
+<span id="more"></span>]]></content>
+  </entry>
+  <entry>
+    <title>shell脚本入门</title>
+    <url>/2021/10/09/10.08/shell%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:关于shell脚本的理念.还有一些关于编程学习的思路.</p>
+<p><strong>Keywords</strong>:Linux学习,shell脚本</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p><a href="https://www.zutuanxue.com/home/4/2_2">3分钟了解计算机发展历史-组团学 (zutuanxue.com)</a></p>
+</blockquote>
+<h2 id="linux-中的shell"><a href="#linux-中的shell" class="headerlink" title="linux 中的shell"></a>linux 中的shell</h2><p>运维的工作都是繁琐的工作.</p>
+<p>自动化语言的脚本.</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">分类挺有启发性的.</span><br><span class="line">1 能看  能改</span><br><span class="line">2 能写: 先模仿,后按自己想法写</span><br><span class="line">3 能优化</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tcl"><table><tr><td class="code"><pre><span class="line">安装源码的脚本流程</span><br><span class="line"></span><br><span class="line">解压 配置 编译 安装</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">什么是shell ?</span><br><span class="line">shell是一个程序是一段代码,c语言写的,和linux的kernel交互.</span><br><span class="line">kernel是管理硬件的,驱动硬件干活</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 参考网址:</p>
+<p> <a href="https://www.zutuanxue.com/home/4/2_2">3分钟了解计算机发展历史-组团学 (zutuanxue.com)</a></p>
+</blockquote>
+<p>shell脚本就是将完成一个任务的所有的命令按照执行的先后顺序,自上而下写入到一个文本文件中,然后给予执行权限.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">程序</span><br><span class="line">yum -y install wget gcc pcre-devel zlib-devel#-y 即一路yes</span><br><span class="line">wget http://nginx.org/download/nginx-1.16.0.tar.gz</span><br><span class="line">tar xf nginx-1.16.0.tar.gz</span><br><span class="line">cd nginx-1.16.0</span><br><span class="line">./configure --prefix=/usr/local</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">程序解释</span></span><br><span class="line">yum: yellow dog updater modified</span><br><span class="line">chmod 700 xxx.sh#给权限#这是只给root用户,不能这样.权限不是越高越好,要适合.</span><br></pre></td></tr></table></figure>
+
+<p><strong>Linux 没有扩展名的概念</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/bash</span></span><br><span class="line"><span class="comment"># define the execution environment of the script </span></span><br><span class="line"><span class="comment">#Author:</span></span><br><span class="line"><span class="comment">#Created Time:</span></span><br><span class="line"><span class="comment">#Release:</span></span><br><span class="line"><span class="comment">#Script Description:</span></span><br><span class="line"><span class="comment">#可以设置vim执行以上</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">history 显示命令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win系统常见问题</title>
+    <url>/2021/10/09/10.08/win%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>: 主要一些win环境遇到的问题.特别注意 :1)文件的权限,管理员权限的问题. 2)注册表问题. 3) 环境变量问题</p>
+<p><strong>Keywords</strong>: win文件权限,注册表,右键</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p> <a href="https://blog.csdn.net/weixin_42613703/article/details/112169956">powershell无法激活conda虚拟环境</a></p>
+<p>[1] <a href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://blog.csdn.net/qq_32087569/article/details/53706285?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control"> 计算机权限 用户组 system everyone 深入理解_辰皓的博客-CSDN博客</a></p>
+<p>[3] <a href="https://blog.csdn.net/funi16/article/details/12654505?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.control&spm=1001.2101.3001.4242">Windows 用户组权限_funi16的专栏-CSDN博客</a></p>
+<p>[1] <a href="https://www.cnblogs.com/sepmaple/articles/9401215.html">Windows注册表内容详解 - 九月如枫 - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://www.cnblogs.com/fczjuever/archive/2013/04/09/3010711.html">使用注册表文件（REG）添加、修改或删除Windows注册表项和值 - 最初的幸福ever - 博客园 (cnblogs.com)</a></p>
+<p>[3] <a href="https://blog.csdn.net/stilling2006/article/details/5733276">注册表reg文件语法规则_stilling2006的专栏-CSDN博客</a></p>
+</blockquote>
+<h2 id="PowerShell-如何使用conda"><a href="#PowerShell-如何使用conda" class="headerlink" title="PowerShell 如何使用conda"></a>PowerShell 如何使用conda</h2><blockquote>
+<p> <a href="https://blog.csdn.net/weixin_42613703/article/details/112169956">powershell无法激活conda虚拟环境</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#需要设置conda init powershell</span></span><br><span class="line"><span class="comment">#需要设置 executionpolicy</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文件获得conda程序读取-文件权限"><a href="#文件获得conda程序读取-文件权限" class="headerlink" title="文件获得conda程序读取-文件权限"></a>文件获得conda程序读取-文件权限</h2><blockquote>
+<p>[1] <a href="https://www.cnblogs.com/guorongtao/p/13185867.html">Windows系统，用户组：Authenticated Users 介绍 - 滔Roy - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://blog.csdn.net/qq_32087569/article/details/53706285?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-6.control"> 计算机权限 用户组 system everyone 深入理解_辰皓的博客-CSDN博客</a></p>
+<p>[3] <a href="https://blog.csdn.net/funi16/article/details/12654505?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-4.control&spm=1001.2101.3001.4242">Windows 用户组权限_funi16的专栏-CSDN博客</a></p>
+</blockquote>
+<p>1 将文件的安全，加上权限 anthenticated users或者everyone</p>
+<p>这两个特殊权限的区别见参考文献.简单说就是anthenticated users 是 everyone 的子集</p>
+<p>2 添加权限后,文件可以受conda等程序的读写</p>
+<h2 id="安装拒绝访问"><a href="#安装拒绝访问" class="headerlink" title="安装拒绝访问"></a>安装拒绝访问</h2><p>直接以管理员身份打开安装程序</p>
+<p>win注意管理员身份</p>
+<h2 id="注册表"><a href="#注册表" class="headerlink" title="注册表"></a>注册表</h2><p>[1] <a href="https://www.cnblogs.com/sepmaple/articles/9401215.html">Windows注册表内容详解 - 九月如枫 - 博客园 (cnblogs.com)</a></p>
+<p>[2] <a href="https://www.cnblogs.com/fczjuever/archive/2013/04/09/3010711.html">使用注册表文件（REG）添加、修改或删除Windows注册表项和值 - 最初的幸福ever - 博客园 (cnblogs.com)</a></p>
+<p>[3] <a href="https://blog.csdn.net/stilling2006/article/details/5733276">注册表reg文件语法规则_stilling2006的专栏-CSDN博客</a></p>
+<hr>
+<p><strong>regedit命令可以打开注册表</strong></p>
+<h3 id="编辑注册表"><a href="#编辑注册表" class="headerlink" title="编辑注册表"></a>编辑注册表</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">classes_root:程序,比如设置右键等</span><br><span class="line">current_user:用户设置,比如设置小鹤双拼键盘</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\SOFTWARE\Microsoft\InputMethod\Settings\CHS]</span><br><span class="line">&quot;EnableExtraDomainType&quot;=dword:00000001</span><br><span class="line">&quot;Enable Double Pinyin&quot;=dword:00000001</span><br><span class="line">&quot;DoublePinyinScheme&quot;=dword:0000000a</span><br><span class="line">&quot;UserDefinedDoublePinyinScheme0&quot;=&quot;小鹤双拼*2*^*iuvdjhcwfg^xmlnpbksqszxkrltvyovt&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[键,也叫项] 值项(名称,类型,值)</span><br></pre></td></tr></table></figure>
+
+<p>删除</p>
+<p>删除try及她下属的键</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TCPIP6\try]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>删除值项</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TCPIP6\try\abc]</span><br><span class="line">&quot;valueItem&quot;=-</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="备份还原注册表"><a href="#备份还原注册表" class="headerlink" title="备份还原注册表"></a>备份还原注册表</h3><p>右击-&gt;导出</p>
+<p>导出的文件 双击-&gt;就添加了,算是还原吧</p>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3><p>我认为在这里建,就是在文件夹的背景或者桌面背景下右键的效果 ,也可以说是目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\HKEY_CLASSES_ROOT\Directory\Background\shell\Typora\command</span><br></pre></td></tr></table></figure>
+
+<p>* 中的shell是对文件,比如.文件的右键效果</p>
+<p>最终失败,改成启动指定文件夹</p>
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>windowns</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wsl系统</title>
+    <url>/2021/10/09/10.08/wsl%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:现在看来就是按照官网搭好wsl内核,然后把适用的ubuntu安装在非c盘启动就好.但是不推荐,和真是linux有区别</p>
+<p><strong>Keywords</strong>:wsl</p>
+<span id="more"></span>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">在 Windows 10 上安装 WSL | Microsoft Docs</a></p>
+<p>[手动下载适用于 Linux 的 Windows 子系统 (WSL) 发行版 | Microsoft Docs</p>
+<p><a href="https://blog.csdn.net/w851685279/article/details/108825893">(2条消息) win10 wsl2开启systemctl命令_程序猿的博客-CSDN博客</a></p>
+</blockquote>
+<h2 id="安装参考官网即可"><a href="#安装参考官网即可" class="headerlink" title="安装参考官网即可."></a>安装参考官网即可.</h2><hr>
+<p>windows terminal: 方便访问各种终端,能打开cmd和ubuntu.</p>
+<p>vscode:win机器本身安装vscode,在ubuntu里边也能使用.</p>
+<p>code. 打开当前目录.厉害.</p>
+<p>在vscode中寻找remote-wsl插件.</p>
+<h3 id="wsl安装在非c盘"><a href="#wsl安装在非c盘" class="headerlink" title="wsl安装在非c盘"></a>wsl安装在非c盘</h3><blockquote>
+<p>[1] <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">在 Windows 10 上安装 WSL | Microsoft Docs</a></p>
+<p>[2] [手动下载适用于 Linux 的 Windows 子系统 (WSL) 发行版 | Microsoft Docs</p>
+</blockquote>
+<hr>
+<p>1 wsl有很多东西挖掘.而且我现在在b站找到了一些可以很好操作wsl的工具,而且我也发现这些工具其实在人家官方文档中都有说明,所以对于基础学习,官方文档的重要性很强.</p>
+<h3 id="常规安装wsl"><a href="#常规安装wsl" class="headerlink" title="常规安装wsl"></a>常规安装wsl</h3><blockquote>
+<p> <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">在 Windows 10 上安装 WSL | Microsoft Docs</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">启用linux子系统,启用虚拟机,下载linux内核</span><br><span class="line">安装linux分发,就是ubuntu</span><br><span class="line">安装 windows terminal,我去,人家官网都给了呀.英语真好,连vscode都给说了.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在我查看资料来看,vmware是没有专门下载linux内核的,可能win需要自己设置linux内核,以适应ubuntu.</p>
+</blockquote>
+<h3 id="自定义安装wsl"><a href="#自定义安装wsl" class="headerlink" title="自定义安装wsl"></a>自定义安装wsl</h3><blockquote>
+<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#installing-your-distro">手动下载适用于 Linux 的 Windows 子系统 (WSL) 发行版 | Microsoft Docs</a></p>
+</blockquote>
+<p>可气的是win居然吓唬我,说不能把发行版装在非系统盘,当然我也知道win商店是可以更改app下载地址的.</p>
+<p>按照win的意思是,可以自行下载下来,然后按照常规安装的步骤来做.</p>
+<p>我选了一种知乎用户的方法</p>
+<blockquote>
+<p>[自定义WSL的安装位置，别再装到C盘啦 - 知乎 (zhihu.com)](<a href="https://zhuanlan.zhihu.com/p/263089007#:~:text=%E4%BD%86%E6%98%AF%E6%9C%89%E4%B8%80%E4%B8%AA%E5%A4%A7%E9%97%AE%E9%A2%98%EF%BC%9A%E5%9C%A8Microsoft">https://zhuanlan.zhihu.com/p/263089007#:~:text=但是有一个大问题：在Microsoft</a> Store下载的WSL发行版会自动安装到 C盘 ， 不能手动选择安装位置 。 如果你不是只有一个C盘的话，基本上WSL里装不了什么东西，C盘就满了。 所以我们需要想办法把它装到其它盘去。,mklink 命令打洞到其他盘，不过这里我们采用其它的办法 选择想要的发行版下载后，可以得到一个后缀名为 .appx 的文件↓ 把它的后缀改为 .zip ，然后解压到想要安装WSL的目录下，我们可以得到一些文件)</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">下载下来,把appx变成zip,解压到自己想解压的地方,直接执行ubuntu.exe</span><br></pre></td></tr></table></figure>
+
+<p>靠谱吗?</p>
+<p>我们做了一些测试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl -l -v </span><br><span class="line">#结果是wsl1版本</span><br><span class="line">wslconfig /l</span><br><span class="line">wslconfig /u ubuntu-20.04</span><br><span class="line">#我把它删除了</span><br><span class="line">wslconfig /list #我去,和l一样</span><br></pre></td></tr></table></figure>
+
+<p>我是这样来的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">安装wsl2内核</span><br><span class="line">手动下载ubuntu,放在自定义文件夹</span><br><span class="line">手动打开,会安装成wsl1</span><br><span class="line">然后通过wsl --set-version &lt;distribution name&gt; &lt;versionNumber&gt;编程2,其实也可以变成1</span><br></pre></td></tr></table></figure>
+
+<p>我感觉也可以这样</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">安装wsl2内核</span><br><span class="line">设置wsl --set-default-version 2,安装自动为wsl2</span><br><span class="line">手动下载ubuntu,点击exe安装</span><br></pre></td></tr></table></figure>
+
+<p>看了一个安装centos版本的</p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/use-custom-distro">导入要用于 WSL 的任何 Linux 分发版 | Microsoft Docs</a></p>
+</blockquote>
+<p>必须要用docker和一个wsl2版本,这相当于在wsl上运行docker,只是docker 的镜像是一个操作系统.</p>
+<h3 id="强制变得和linux接近-麻烦"><a href="#强制变得和linux接近-麻烦" class="headerlink" title="强制变得和linux接近,麻烦"></a>强制变得和linux接近,麻烦</h3><p>[1] <a href="https://blog.csdn.net/w851685279/article/details/108825893">(2条消息) win10 wsl2开启systemctl命令_程序猿的博客-CSDN博客</a></p>
+<hr>
+<p>每次来一遍就好,不用太折腾弄开机自启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install daemonize</span><br><span class="line">sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target</span><br><span class="line"> </span><br><span class="line">exec sudo nsenter -t $(pidof systemd) -a su - $LOGNAME</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>base</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>wsl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人10月总结</title>
+    <url>/2021/10/09/10.08/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p><strong>Abstract</strong>:个人十月总结</p>
+<span id="more"></span>
+
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>1 能看懂帮助信息就好</p>
+<p>2 会使用常用的一两个就好,其他的上网查阅</p>
+<p>3 正则表达式,shell脚本,管道,重定向的组合很强大,apt包管理和文件权限问题很重要,源码即不联网也能解决问题,联网也能解决问题的双重能力.</p>
+<p>4 <code>? 可代替单个字符 ;*可代替多个字符</code></p>
+<p>5 操作的命令最好指定操作什么文件夹,不要痴迷于命令,很多命令不过是别人写的批处理罢了.如<code>.gitconfig</code>文件的设置.</p>
 ]]></content>
   </entry>
 </search>
